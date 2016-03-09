@@ -1,0 +1,89 @@
+
+.navigation {
+	height: 40px;
+	width: 70%;
+	float:right;
+	position: relative;
+}
+.navigation ul {
+	padding: 0;
+	margin: 0 auto;
+}
+.navigation li {
+	display: inline;
+	float: left;
+}
+.navigation a {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	line-height: 40px;
+	padding:0px 15px;
+	text-decoration: none;
+font-size: 14px;
+font-weight: 400;
+color: #4F5357;
+}
+
+.navigation li:last-child a {
+	border-right: 0;
+}
+.navigation a#pull {
+	display: none;
+}
+
+/*Styles for screen 515px and lower*/
+@media only screen and (max-width : 780px) {
+	.navigation {
+		border-bottom: 0px none;
+width: 94%;
+left: -5%;
+z-index: 999;
+	}
+	.navigation ul {
+		display: none;
+		height: auto;
+		width:100%;
+	}
+	.navigation a#pull {
+	   background-color: #1d295c;
+    color: #fff;
+    display: block;
+    position: relative;
+    width: 95%;
+	}
+	.navigation a#pull:after {
+		content:"";
+		background: url('nav-icon.png') no-repeat;
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		position: absolute;
+		right: 15px;
+		top: 10px;
+	}
+}
+
+/*Smartphone*/
+@media only screen and (max-width : 780px) {
+	.navigation li {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	.logo {
+margin-bottom: 16px;
+}
+	.navigation li a {
+		width: 100%;
+border-bottom: 1px solid #576979;
+background-color: rgb(255, 255, 255);
+padding-right: 0px;
+	}
+	.clearfix{
+	background: #fff;
+position: relative;
+z-index: 10;
+	}
+	
+}

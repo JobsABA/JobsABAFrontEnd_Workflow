@@ -1,0 +1,168 @@
+﻿<div id="content-wrapper" class="wrapper">
+    <div class="pagewidth">
+
+        <div class="right-side" style="margin: 0 auto;float: none;width:90%;">
+            <div style="margin-left: 30px;">
+                <img src="{{API_PATH_Image}}/FileUpload/posts/BlogAds.png" style="width: 100%;height: 150px;" />
+            </div>
+            <div style="width: 770px;float:left;">
+                <ul class="blogDetialUl">
+                    <li>
+                        <div class="box">
+                            <div class="blogDiv">
+                                <img ng-click="goToDetail()" src="{{API_PATH_Image}}/FileUpload/posts/183667/images.jpg" id="photo" class="blogImage">
+                                <div class="blogInfoDiv" style="width: 320px;">
+                                    <span>February 8, 2016</span> | <span><a href="#blog">HOME DECOR</a></span>
+                                    <br /><br /><br />
+                                    <div ng-click="goToDetail()">
+                                        <h3>9 Must-Know Rules for Hanging Curtains and Shades</h3>
+                                        <br /><br /><br />
+                                        <h4>Give your windows the royal treatment.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="box">
+                            <div class="blogDiv">
+                                <img ng-click="goToDetail()" src="{{API_PATH_Image}}/FileUpload/posts/183735/images.jpg" id="photo" class="blogImage">
+                                <div class="blogInfoDiv" style="width: 320px;">
+                                    <span>February 8, 2016</span> | <span><a href="#blog">FOOD</a></span>
+                                    <br /><br /><br />
+                                    <div ng-click="goToDetail()">
+                                        <h3>The Perfect Valentine's Day Dinner for Two</h3>
+                                        <br /><br /><br />
+                                        <h4>Oysters and bubbly, baby!</h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="box">
+                            <div class="blogDiv">
+                                <img ng-click="goToDetail()" src="{{API_PATH_Image}}/FileUpload/posts/183641/pella-hedeby-home-183641-1454716584-promo.300x0c.jpg" id="photo" class="blogImage">
+                                <div class="blogInfoDiv" style="width: 320px;">
+                                    <span>February 8, 2016</span> | <span><a href="#blog">HOME TOURS</a></span>
+                                    <br /><br /><br />
+                                    <div ng-click="goToDetail()">
+                                        <h3>We'd Happily Spend All Winter in This Cozy, Textured Home</h3>
+                                        <br /><br /><br />
+                                        <h4>Textured accents we want to curl up in.</h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="box">
+                            <div class="blogDiv">
+                                <img ng-click="goToDetail()" src="{{API_PATH_Image}}/FileUpload/posts/183660/affordable-abstract-art-183660-1454727388-promo.300x0c.jpg" id="photo" class="blogImage">
+                                <div class="blogInfoDiv" style="width: 320px;">
+                                    <span>February 8, 2016</span> | <span><a href="#blog">HOME DECOR</a></span>
+                                    <br /><br /><br />
+                                    <div ng-click="goToDetail()">
+                                        <h3>The Affordable Abstract Art We're Crushing On</h3>
+                                        <br /><br /><br />
+                                        <h4>Budget-friendly and enigmatic.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="box">
+                            <div class="blogDiv">
+                                <img ng-click="goToDetail()" src="{{API_PATH_Image}}/FileUpload/posts/182941/valentines-day-gifts-for-everyone-182941-1454537014-promo.300x0c.jpg" id="photo" class="blogImage">
+                                <div class="blogInfoDiv" style="width: 320px;">
+                                    <span>Sponsored</span> | <span><a href="#blog">by EBAY</a></span>
+                                    <br /><br /><br />
+                                    <div ng-click="goToDetail()">
+                                        <h3>7 Valentine's Day Gifts From eBay That Hit Every Sweet Spot</h3>
+                                        <br /><br /><br />
+                                        <h4>For everyone from your boyfriend to your work wife.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="box">
+                            <div class="blogDiv">
+                                <img ng-click="goToDetail()" src="{{API_PATH_Image}}/FileUpload/posts/183655/working-mom-career-advice-183655-1454723947-promo.300x0c.jpg" id="photo" class="blogImage">
+                                <div class="blogInfoDiv" style="width: 320px;">
+                                    <span>February 8, 2016</span> | <span><a href="#blog">PARENTING</a></span>
+                                    <br /><br /><br />
+                                    <div ng-click="goToDetail()">
+                                        <h3>Why Having a Fulfilling Career Makes Me a Better Mother</h3>
+                                        <br /><br /><br />
+                                        <h4>"Being a loving mom to my son is just one part of my multifaceted role as a woman."</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <img src="{{API_PATH_Image}}/FileUpload/posts/BlogAds-Vertical.png" style="width: 290px;height: 600px;margin-left: 19px;margin-top: 40px;" />
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+</div>
+<script>
+    $(".blogDiv").mouseenter(function () {
+        $(this).css("opacity", "0.4");
+    });
+    $(".blogDiv").mouseleave(function () {
+        $(this).css("opacity", "1");
+    });
+</script>
+<style>
+    .blogImage {
+        width: 300px !important;
+        height: 400px !important;
+        cursor: pointer;
+        float: left;
+    }
+
+    .blogInfoDiv {
+        float: left;
+        padding: 20px;
+        width: 350px;
+    }
+
+        .blogInfoDiv span {
+            display: inline-flex;
+        }
+
+        .blogInfoDiv span {
+            letter-spacing: 2px;
+        }
+
+        .blogInfoDiv h3 {
+            font-size: 2.3em;
+        }
+
+        .blogInfoDiv h4 {
+            font-size: 1.2em;
+        }
+
+    .blogDetialUl li {
+        clear: both;
+        padding: 10px 0;
+        list-style-type: none;
+    }
+</style>

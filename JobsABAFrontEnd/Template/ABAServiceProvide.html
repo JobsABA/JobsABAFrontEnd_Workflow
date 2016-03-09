@@ -1,0 +1,45 @@
+﻿<div class="">
+    <div class="row text-center" style="background: #fe5a00;padding: 30px;position: relative;margin:0;">
+        <div class="col-lg-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="companySearchModel.companyName" placeholder="COMPANY NAME" ng-enter="getFullCompanyListABAService()">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="companySearchModel.City" placeholder="CITY" ng-enter="getFullCompanyListABAService()">
+                </div>
+                <!--<button type="button" class="btn btn-blue" ng-click="getFullCompanyListABAService()">SEARCH COMPANY</button>-->
+                <img src="assets/img/searchCompany.png" class="iconImage" style="width:34px;" ng-click="getFullCompanyListABAService()" title="Search Company" alt="Search Company" />
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row" id="abaServiceProviderMainDiv">
+        <div class="col-lg-12">
+            <h3 class="text-center">ABA Service Provider</h3>
+            <hr />
+        </div>
+        <br /><br />
+        <div class="col-lg-12">
+            <h4 ng-if="lstBusinessList.length==0">No ABA service provider available.</h4>
+            <div class="col-lg-3" ng-repeat="o in lstBusinessList">
+                <div class="hovereffect_company">
+                    <img src="assets/img/no-image-company.png" class="img-responsive" ng-if="o.ImageExtension.length==0||o.ImageExtension==null">
+                    <img class="img-responsive" src="{{API_PATH_Image}}/FileUpload/CompanyImage/{{o.BusinessID}}{{o.ImageExtension}}?d={{randomNumber}}" ng-if="o.ImageExtension.length>0">
+                    <br />
+                    <p>{{o.Description|limitTo :300}}<span ng-if="o.Description.length>300"> <img src="assets/img/read-more-left-arrow-button.png" style="width: 18px !important; height: 18px;"></span></p>
+                    <div class="overlay">
+                        <h2>{{o.Name}}</h2>
+                        <a class="info" href="#viewcompanyprofile/{{o.BusinessID}}">View Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

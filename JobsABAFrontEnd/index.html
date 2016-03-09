@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Jobs in ABA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css' />
+    <link href="Assets/styles/loading-bar.min.css" rel="stylesheet" />
+    <link href="Assets/styles/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="Assets/bootstrap/css/font-awesome.min.css" rel="stylesheet" />-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Assets/bootstrap/css/Custom.css" rel="stylesheet" />
+
+    <script src="Assets/js/jquery-2.2.0.js"></script>
+    <script src="Assets/js/jquery-ui.js"></script>
+    <!--<script src="Assets/js/angular.min.js"></script>-->
+    <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Assets/js/angular.js"></script>
+    <script src="Assets/js/angular-route.js"></script>
+    <script src="Assets/js/loading-bar.min.js"></script>
+    <script src="/Assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/Assets/plugins/jquery.cycle2.min.js"></script>
+    <script src="/Assets/plugins/jquery.cycle2.carousel.min.js"></script>
+    <script src="Assets/js/toastr.js"></script>
+    <script src="Assets/js/jquery.blockUI.js"></script>
+    <script src="Assets/js/underscore-min.js"></script>
+
+
+
+    <script src="App/Module.js"></script>
+    <script src="App/Services.js"></script>
+    <script src="App/Controller/IndexController.js"></script>
+    <script src="App/Controller/ABAServiceProvideController.js"></script>
+    <script src="App/Controller/AdPackageController.js"></script>
+    <script src="App/Controller/BusinessProfileController.js"></script>
+    <script src="App/Controller/CompanyProfileController.js"></script>
+    <script src="App/Controller/HomeController.js"></script>
+    <script src="App/Controller/JobsController.js"></script>
+    <script src="App/Controller/JobsInABAListController.js"></script>
+    <script src="App/Controller/OrderListController.js"></script>
+    <script src="App/Controller/PersonProfileController.js"></script>
+    <script src="App/Controller/RegisterController.js"></script>
+    <script src="App/Controller/SignInController.js"></script>
+    <script src="App/Controller/BlogListController.js"></script>
+    <script src="App/Controller/ChangePassword.js"></script>
+
+    <script>
+        $(function () {
+            $(".datepicer").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+            $(document).tooltip({
+                track: true
+            });
+            $("#navbar ul li").click(function () {
+                $("#navbar ul li").each(function () {
+                    $(this).removeClass('activeMenu');
+                });
+                $(this).addClass('activeMenu');
+            });
+
+        });
+    </script>
+</head>
+
+
+<body ng-controller="IndexController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!--navbar-fixed-top-->
+        <div class="container" style="margin-bottom:10px;">
+            <div class="text-right" ng-hide="UserLogin">
+                <a href="#login" style="color: #1D275C"><img src="assets/img/Signin.png" class="iconImage" /> Login</a> |
+                <a href="#register" style="color: #1D275C"><img src="assets/img/SignUP.png" class="iconImage" /> Register</a>
+            </div>
+            <div class="text-right" ng-show="UserLogin">
+                <div class="dropdown">
+                    <img src="assets/img/Sort Down-48 (1).png" class="dropbtn" style="width: 10px; cursor: pointer; padding: 0; background: none;" />
+                    <div class="dropdown-content" style="z-index: 999999; text-align: left; max-height: 500px; overflow-y: scroll; background-color: #fff; background-clip: padding-box; border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; box-shadow: 0 3px 12px rgba(0,0,0,0.15);margin-left:-30px;">
+                        <div id="menubarBuisnessList">
+                            <span style="display: inline-block; padding: 10px 0 5px 10px; color: #1F2A5D; width: 100%; border-bottom: 1px solid antiquewhite;" ng-if="menuLstBusiness.length>0">My Business</span>
+                            <a href="#viewcompanyprofile/{{o.BusinessID}}" ng-repeat="o in menuLstBusiness">{{o.Name}}</a>
+                        </div>
+                        <hr />
+                        <a href="#companyprofile">Create Company</a>
+                        <a href="#changePassword">Change Password</a>
+                        <a href="javascript:0" ng-click="logOut()">LogOut</a>
+                    </div>
+                </div>
+                <a href="#personprofile" style="color: #1F2A5D;">Hi, {{loginUserName}}</a>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/"><img class="logo" src="assets/img/logo.png" /></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                    <!--<li><a href="#home">HOME</a></li>-->
+                    <li><a href="#jobsInAba">JOBS IN ABA</a></li>
+                    <li><a href="#abaServiceProvide">ABA SERVICE PROVIDERS</a></li>
+
+                    <!--<li><a href="javascript:void(0)">PARENT CORNER</a></li>-->
+                    <li><a href="#blog">ABA Insights</a></li>
+                    <!--<li><a href="javascript:void(0)">RESOURCES</a></li>-->
+                    <li><a href="javascript:void(0)">ABOUT US</a></li>
+                    <li><a href="javascript:void(0)">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="main">
+        <div ng-view></div>
+
+    </div>
+    <hr />
+    <!--<div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="padding: 10px 0;">
+                <div class="col-lg-3" style="border-right: 1px solid gainsboro;">
+                    <center>
+                        <h3>182 000 <span style="font-size:16px">jobs offer</span></h3>
+                        <span style="font-size:12px;">Sed ut perspiciatis unde omnis iste natus error</span>
+                    </center>
+                </div>
+                <div class="col-lg-3" style="border-right: 1px solid gainsboro;">
+                    <center>
+                        <h3>7 500 <span style="font-size:16px">registered companies</span></h3>
+                        <span style="font-size:12px;">Sed ut perspiciatis unde omnis iste natus error</span>
+                    </center>
+                </div>
+                <div class="col-lg-3" style="border-right: 1px solid gainsboro;">
+                    <center>
+                        <h3>15 500 <span style="font-size:16px">satisfied customers</span></h3>
+                        <span style="font-size:12px;">Sed ut perspiciatis unde omnis iste natus error</span>
+                    </center>
+                </div>
+                <div class="col-lg-3">
+                    <center>
+                        <h3>2 500 <span style="font-size:16px">job categories</span></h3>
+                        <span style="font-size:12px;">Sed ut perspiciatis unde omnis iste natus error</span>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br /><br />-->
+    <div id="footermenu" class="container">
+        <div class="row" style="clear:both;">
+            <div class="col-lg-12 ">
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="text-center">About Jobs In ABA</h3>
+                    <hr style="clear:both;"/>
+                    <div class="col-lg-4">
+                        <ul class="list-unstyled">
+                            <li><a href="#jobsInAba">Jobs In ABA</a></li>
+                            <li><a href="#abaServiceProvide">ABA Service Providers</a></li>
+                            <li><a href="#blog">ABA Insights</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul class="list-unstyled">
+                            <li><a href="">News & Press</a></li>
+                            <li><a href="">Events</a></li>
+                            <li><a href="">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul class="list-unstyled">
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="#privacyPolicy">Privacy Policy</a></li>
+                            <li><a href="#termsCondition">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                    
+
+                </div>
+                <div class="col-lg-3">
+
+                </div>
+
+                <!--<div class="col-lg-3">
+                    <h3>Need to Know</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="">How to get a new job fast</a></li>
+                        <li><a href="">best way to apply for jobs online</a></li>
+                        <li><a href="">interview questions & answers</a></li>
+                        <li><a href="">resume & cover letter samples</a></li>
+                        <li><a href="">how to resign from a job</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h3>News Letter</h3>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter Email" />
+                        <a href="javascript:0" class="input-group-addon">
+                            <i class="fa fa-send"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="background-color: #F3F3F3;height: 203px;">
+                    <h3>Contact</h3>
+                    <div>
+                        <span>Jobs In Aba</span><br />
+                        <span>Surat</span><br />
+                        <span>India</span><br />
+                        <span>+91 1234567890</span>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+
+
+
+    </div>
+    <div id="bottomFooter" style="background-color: #1E265A;padding: 20px 0;">
+        <div class="container">
+            <div class="row" style="background-color:transparent;">
+                <div class="col-lg-12">
+                    <!--<div class="col-lg-5">
+                        <ul class="list-unstyled list-inline" style="font-size:12px;">
+                            <li><a href="">HOME</a></li>
+                            <li><a href="">SUPPORT</a></li>
+                            <li><a href="">TERMS & CONDITIONS</a></li>
+                            <li><a href="">PRIVACY POLICY</a></li>
+                            <li><a href="">CONTACT</a></li>
+                        </ul>
+                    </div>-->
+                    <div class="col-lg-6">
+                        <p class="blue">2015 Jobs In ABA LLC | ALL RIGHTS RESERVED</p>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <ul class="list-unstyled list-inline">
+                            <li><img src="Assets/img/tw.png" height="40" width="40" /></li>
+                            <li><img src="Assets/img/fb.png" height="40" width="40" /></li>
+                            <li><img src="Assets/img/in.png" height="40" width="40" /></li>
+                            <li><img src="Assets/img/insta.png" height="40" width="40" /></li>
+                            <li><img src="Assets/img/youtube.png" height="40" width="40" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

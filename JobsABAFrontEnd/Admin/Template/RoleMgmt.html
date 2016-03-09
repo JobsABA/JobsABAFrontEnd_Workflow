@@ -1,0 +1,326 @@
+﻿
+<div class="row-fluid">
+    <div class="span12">
+        <div class="widget green">
+            <div class="widget-title">
+                <h4>Role Management</h4>
+            </div>
+
+            <div class="widget-body">
+                <uib-tabset>
+                    <uib-tab heading="Add Module">
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="widget green">
+                                    <div class="widget-title">
+                                        <h4>Module Management</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Module Name</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input-medium" />
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn">Add</button>
+                                                <button type="button" class="btn">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="space15"></div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Module Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Company</td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Job</td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </uib-tab>
+                    <uib-tab heading="Add Role">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="widget green">
+                                    <div class="widget-title">
+                                        <h4>Role Management</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Role Name</label>
+                                                <div class="controls">
+                                                    <input type="text" class="input-medium" />
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn">Add</button>
+                                                <button type="button" class="btn">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="space15"></div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Role Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Admin</td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sub-Admin</td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </uib-tab>
+                    <uib-tab heading="Assign Permission">
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="widget green">
+                                    <div class="widget-title">
+                                        <h4>Permission For Role</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Select Role</label>
+                                                <div class="controls">
+                                                    <select class="input-medium m-wrap" tabindex="1">
+                                                        <option value="Category 1">Admin</option>
+                                                        <option value="Category 2">Sub-Admin</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Assign Permission</label>
+                                                <div class="controls">
+                                                    <select class="input-medium m-wrap" tabindex="1">
+                                                        <option value="Category 1">Select Module</option>
+                                                        <option value="Category 2">Company</option>
+                                                        <option value="Category 3">Job</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label"></label>
+                                                <div class="controls">
+                                                    <label class="checkbox line"><input type="checkbox" value="" />Create</label>
+                                                    <label class="checkbox line"><input type="checkbox" value="" />View</label>
+                                                    <label class="checkbox line"><input type="checkbox" value="" />Edit</label>
+                                                    <label class="checkbox line"><input type="checkbox" value="" />Delete</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn">Add</button>
+                                                <button type="button" class="btn">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="space15"></div>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Module Name</th>
+                                                <th>Role Name</th>
+                                                <th>Create</th>
+                                                <th>View</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>Action</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Company</td>
+                                                <td>Admin</td>
+                                                <td>Allow</td>
+                                                <td></td>
+                                                <td>Allow</td>
+                                                <td></td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Job</td>
+                                                <td>Admin</td>
+                                                <td></td>
+                                                <td>Allow</td>
+                                                <td>Allow</td>
+                                                <td></td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Company</td>
+                                                <td>Sub Admin</td>
+                                                <td>Allow</td>
+                                                <td></td>
+                                                <td>Allow</td>
+                                                <td></td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Job</td>
+                                                <td>Sub Admin</td>
+                                                <td></td>
+                                                <td>Allow</td>
+                                                <td>Allow</td>
+                                                <td></td>
+                                                <td>
+                                                    <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                                    <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </uib-tab>
+                    <uib-tab heading="Create Admin">
+
+                        <div class="widget green">
+                            <div class="widget-title">
+                                <h4> Create User</h4>
+                            </div>
+                            <div class="widget-body">
+                                <!-- BEGIN FORM-->
+                                <form action="#" class="form-horizontal">
+
+                                    <div class="control-group">
+                                        <label class="control-label">Name</label>
+                                        <div class="controls">
+                                            <input type="text" class="input-medium" />
+
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Email Id</label>
+                                        <div class="controls">
+                                            <div class="input-prepend">
+                                                <span class="add-on">@</span><input class=" " type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Password</label>
+                                        <div class="controls">
+                                            <input type="Password" class="input-medium" />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label">Role</label>
+                                        <div class="controls">
+                                            <select class="input-medium m-wrap" tabindex="1">
+                                                <option value="Category 1">Admin</option>
+                                                <option value="Category 2">Sub-Admin</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
+                                        <button type="button" class="btn"><i class=" icon-remove"></i> Cancel</button>
+                                    </div>
+                                </form>
+                                <!-- END FORM-->
+                            </div>
+                            <div class="space15"></div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Testt Admin</td>
+                                        <td>TesttAdmin@gmail.com</td>
+                                        <td>Admin</td>
+                                        <td>
+                                            <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                            <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Testt Sub Admin</td>
+                                        <td>TesttSubAdmin@gmail.com</td>
+                                        <td>Sub Admin</td>
+                                        <td>
+                                            <button style="padding:0px 8px;" class="btn btn-success"><i class="icon-pencil "></i></button>
+                                            <button style="padding:0px 8px;" class="btn btn-danger"><i class="icon-trash "></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+    </div>
+</div>
+
+

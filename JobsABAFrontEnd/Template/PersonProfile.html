@@ -1,0 +1,444 @@
+﻿<div class="container" id="personalProfileMainDiv">
+    <div class="row" style="background: transparent;">
+        <div class="col-lg-12">
+            <div class="col-lg-3">
+                <div style="border: 1px solid gainsboro; display: flex">
+                    <div id="personalProfilePersonaDetail">
+                        <div id="personalProfileImageDiv">
+                            <div class="col-lg-12" ng-hide="isEditProfile_Image" style="background: gainsboro;padding:10px;">
+                                <div>
+                                    <img id="profileimage" src="assets/img/no-image-user.png" style="max-width: 100%; width: 100%;" ng-if="ImgExt==null">
+                                    <img id="profileimage" src="{{API_PATH_Image}}/FileUpload/UserImage/{{userId}}{{ImgExt}}?d={{randomNumber}}" style="max-width: 100%; width: 100%;" ng-if="ImgExt!=null">
+                                </div>
+                                <div class="text-center">
+                                    <img src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditProfile_Image=true" class="iconImage">
+                                </div>
+                            </div>
+                            <div class="col-lg-12" ng-show="isEditProfile_Image">
+                                <div class="col-lg-8">
+                                    <input id="uploadimage" placeholder="Upload Image" type="file" class="form-control">
+                                </div>
+                                <div class="col-lg-4">
+                                    <img class="iconImage" ng-click="isEditProfile_Image=false" ng-show="isEditProfile_Image" src='assets/img/Close Window-48.png'>
+                                    <img class="iconImage" src="assets/img/Save.png" id="profile" ng-click="userImageUpload()">
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="col-lg-12" style="line-height:1.7;">
+                            <h5 class="text-center"><img src="assets/img/UserProfile.png" class="iconImage" /> <b>Personal Detail</b></h5>
+                            <div class="">
+                                <div ng-mouseenter="onmousehover('isEditUserName','')" ng-mouseleave="onmouseleave('isEditUserName','')">
+                                    <div class="col-lg-10" ng-hide="isEditProfile_Name">
+                                        <span class="text">{{firstName}}</span>
+                                        <span class="text"> {{middleName}}</span>
+                                        <span class="text"> {{lastName}}</span>
+                                    </div>
+                                    <div ng-show="isEditUserName" class="col-lg-2">
+                                        <img class='iconImage' ng-click="editUserInfo('Name')" ng-hide="isEditProfile_Name" src='assets/img/EDIT_USE.png'>
+                                    </div>
+                                </div>
+                                <form name="userAddress">
+                                    <div ng-show="isEditProfile_Name">
+                                        <input class='form-control' type='text' ng-model="firstName">
+                                        <input class='form-control' type='text' ng-model="middleName">
+                                        <input class='form-control' type='text' ng-model="lastName">
+                                    </div>
+                                    <div class="text-right">
+                                        <img class='iconImage' ng-click="updateUserInfo('Name')" ng-show="isEditProfile_Name" src='assets/img/Save.png'>
+                                        <img class='iconImage' ng-click="cancleUpdateUserInfo('Name')" ng-show="isEditProfile_Name" src='assets/img/Close Window-48.png'>
+                                    </div>
+                                </form>
+                            </div>
+                            <br /><br />
+                            <div>
+                                <h5 class="text-center">
+                                    <img src="assets/img/Contact-details.png" class="iconImage" /> <b>Contact Detail</b>
+                                </h5>
+                                <div>
+                                    <div ng-mouseenter="onmousehover('isEditAddress','')" ng-mouseleave="onmouseleave('isEditAddress','')">
+                                        <div ng-hide="isEditProfile_Address">
+                                            <span class="text">{{address}}</span>
+                                            <span class="text">{{city}}</span>
+                                            <span class="text">{{state}}</span>
+                                            <span class="text">{{zip}}</span>
+                                        </div>
+                                        <div ng-show="isEditAddress" style="display:inline-block">
+                                            <img class='iconImage' ng-click="editUserInfo('Address')" ng-hide="isEditProfile_Address" src='assets/img/EDIT_USE.png'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="isEditProfile_Address">
+                                    <input class='form-control' type='text' ng-model="address">
+                                    <input class='form-control' type='text' ng-model="city">
+                                    <input class='form-control' type='text' ng-model="state">
+                                    <input class='form-control' type='text' ng-model="zip">
+                                </div>
+                                <div ng-show="isEditProfile_Address" class="text-right">
+                                    <img class='iconImage' ng-click="updateUserInfo('Address')" src='assets/img/Save.png'>
+                                    <img class='iconImage' ng-click="cancleUpdateUserInfo('Address')" src='assets/img/Close Window-48.png'>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div ng-mouseenter="onmousehover('isEditEmail','')" ng-mouseleave="onmouseleave('isEditEmail','')">
+                                    <span class="text" ng-hide="isEditProfile_Email">{{email}}</span>
+                                    <div ng-show="isEditEmail" style="display:inline-block">
+                                        <img class='iconImage' ng-click="editUserInfo('Email')" ng-hide="isEditProfile_Email" src='assets/img/EDIT_USE.png'>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input class='form-control' type='text' ng-model="email" ng-show="isEditProfile_Email">
+                                </div>
+                                <div class="text-right">
+                                    <img class='iconImage' ng-click="updateUserInfo('Email')" ng-show="isEditProfile_Email" src='assets/img/Save.png'>
+                                    <img class='iconImage' ng-click="cancleUpdateUserInfo('Email')" ng-show="isEditProfile_Email" src='assets/img/Close Window-48.png'>
+                                </div>
+                            </div>
+                            <div>
+                                <div ng-mouseenter="onmousehover('isEditNumber','')" ng-mouseleave="onmouseleave('isEditNumber','')">
+                                    <span class="text" ng-hide="isEditProfile_Phone">{{phoneNo}}</span>
+                                    <div ng-show="isEditNumber" style="display:inline-block;">
+                                        <img class='iconImage' ng-click="editUserInfo('Phone')" ng-hide="isEditProfile_Phone" style='width: 18px;  cursor:pointer;' src='assets/img/EDIT_USE.png'>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input class='form-control' type='text' ng-model="phoneNo" ng-show="isEditProfile_Phone">
+                                </div>
+                                <div class="text-right">
+                                    <img class='iconImage' ng-click="updateUserInfo('Phone')" ng-show="isEditProfile_Phone" src='assets/img/Save.png'>
+                                    <img class='iconImage' ng-click="cancleUpdateUserInfo('Phone')" ng-show="isEditProfile_Phone" src='assets/img/Close Window-48.png'>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <!--summery div-->
+                <div id="personalProfileSummery" class="col-lg-12 userProfileBox" ng-mouseenter="onmousehover('isEditUserSummery','')" ng-mouseleave="onmouseleave('isEditUserSummery','')">
+                    <div class="col-lg-10">
+                        <h4><img class="iconImage" src="assets/img/User-Summery.png" /> Summery</h4>
+                    </div>
+                    <div class="col-lg-2 text-right">
+                        <img class="iconImage" src="assets/img/EDIT_USE.png" ng-show="isEditUserSummery" ng-click="isEditSummery=true">
+                    </div>
+                    <hr style="clear:both;" />
+                    <div class="col-lg-12">
+                        <div ng-show="isEditSummery">
+                            <div>
+                                <textarea class="form-control" ng-model="Summary" style="resize:none; height:200px;"></textarea>
+                            </div>
+                            <div class="text-right">
+                                <img class="iconImage" src="assets/img/Save.png" ng-click="updateProfileSummery()">
+                                <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="isEditSummery=false">
+                            </div>
+                        </div>
+                        <p><span>{{Summary}}</span></p>
+                    </div>
+                </div>
+                <br /><br />
+                <!-- Exprience set -->
+                <div id="personalProfileExprience" class="col-lg-12 userProfileBox">
+                    <div class="col-lg-10">
+                        <h4><img src="assets/img/Experince.png" class="iconImage" /> Experience Set</h4>
+                    </div>
+                    <div class="col-lg-2 text-right addIconForuserProfile">
+                        <img src="/assets/img/addition-sign.png" class="iconImage" ng-click="isADDExprience=true">
+                    </div>
+
+                    <div class="col-lg-12" ng-show="isADDExprience">
+                        <div>
+                            <input type="hidden" ng-model="userExprienceModel.BusinessID" id="hiddenBusinessID_0" class="bussinessList_ID" />
+                            <div class="form-group col-lg-12">
+                                <input type="text" id="bussinessList_0" ng-model="userExprienceModel.BusinessName" class="form-control bussinessList" placeholder="Enter CompanyName">
+                            </div>
+                            <div class="form-group col-lg-12">
+                                <input type="text" class="form-control" placeholder="Enter Job Position" ng-model="userExprienceModel.JobPossition">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <input type="text" class="form-control datepicer" placeholder="Enter Start Date" ng-model="userExprienceModel.StartDate" id="startdate">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <input type="text" class="form-control datepicer" placeholder="Enter End Date" ng-model="userExprienceModel.EndDate" id="enddate">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <img class="iconImage" src="assets/img/Save.png" ng-click="addExprience(userExprienceModel)">
+                            <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="isADDExprience=false">
+                        </div>
+                    </div>
+                    <hr style="clear:both;" />
+
+                    <div ng-repeat="o in lstUserExprience">
+                        <div ng-show="isEditExprience_{{o.ExperienceID}}">
+                            <hr style="clear:both" />
+                            <div>
+                                <input type="hidden" ng-model="userExprienceModel.BusinessID" id="hiddenBusinessID_{{o.BusinessID}}" class="bussinessList_ID" />
+                                <div class="form-group col-lg-12">
+                                    <input type="text" id="bussinessList_{{o.BusinessID}}" ng-model="userExprienceModel.BusinessName" class="form-control bussinessList" placeholder="Enter CompanyName">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <input type="text" class="form-control" placeholder="Enter Job Position" ng-model="userExprienceModel.JobPossition">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <input type="text" class="form-control datepicer" placeholder="Enter Start Date" ng-model="userExprienceModel.StartDate" id="startdate">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <input type="text" class="form-control datepicer" placeholder="Enter End Date" ng-model="userExprienceModel.EndDate" id="enddate">
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <img class="iconImage" src="assets/img/Save.png" ng-click="updateExprience(userExprienceModel)">
+                                <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="cancelUpdateExperience(o.ExperienceID)">
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-12" style="line-height:1;" ng-mouseenter="onmousehover('isEditUserExprience_',o.ExperienceID)" ng-mouseleave="onmouseleave('isEditUserExprience_',o.ExperienceID)">
+                            <div class="col-lg-8" style="margin-bottom:20px;">
+                                <p><span class="text">{{$index+1}}. Company Name: </span><a style="float:none;" href="#viewcompanyprofile/{{o.BusinessID}}">{{o.businessDetail.BusinessName}}</a></p>
+                                <p style="margin-left: 15px;"><span class="text">Job Position: </span>{{o.JobPossition}}</p>
+                                <p style="margin-left: 15px;"><span class="text">Location: </span>{{o.businessDetail.City}}</p>
+                                <p style="margin-left: 15px;"><span class="text">Start Date To End Date: </span>{{o.StartDate}} - {{o.EndDate}}</p>
+                            </div>
+                            <div class="col-lg-4 text-right" ng-show="isEditUserExprience_{{o.ExperienceID}}">
+                                <img class="iconImage" src="assets/img/EDIT_USE.png" ng-click="editExprience(o)">
+                                <img class="iconImage" src="assets/img/Delete-48.png" ng-click="deleteExprience(o.ExperienceID)">
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-lg-12" ng-if="lstUserExprience.length==0">
+                        <p>No exprience found.</p>
+                    </div>
+                </div>
+
+                <br /><br />
+                <!-- Achievement and awards -->
+                <div id="personalProfileAchievement" class="col-lg-12 userProfileBox">
+                    <div class="col-lg-10">
+                        <h4><img src="assets/img/Acheivement.png" class="iconImage" /> Achievement &amp; Award</h4>
+                    </div>
+                    <div class="col-lg-2 text-right addIconForuserProfile">
+                        <img src="/assets/img/addition-sign.png" class="iconImage" ng-click="isAddAchievement=true">
+                    </div>
+
+                    <div class="col-lg-12" ng-show="isAddAchievement">
+                        <div>
+                            <div class="form-group col-lg-12">
+                                <input type="text" class="form-control" placeholder="Achievement name " ng-model="userAchievementModel.Name">
+                            </div>
+                            <div class="form-group col-lg-12">
+                                <input type="text" class="form-control datepicer" placeholder="Achievement Date" ng-model="userAchievementModel.Date">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <img class="iconImage" src="assets/img/Save.png" ng-click="addAchievement(userAchievementModel)">
+                            <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="isAddAchievement=false">
+                        </div>
+                    </div>
+                    <hr style="clear:both;" />
+
+                    <div ng-repeat="o in lstAchievelist">
+                        <div ng-show="isEditAchievement_{{o.AchievementID}}">
+                            <hr style="clear:both" />
+                            <div>
+                                <div class="form-group col-lg-12">
+                                    <input type="text" class="form-control" placeholder="Achievement name " ng-model="userAchievementModel.Name">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <input type="text" class="form-control datepicer" placeholder="Achievement Date" ng-model="userAchievementModel.Date">
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <img class="iconImage" src="assets/img/Save.png" ng-click="updateAchievement(userAchievementModel)">
+                                <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="cancelAchievement(userAchievementModel.AchievementID)">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12" style="line-height:1;" ng-mouseenter="onmousehover('isEditUserAchievement_',o.AchievementID)" ng-mouseleave="onmouseleave('isEditUserAchievement_',o.AchievementID)">
+                            <div class="col-lg-8" style="margin-bottom:20px;">
+                                <p class="companydata "><span class="text">{{$index+1}}. {{o.Name}}</span></p>
+                                <p class="companydata " style="margin-left:15px;"><span class="text">Date: {{o.Date}}</span></p>
+                            </div>
+                            <div class="col-lg-4 text-right" ng-show="isEditUserAchievement_{{o.AchievementID}}">
+                                <img class="iconImage" src="assets/img/EDIT_USE.png" ng-click="editAchievement(o)">
+                                <img class="iconImage" src="assets/img/Delete-48.png" ng-click="deleteAchievement(o.AchievementID)">
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-lg-12" ng-if="lstAchievelist.length==0">
+                        <p>No achievement found.</p>
+                    </div>
+                </div>
+
+                <br /><br />
+                <!-- Education set -->
+                <div id="personalProfileEducation" class="col-lg-12 userProfileBox">
+                    <div class="col-lg-10">
+                        <h4><img src="assets/img/Education.png" class="iconImage" /> Education Set</h4>
+                    </div>
+                    <div class="col-lg-2 text-right addIconForuserProfile">
+                        <img src="/assets/img/addition-sign.png" class="iconImage" ng-click="isAddEducationList=true">
+                    </div>
+
+                    <div class="col-lg-12" ng-show="isAddEducationList">
+                        <div>
+                            <div class="form-group col-lg-12">
+                                <input type="text" placeholder="School/College Name " ng-model="userEducationModel.InstituteName" class="form-control">
+                            </div>
+                            <div class="form-group col-lg-12">
+                                <input type="text" class="form-control" placeholder="Degree " ng-model="userEducationModel.Degree">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <input type="text" class="form-control datepicer" placeholder="START DATE" ng-model="userEducationModel.StartDate">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <input type="text" class="form-control datepicer" placeholder="END DATE" ng-model="userEducationModel.EndDate">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <img class="iconImage" src="assets/img/Save.png" ng-click="addEducation(userEducationModel)">
+                            <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="isAddEducationList=false">
+                        </div>
+                    </div>
+                    <hr style="clear:both;" />
+
+                    <div ng-repeat="o in Educationlists">
+                        <div ng-show="isEditEducation_{{o.EducationID}}">
+                            <hr style="clear:both" />
+                            <div>
+                                <div class="form-group col-lg-12">
+                                    <input type="text" placeholder="School/College Name " ng-model="userEducationModel.InstituteName" class="form-control bussinessList">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <input type="text" class="form-control" placeholder="Degree " ng-model="userEducationModel.Degree">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <input type="text" class="form-control datepicer" placeholder="START DATE" ng-model="userEducationModel.StartDate">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <input type="text" class="form-control datepicer" placeholder="END DATE" ng-model="userEducationModel.EndDate">
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <img class="iconImage" src="assets/img/Save.png" ng-click="updateEducation(userEducationModel)">
+                                <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="cancelUpdateEducationList(o.EducationID)">
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-12" style="line-height:1;" ng-mouseenter="onmousehover('isEditUserEducation_',o.EducationID)" ng-mouseleave="onmouseleave('isEditUserEducation_',o.EducationID)">
+                            <div class="col-lg-8" style="margin-bottom:20px;">
+                                <p><span class="text">{{$index+1}}. School/Collage Name:{{o.InstituteName}}</span></p>
+                                <p style="margin-left:15px;"><span class="text">Degree:{{o.Degree}}</span></p>
+                                <p style="margin-left:15px;"><span class="text">Start Date To End Date: {{o.StartDate}} - {{o.EndDate}}</span></p>
+                            </div>
+                            <div class="col-lg-4 text-right" ng-show="isEditUserEducation_{{o.EducationID}}">
+                                <img class="iconImage" src="assets/img/EDIT_USE.png" ng-click="editEducation(o)">
+                                <img class="iconImage" src="assets/img/Delete-48.png" ng-click="deleteEducation(o.EducationID)">
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-lg-12" ng-if="Educationlists.length==0">
+                        <p>No education found.</p>
+                    </div>
+                </div>
+
+                <br /><br />
+                <!-- Skill set -->
+                <div id="personalProfileSkill" class="col-lg-12 userProfileBox">
+                    <div class="col-lg-10">
+                        <h4><img src="assets/img/Skill.png" class="iconImage" /> Skill Set</h4>
+                    </div>
+                    <div class="col-lg-2 text-right addIconForuserProfile">
+                        <img src="/assets/img/addition-sign.png" class="iconImage" ng-click="isAddSkill=true">
+                    </div>
+
+                    <div class="col-lg-12" ng-show="isAddSkill">
+                        <div>
+                            <div class="form-group col-lg-12">
+                                <input type="text" class="form-control" placeholder="SKILL NAME " ng-model="userSkillModel.Skill1">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <img class="iconImage" src="assets/img/Save.png" ng-click="addSkill(userSkillModel)">
+                            <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="isAddSkill=false">
+                        </div>
+                    </div>
+                    <hr style="clear:both;" />
+
+                    <div ng-repeat="o in lstSkillList">
+                        <div class="col-lg-12" style="line-height:1;" ng-mouseenter="onmousehover('isEditUserSkill_',o.SkillID)" ng-mouseleave="onmouseleave('isEditUserSkill_',o.SkillID)">
+                            <div class="col-lg-8" style="margin-bottom:20px;">
+                                <p class="companydata "><span class="text"> {{$index+1}}. {{o.Skill1}}</span></p>
+                            </div>
+                            <div class="col-lg-4 text-right" ng-show="isEditUserSkill_{{o.SkillID}}">
+                                <img class="iconImage" src="assets/img/Delete-48.png" ng-click="deleteSkill(o.SkillID)">
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-lg-12" ng-if="lstSkillList.length==0">
+                        <p>No skill found.</p>
+                    </div>
+                </div>
+
+
+                <br /><br />
+                <!-- language set -->
+                <div id="personalProfileLanguage" class="col-lg-12 userProfileBox">
+                    <div class="col-lg-10">
+                        <h4><img src="assets/img/Language.png" class="iconImage" /> Language</h4>
+                    </div>
+                    <div class="col-lg-2 text-right addIconForuserProfile">
+                        <img src="/assets/img/addition-sign.png" class="iconImage" ng-click="isAddLanguage=true">
+                    </div>
+
+                    <div class="col-lg-12" ng-show="isAddLanguage">
+                        <div>
+                            <div class="form-group col-lg-12">
+                                <input type="text" class="form-control" placeholder="LANGUAGE NAME " ng-model="userLanguageModel.LanguageName">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <img class="iconImage" src="assets/img/Save.png" ng-click="addLanguage(userLanguageModel)">
+                            <img class="iconImage" src="assets/img/Close Window-48.png" ng-click="isAddLanguage=false">
+                        </div>
+                    </div>
+                    <hr style="clear:both;" />
+
+                    <div ng-repeat="o in lstLanguageList">
+                        <div class="col-lg-12" style="line-height:1;" ng-mouseenter="onmousehover('isEditUserLanguage_',o.LanguageID)" ng-mouseleave="onmouseleave('isEditUserLanguage_',o.LanguageID)">
+                            <div class="col-lg-8" style="margin-bottom:20px;">
+                                <p class="companydata "><span class="text"> {{$index+1}}. {{o.LanguageName}}</span></p>
+                            </div>
+                            <div class="col-lg-4 text-right" ng-show="isEditUserLanguage_{{o.LanguageID}}">
+                                <img class="iconImage" src="assets/img/Delete-48.png" ng-click="deleteLanguage(o.LanguageID)">
+                            </div>
+                        </div>
+                        <br /><br />
+                    </div>
+                    <div class="col-lg-12" ng-if="lstLanguageList.length==0">
+                        <p>No language found.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,616 @@
+﻿body {
+    padding-top: 85px;
+    /*background-image: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 60%, rgb(255, 255, 255)),
+                      -webkit-linear-gradient(20deg, rgb(239,89,55) 32%, rgb(255, 250, 227));*/
+}
+
+a {
+    color: black;
+}
+
+    a:hover {
+        color: black;
+    }
+
+.row {
+    background: #f7f7f7;
+}
+
+#footermenu ul li {
+    line-height: 1.7;
+}
+
+#bottomFooter ul li a, #bottomFooter p {
+    color: azure;
+}
+
+#loading-bar .bar {
+    background: #FE5500 !important;
+}
+
+#loading-bar-spinner .spinner-icon {
+    border-top-color: #FE5500 !important;
+    border-left-color: #1F2A5D !important;
+}
+
+#ui-datepicker-div table {
+    line-height: 30px !important;
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+* html .ui-autocomplete {
+    height: 200px;
+}
+
+.blockUI.blockMsg.blockPage {
+    width: 3% !important;
+    border-radius: 20px !important;
+    border: none !important;
+    left: 50% !important;
+}
+
+.blockUI.blockMsg.blockElement {
+    position: initial !important;
+    margin: 0 auto !important;
+    width: 3% !important;
+    border-radius: 20px !important;
+    border: none !important;
+}
+
+.navbar-default {
+    background-color: white;
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /*background-color: white;*/
+    background-color: #f7f7f7;
+    min-width: 160px;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 7px 9px;
+        text-decoration: none;
+        display: block;
+        /*margin-left: 10px;*/
+        width: 180px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-align: center;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #4078c0;
+            /*margin-left: 0px;*/
+            color: white;
+        }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    font-size: 12px;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+    background-color: #f7f7f7 !important;
+}
+
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/*Hover Effects*/
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    background-color: #F3F3F3;
+    padding: 75px 0;
+    height: 360px;
+}
+
+    .hovereffect .overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color: rgba(0,0,0,0.5);
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        color: white;
+    }
+
+    .hovereffect img {
+        /*display: block;*/
+        position: relative;
+        -webkit-transition: all .4s linear;
+        transition: all .4s linear;
+    }
+
+    .hovereffect h2 {
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        background: rgba(0,0,0,0.6);
+        -webkit-transform: translatey(-100px);
+        -ms-transform: translatey(-100px);
+        transform: translatey(-100px);
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        padding: 10px;
+    }
+
+    .hovereffect a.info {
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        color: #fff;
+        border: 1px solid #fff;
+        background-color: transparent;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        margin: 50px 0 0;
+        padding: 7px 14px;
+    }
+
+        .hovereffect a.info:hover {
+            box-shadow: 0 0 5px #fff;
+        }
+
+    .hovereffect:hover img {
+        -ms-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .hovereffect:hover .overlay {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+
+    .hovereffect:hover h2, .hovereffect:hover a.info {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -ms-transform: translatey(0);
+        -webkit-transform: translatey(0);
+        transform: translatey(0);
+    }
+
+    .hovereffect:hover a.info {
+        -webkit-transition-delay: .2s;
+        transition-delay: .2s;
+    }
+
+
+/*hover effect for company div*/
+
+.hovereffect_company {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    height: 360px;
+    margin: 10px 0;
+    background-color: #F3F3F3;
+}
+
+    .hovereffect_company p {
+        padding: 4px;
+        text-align: justify;
+    }
+
+    .hovereffect_company .overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        color: white;
+    }
+
+    .hovereffect_company:hover .overlay {
+        background-color: rgba(170,170,170,0.4);
+    }
+
+    .hovereffect_company h2, .hovereffect_company img {
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .hovereffect_company img {
+        /*display: block;*/
+        position: relative;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        height: 150px;
+        width: 100%;
+    }
+
+    .hovereffect_company:hover img {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .hovereffect_company h2 {
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hovereffect_company a.info {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        text-transform: uppercase;
+        color: #fff;
+        border: 1px solid #fff;
+        margin: 67px 0 0 0;
+        background-color: transparent;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        font-weight: normal;
+        height: 85%;
+        width: 85%;
+        position: absolute;
+        top: -10%;
+        left: 8%;
+        padding: 130px 0;
+    }
+
+    .hovereffect_company:hover a.info {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+
+/*For job page hover*/
+.hovereffect_job {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    /*text-align: center;*/
+    cursor: default;
+}
+
+    .hovereffect_job .overlay {
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        padding: 10px 1em;
+        height: 2.4em;
+        background: #EE5A37;
+        color: #3c4a50;
+        -webkit-transition: -webkit-transform 0.35s;
+        transition: transform 0.35s;
+        -webkit-transform: translate3d(0,100%,0);
+        transform: translate3d(0,100%,0);
+    }
+
+    .hovereffect_job img {
+        /*display: block;*/
+        position: relative;
+        -webkit-transition: -webkit-transform 0.35s;
+        transition: transform 0.35s;
+    }
+
+    .hovereffect_job:hover img {
+        -webkit-transform: translate3d(0,-10%,0);
+        transform: translate3d(0,-10%,0);
+    }
+
+    .hovereffect_job h2 {
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        /*padding: 10px;*/
+        /*background: rgba(0, 0, 0, 0.6);*/
+        float: left;
+        margin: 0px;
+        display: inline-block;
+    }
+
+    .hovereffect_job a.info {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        text-transform: uppercase;
+        color: #fff;
+        border: 1px solid #fff;
+        margin: 50px 0 0 0;
+        background-color: transparent;
+    }
+
+        .hovereffect_job a.info:hover {
+            box-shadow: 0 0 5px #fff;
+        }
+
+
+    .hovereffect_job p.icon-links a {
+        float: right;
+        color: white;
+        margin-top: -9px;
+        font-size: 1.4em;
+    }
+
+    .hovereffect_job:hover p.icon-links a:hover,
+    .hovereffect_job:hover p.icon-links a:focus {
+        color: #252d31;
+    }
+
+    .hovereffect_job h2,
+    .hovereffect_job p.icon-links a {
+        -webkit-transition: -webkit-transform 0.35s;
+        transition: transform 0.35s;
+        -webkit-transform: translate3d(0,200%,0);
+        transform: translate3d(0,200%,0);
+    }
+
+        .hovereffect_job p.icon-links a span:before {
+            display: inline-block;
+            padding: 8px 10px;
+            speak: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+
+    .hovereffect_job:hover .overlay,
+    .hovereffect_job:hover h2,
+    .hovereffect_job:hover p.icon-links a {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+
+    .hovereffect_job:hover h2 {
+        -webkit-transition-delay: 0.05s;
+        transition-delay: 0.05s;
+        width: 70%;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    .hovereffect_job:hover p.icon-links a:nth-child(3) {
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
+    }
+
+    .hovereffect_job:hover p.icon-links a:nth-child(2) {
+        -webkit-transition-delay: 0.15s;
+        transition-delay: 0.15s;
+    }
+
+    .hovereffect_job:hover p.icon-links a:first-child {
+        -webkit-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+    }
+/*End animation*/
+#whyJobsDiv img {
+    background: #fe5500;
+    border: 1px solid #fe5500;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+}
+
+#homePageJobDiv .jobDiv,
+#jobsInABAListDiv .jobDiv {
+    border-bottom: 1px solid;
+    border-color: #FE5500;
+    margin: 8px 0px;
+    padding: 5px 0px;
+    display: inline-block;
+}
+
+    #jobsInABAListDiv .jobDiv span {
+        font-size: 12px;
+    }
+
+        #jobsInABAListDiv .jobDiv span img {
+            width: 17px;
+        }
+
+#homePageJobDiv a {
+    font-weight: bold;
+}
+
+/*Addvertise div*/
+.advmainDiv {
+    border: 1px solid gainsboro;
+    padding: 0 10px;
+}
+
+.advHeader {
+    background-color: #A9A9A9;
+    padding: 10px 0;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+.addFooter {
+    background-color: #A9A9A9;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    text-align: center;
+    height: 60px;
+}
+
+.advSubHeader {
+    background-color: #9F95A0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+}
+
+.advEven {
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+.advOdd {
+    background-color: #F3F3F3;
+    padding: 10px;
+}
+
+.btn-orange {
+    background: #FE5500;
+    border-radius: 0;
+    color: white;
+}
+
+    .btn-orange:hover {
+        background: #FE5500;
+        border-radius: 0;
+        color: #09154E;
+    }
+
+.btn-blue {
+    background: #09154E;
+    border-radius: 0;
+    color: white;
+}
+
+    .btn-blue:hover {
+        background: #09154E;
+        border-radius: 0;
+        color: #FE5500;
+    }
+
+.iconImage {
+    width: 16px;
+    cursor: pointer;
+}
+
+.userProfileBox {
+    border: 1px solid gainsboro;
+    margin-bottom: 10px;
+}
+
+.companyProfileBox {
+    margin-bottom: 20px;
+}
+
+.hrDivider {
+    clear: both;
+    border: none;
+    /*height: 10px;*/
+    /*background-color: white;*/
+}
+
+.headerDiv {
+    background: gainsboro;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.addIconForuserProfile {
+    margin-top: 10px;
+}
+
+.addIconForCompanyProfile {
+    margin-top: 9px;
+}
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #ED5230;
+}
+
+::-webkit-scrollbar-track {
+    background: #1E285D;
+}
+
+body {
+    scrollbar-face-color: #ED5230;
+    scrollbar-track-color: #1E285D;
+}
+/*end scroll*/
+.complusoryClass {
+    border: 2px solid red;
+}
+
+.blockUI.blockMsg img{
+    width: 40px;
+    margin-top: -32px;
+}

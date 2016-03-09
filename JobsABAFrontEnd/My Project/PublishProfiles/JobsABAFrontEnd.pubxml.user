@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Hardik Working\SPAJobsInABAPublish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App/Controller/ABAServiceProvideController.js">
+      <publishTime>02/17/2016 18:21:47</publishTime>
+    </File>
+    <File Include="App/Controller/AdPackageController.js">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="App/Controller/BusinessProfileController.js">
+      <publishTime>02/17/2016 21:03:11</publishTime>
+    </File>
+    <File Include="App/Controller/CompanyProfileController.js">
+      <publishTime>02/16/2016 16:39:34</publishTime>
+    </File>
+    <File Include="App/Controller/HomeController.js">
+      <publishTime>02/17/2016 19:14:46</publishTime>
+    </File>
+    <File Include="App/Controller/IndexController.js">
+      <publishTime>02/17/2016 20:03:52</publishTime>
+    </File>
+    <File Include="App/Controller/JobsController.js">
+      <publishTime>02/16/2016 18:32:26</publishTime>
+    </File>
+    <File Include="App/Controller/JobsInABAListController.js">
+      <publishTime>02/17/2016 19:14:50</publishTime>
+    </File>
+    <File Include="App/Controller/OrderListController.js">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="App/Controller/PersonProfileController.js">
+      <publishTime>02/17/2016 15:50:03</publishTime>
+    </File>
+    <File Include="App/Controller/RegisterController.js">
+      <publishTime>02/17/2016 20:27:06</publishTime>
+    </File>
+    <File Include="App/Controller/SignInController.js">
+      <publishTime>02/17/2016 20:27:00</publishTime>
+    </File>
+    <File Include="App/Module.js">
+      <publishTime>02/17/2016 21:40:21</publishTime>
+    </File>
+    <File Include="App/Script.js">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="App/Services.js">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/css/bootstrap-theme.css">
+      <publishTime>02/16/2016 13:56:45</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/css/bootstrap-theme.css.map">
+      <publishTime>02/16/2016 13:56:45</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/css/bootstrap-theme.min.css">
+      <publishTime>02/16/2016 13:56:45</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/css/bootstrap.css">
+      <publishTime>02/16/2016 13:56:45</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/css/bootstrap.css.map">
+      <publishTime>02/16/2016 13:56:45</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/css/bootstrap.min.css">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/js/bootstrap.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/bootstrap/js/bootstrap.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/about_back.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/about_next.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/active.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/addition-sign.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/Add_Employee.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/Advertising-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/arrow.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/arrow_back.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/arrow_blog.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/arrow_forward.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/arrow_offer.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/attention-exclamation-triangular-signal.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/blog_facebook.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/blog_facebookh.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/blog_heart.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/businessman.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/calendar-tool.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/clock_offer.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Close Window-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/close.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/company.jpg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/companyprofile.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/contact_button.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/contact_phone.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/contact_pointer.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Create New-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Customer Support-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Delete-32.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Delete-48%281%29.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Delete-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/dollars-bag.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/Down-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Edit Filled-50.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Edit Image-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Edit User-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Edit-32.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Edit-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/EDIT_USE.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/Email-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Employee Card-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Error-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/error_slider.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/exit.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/fb.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/fblogin_h.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/fb_h.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/form_arrow.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/form_icon1.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/form_icon2.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/form_job.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/fountain-pen-close-up.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/graduate-cap.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/handyman-tools.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/Help-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/home-icon-silhouette.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/icon1.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/icon2.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/icon3.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/icon_form.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/icon_trust1.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/icon_trust2.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/icon_trust3.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/icon_trust4.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/imges.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/imgres.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/in.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/insta.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/job1.jpg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/job2.jpg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/job3.jpg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/job4.jpg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/joboffer.jpg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Jobs.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/Job_Application.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/lightbulb.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/location-pin.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/Login As User-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/login_facebook.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/login_locker.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/logo.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/logo_footer2.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/minus.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/offer_arrow.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/offer_slide.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/old-handphone.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/phone_addoffer.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/phone_footer.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/photo-camera.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/photo_contact.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/photo_form.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Plus Math-52.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Plus-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/plus-sign.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/plus.gif">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/plus.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/pointer_footer.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Questions-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/read-more-left-arrow-button.png">
+      <publishTime>02/17/2016 17:44:38</publishTime>
+    </File>
+    <File Include="Assets/img/register_arrow.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/register_facebook.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/register_google.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Remove User-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/renew.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/satisfied.jpg">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/save-24.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Save-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Save.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/serce_h.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Sign Up-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/slider_1920.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/slider_19201.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Sort Down-48 %281%29.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/sp6.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Summery.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/three_employees.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/tw.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/tweet.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/tweet_banner.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/tweet_h.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/tweet_point.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/tweet_pointh.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/Upload-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/User Groups-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/User Menu-48.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/user.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/v.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/v_h.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/wallet_offer.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/worker1.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/worker2.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/write.png">
+      <publishTime>02/16/2016 22:09:24</publishTime>
+    </File>
+    <File Include="Assets/img/youtube.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/yt.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/yt_h.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/img/zoom_error.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/jquery/jquery.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/js/angular-animate.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular-animate.min.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular-cookies.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular-cookies.min.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular-loader.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular-loader.min.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular-route.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular-route.min.js">
+      <publishTime>02/12/2016 23:58:12</publishTime>
+    </File>
+    <File Include="Assets/js/angular.js">
+      <publishTime>02/12/2016 23:58:13</publishTime>
+    </File>
+    <File Include="Assets/js/angular.min.js">
+      <publishTime>02/13/2016 15:18:46</publishTime>
+    </File>
+    <File Include="Assets/js/jquery-2.2.0.js">
+      <publishTime>02/12/2016 23:58:23</publishTime>
+    </File>
+    <File Include="Assets/js/jquery-ui.js">
+      <publishTime>02/12/2016 23:58:24</publishTime>
+    </File>
+    <File Include="Assets/js/loading-bar.min.js">
+      <publishTime>02/12/2016 23:58:24</publishTime>
+    </File>
+    <File Include="Assets/js/main.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/js/toastr.min.js">
+      <publishTime>02/12/2016 23:58:24</publishTime>
+    </File>
+    <File Include="Assets/misc/modernizr.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/misc/respond.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/blank.gif">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancybox-x.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancybox-y.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancybox.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_close.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_loading.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_nav_right.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_e.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_n.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_ne.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_nw.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_s.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_se.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_sw.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_shadow_w.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_title_left.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_title_main.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/fancy_title_over.png">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/jquery.easing-1.3.pack.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/jquery.fancybox-1.3.4.css">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/jquery.fancybox-1.3.4.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/jquery.fancybox-1.3.4.pack.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/fancybox/jquery.mousewheel-3.0.4.pack.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/jquery-1.10.2.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/jquery-1.11.1.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/jquery-migrate-1.2.1.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/jquery.cycle2.carousel.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/jquery.cycle2.min.js">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/sidr/component.json">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/plugins/sidr/jquery.sidr.min.js">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="Assets/plugins/sidr/README.md">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="Assets/plugins/sidr/stylesheets/jquery.sidr.dark.css">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="Assets/plugins/sidr/stylesheets/jquery.sidr.light.css">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="Assets/styles/base.css">
+      <publishTime>02/17/2016 18:29:24</publishTime>
+    </File>
+    <File Include="Assets/styles/jquery-ui.css">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/styles/loading-bar.min.css">
+      <publishTime>02/16/2016 13:56:46</publishTime>
+    </File>
+    <File Include="Assets/styles/menu.css">
+      <publishTime>01/09/2016 10:48:52</publishTime>
+    </File>
+    <File Include="Assets/styles/Reset.css">
+      <publishTime>01/09/2016 10:48:50</publishTime>
+    </File>
+    <File Include="Assets/styles/styles.css">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="Assets/styles/toastr.min.css">
+      <publishTime>02/16/2016 13:56:47</publishTime>
+    </File>
+    <File Include="bin/JobsABAFrontEnd.dll">
+      <publishTime>02/17/2016 21:50:10</publishTime>
+    </File>
+    <File Include="bin/JobsABAFrontEnd.xml">
+      <publishTime>02/17/2016 21:50:10</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>02/17/2016 19:11:45</publishTime>
+    </File>
+    <File Include="Template/ABAServiceProvide.html">
+      <publishTime>02/17/2016 17:46:02</publishTime>
+    </File>
+    <File Include="Template/AdPackageList.html">
+      <publishTime>02/16/2016 14:41:31</publishTime>
+    </File>
+    <File Include="Template/CompanyProfile.html">
+      <publishTime>02/17/2016 13:28:21</publishTime>
+    </File>
+    <File Include="Template/CreateJob.html">
+      <publishTime>02/16/2016 14:49:03</publishTime>
+    </File>
+    <File Include="Template/Home.html">
+      <publishTime>02/17/2016 19:16:52</publishTime>
+    </File>
+    <File Include="Template/JobDetail.html">
+      <publishTime>02/16/2016 18:35:21</publishTime>
+    </File>
+    <File Include="Template/JobsInABAList.html">
+      <publishTime>02/17/2016 19:16:45</publishTime>
+    </File>
+    <File Include="Template/OrderList.html">
+      <publishTime>02/16/2016 14:51:13</publishTime>
+    </File>
+    <File Include="Template/PersonProfile.html">
+      <publishTime>02/17/2016 15:50:48</publishTime>
+    </File>
+    <File Include="Template/PublishedJob.html">
+      <publishTime>02/16/2016 14:54:27</publishTime>
+    </File>
+    <File Include="Template/Register.html">
+      <publishTime>02/16/2016 14:33:40</publishTime>
+    </File>
+    <File Include="Template/SignIn.html">
+      <publishTime>02/17/2016 13:21:59</publishTime>
+    </File>
+    <File Include="Template/ViewCompanyProfile.html">
+      <publishTime>02/17/2016 21:25:58</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/17/2016 08:39:01</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

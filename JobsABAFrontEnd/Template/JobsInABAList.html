@@ -1,0 +1,184 @@
+﻿<div class="">
+    <div class="row text-center" style="background: #fe5a00; padding: 30px; position: relative; margin: 0;">
+        <div class="col-lg-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="JobSearchModel.companyName" placeholder="COMPANY NAME">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="JobSearchModel.City" placeholder="CITY">
+                </div>
+                <!--<button type="button" class="btn btn-blue" ng-click="getJobList()">SEARCH COMPANY</button>-->
+                <img src="assets/img/JobSearch.png" class="iconImage" style="width:34px;" ng-click="getJobList()" title="Search Job" alt="Search Job" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="text-center">Available Jobs ABA</h3>
+            <hr />
+        </div>
+        <br /><br />
+        <div class="col-lg-12">
+            <div class="col-lg-3">
+                <img src="assets/img/JobSearch.png" class="iconImage" title="Search Job" alt="Search Job" />
+                <div style="border: 1px solid gainsboro;padding: 10px;">
+                    <!--<h4>Search Job</h4>-->
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select class="form-control" id="category">
+                            <option>Category 1</option>
+                            <option>Category 2</option>
+                            <option>Category 3</option>
+                            <option>Category 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Location">Location:</label>
+                        <select class="form-control" id="Location">
+                            <option>Location 1</option>
+                            <option>Location 2</option>
+                            <option>Location 3</option>
+                            <option>Location 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Designation">Designation:</label>
+                        <input type="text" class="form-control" id="Designation" placeholder="Designation" />
+                    </div>
+                    <div class="form-group">
+                        <label for="SkillSet">Skill Set:</label>
+                        <input type="text" class="form-control" id="SkillSet" placeholder="Skill Set" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Experience">Experience:</label>
+                        <select class="form-control" id="Experience">
+                            <option>1 Yr</option>
+                            <option>2 Yr - 4 Yr</option>
+                            <option>>4 Yr</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="button" class="btn btn-orange" value="Search" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9" id="jobsInABAListDiv">
+                <h4 ng-if="lstABAJobs.length==0">No Jobs Available in ABA</h4>
+                <div class="col-lg-12 jobDiv" ng-repeat="o in lstABAJobs">
+
+                    <div class="hovereffect_job">
+                        <div class="col-lg-3">
+                            <img src="assets/img/no-image-company.png" ng-if="o.businessImage.ImageExtension.length==0||o.businessImage.ImageExtension==undefined" class="img-responsive" height="150" width="200">
+                            <img src="{{API_PATH_Image}}/FileUpload/CompanyImage/{{o.BusinessID}}{{o.businessImage.ImageExtension}}?d={{randomNumber}}" ng-if="o.businessImage.ImageExtension.length>0" class="img-responsive" height="150" width="200">
+
+                        </div>
+                        <div class="col-lg-6" style="padding-left: 0;">
+                            <div class="col-lg-12">
+                                <div class="col-lg-10" style="padding-left: 0;">
+                                    <h4>
+                                        <a href="#jobDetail/{{o.JobID}}">
+                                            {{o.Title}}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="col-lg-2 text-right">
+                                    <a ng-if="UserLogin==false" href="#login" class="btn btn-blue" style="color:white">Apply</a>
+                                    <a ng-if="UserLogin==true && o.IsBusinessOwner!=1" class="btn btn-blue" href="javascript:void(0)" ng-click="applyJob(o.JobID)" style="color:white">Apply</a>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12">
+                                <p ng-hide="fullJobDetail_{{o.JobID}}">
+                                    {{o.Description | limitTo :200}}
+                                    <a ng-hide="fullJobDetail_{{o.JobID}}" ng-if="o.Description.length>200" href="javascript:0" ng-click="displayJobFullDetail(o.JobID)">
+                                        <img src="assets/img/read-more-left-arrow-button.png" style="visibility: visible; width: 18px !important; cursor: pointer; height: 18px; vertical-align: middle;">
+                                    </a>
+                                </p>
+                                <p ng-show="fullJobDetail_{{o.JobID}}">{{o.Description}}</p>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3" style="border-left: 1px solid antiquewhite;line-height:2;">
+                            <span><b>Location</b> :{{o.City}}</span><br />
+                            <span><img src="assets/img/clock_offer.png" style="vertical-align:middle;margin-right:7px;" /> <b>Post Date</b> : <span>{{o.StartDate | date}}</span></span><br />
+                            <span><img src="assets/img/clock_offer.png" style="vertical-align:middle;margin-right:10px;" /><b>Last Date</b> : <span>{{o.EndDate | date}}</span></span>
+                            <br /><br />
+                            <div class="text-right">
+
+                            </div>
+                        </div>
+                        <div class="overlay">
+                            <h2>
+                                <a href="#viewcompanyprofile/{{o.BusinessID}}" style="color: white;text-transform:capitalize;">{{o.Name}}</a>
+                            </h2>
+                            <p class="icon-links">
+                                <a href="#">
+                                    <span class="fa fa-twitter"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="fa fa-facebook"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="fa fa-instagram"></span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <!--<div class="hovereffect_job">
+                        <div class="col-lg-3">
+                            <img src="assets/img/no-image-company.png" ng-if="o.ImageExtension.length==0" class="img-responsive" height="150" width="200">
+                            <img src="{{API_PATH}}/FileUpload/CompanyImage/{{o.BusinessID}}{{o.ImageExtension}}?d={{randomNumber}}" ng-if="o.ImageExtension.length>0" class="img-responsive" height="150" width="200">
+                            <a href="#viewcompanyprofile/{{o.BusinessID}}" style="color: #FE5500">{{o.Name}}</a>
+                        </div>
+                        <div class="col-lg-6">
+                            <h4>
+                                {{o.Title}}
+                            </h4>
+                            <p ng-hide="fullJobDetail_{{o.JobID}}">
+                                {{o.Description | limitTo :200}}
+                                <a ng-hide="fullJobDetail_{{o.JobID}}" ng-if="o.Description.length>200" href="javascript:0" ng-click="displayJobFullDetail(o.JobID)">
+                                     <img src="assets/img/read-more-left-arrow-button.png" style="visibility: visible; width: 18px !important; cursor: pointer; height: 18px; vertical-align: middle;">
+                                </a>
+                            </p>
+                            <p ng-show="fullJobDetail_{{o.JobID}}">{{o.Description}}</p>
+                        </div>
+                        <div class="col-lg-3" style="border-left: 1px solid antiquewhite;line-height:2;">
+                            <span><b>Location</b> :{{o.City}}</span><br />
+                            <span><img src="assets/img/clock_offer.png" style="vertical-align:middle;margin-right:7px;" /> <b>Post Date</b> : <span>{{o.StartDate}}</span></span><br />
+                            <span><img src="assets/img/clock_offer.png" style="vertical-align:middle;margin-right:10px;" /><b>Last Date</b> : <span>{{o.EndDate}}</span></span>
+                            <br /><br />
+                            <div class="text-right">
+
+                            </div>
+                        </div>
+                        <div class="overlay">
+                            <h2>
+                                <a ng-if="UserLogin==false" href="#login" class="" style="color:white">Apply</a>
+                                <a ng-if="UserLogin==true && o.IsBusinessOwner!=1" href="javascript:void(0)" ng-click="applyJob(o.JobID)" class="" style="color:white">Apply</a>
+                            </h2>
+                            <p class="icon-links">
+                                <a href="#">
+                                    <span class="fa fa-twitter"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="fa fa-facebook"></span>
+                                </a>
+                                <a href="#">
+                                    <span class="fa fa-instagram"></span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,66 @@
+﻿<div class="container">
+    <div class="row text-center" style="background: #fe5a00;padding: 30px;position: relative;">
+        <div class="col-lg-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="companySearchModel.companyName" placeholder="COMPANY NAME" ng-enter="getFullCompanyListABAService()">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="companySearchModel.City" placeholder="CITY" ng-enter="getFullCompanyListABAService()">
+                </div>
+                <!--<button type="button" class="btn btn-blue" ng-click="getFullCompanyListABAService()">SEARCH COMPANY</button>-->
+                <img src="assets/img/searchCompany.png" class="iconImage" style="width:34px;" ng-click="getFullCompanyListABAService()" title="Search Company" alt="Search Company" />
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row" id="abaServiceProviderMainDiv">
+        <div class="col-lg-12">
+            <h3 class="text-center">ABA Service Provider</h3>
+            <hr />
+        </div>
+        <br /><br />
+        <div class="col-lg-12">
+            <h4 ng-if="lstBusinessList.length==0">No ABA service provider available.</h4>
+            <div class="col-lg-3" ng-repeat="o in lstBusinessList">
+                <div class="hovereffect_company">
+                    <img src="assets/img/no-image-company.png" class="img-responsive" ng-if="o.ImageExtension.length==0">
+                    <img class="img-responsive" src="{{API_PATH}}/FileUpload/CompanyImage/{{o.BusinessID}}{{o.ImageExtension}}?d={{randomNumber}}" ng-if="o.ImageExtension.length>0">
+                    <br />
+                    <p>{{o.Description|limitTo :300}}<span ng-if="o.Description.length>300"> <img src="assets/img/read-more-left-arrow-button.png" style="width: 18px !important; height: 18px;"></span></p>
+                    <div class="overlay">
+                        <h2>{{o.Name}}</h2>
+                        <a class="info" href="#viewcompanyprofile/{{o.BusinessID}}">View Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div id="new-jobs-wrapper" class="wrapper">
+    <div class="pagewidth" id="abaServiceProviderMainDiv">
+        <ul style="-webkit-padding-before: 40px;">
+            <li ng-repeat="o in lstBusinessList" ng-click="goToViewCompanyDetailPage(o.BusinessID)" style="cursor:pointer;">
+                <img src="assets/img/no-image-company.png" style="height: 200px !important;width: 100% !important;" ng-if="o.ImageExtension.length==0">
+                <img src="{{API_PATH}}/FileUpload/CompanyImage/{{o.BusinessID}}{{o.ImageExtension}}?d={{randomNumber}}" style="height: 200px !important;width: 100% !important;" ng-if="o.ImageExtension.length>0">
+                <div class="box" style="border: 1px solid #eaeaea;">
+                    <h1 style="font-size: 18px;">{{o.Name}}</h1>
+                    <p>
+                        {{o.Description|limitTo :300}}
+                        <a ng-if="o.Description.length>300" href="#viewcompanyprofile/{{o.BusinessID}}">
+                            <img src="assets/img/read-more-left-arrow-button.png" style="visibility: visible; width: 18px !important; cursor: pointer; height: 18px; vertical-align: bottom;">
+                        </a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>-->
+

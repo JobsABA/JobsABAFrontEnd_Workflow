@@ -1,0 +1,26 @@
+﻿<div id="post-job-wrapper" class="wrapper" style="max-width:1180px; margin:0 auto; padding-top: 0px;">
+    <div style="margin-top: 40px;">&nbsp;</div>
+
+    <div style="float:left; padding:20px;">
+        <a href="publishjob" class="btn-edit" id="app1" style="padding: 10px;font-size: 20px;">Job List</a>
+    </div>
+    <div class="pagewidth" style="max-width:1180px; margin:0 auto">
+        <div class="box tabdiv" style="margin-bottom:20px;">
+            <h1>ADD JOB APPLICATION</h1>
+            <div>
+                <form id="postjobform">
+
+                    <input placeholder="JOB TITLE" ng-model="jobsModel.Title" type="text" class="formfull">
+                    <input placeholder="START DATE" ng-model="jobsModel.StartDate" type="text" class="formhalf formfull">
+                    <input placeholder="END DATE" ng-model="jobsModel.EndDate" type="text" class="formhalf formfull">
+                    <textarea placeholder="JOB DESCRIPTION" ng-model="jobsModel.Description" style="resize: none; height: 120px;" class="formfull"></textarea>
+
+                    <p></p>
+                    <input type="button" ng-click="createJob(jobsModel)" value="ADD" class="add1button" ng-show="isEditMode">
+                    <input type="button" ng-click="updateJob(jobsModel)" value="UPADATE" ng-hide="isEditMode" class="add1button" style="background:#1B265A;border:12px solid  #1B265A">
+                    <div class="clear"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

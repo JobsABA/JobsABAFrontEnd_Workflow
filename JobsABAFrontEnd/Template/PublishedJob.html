@@ -1,0 +1,39 @@
+﻿<div id="post-job-wrapper" class="wrapper" ng-controller="JobsController">
+    <div class="pagewidth" style=" max-width:1180px; padding:10px;">
+        <div style="float:left; padding:20px;">
+            <a href="createjob" class="btn-edit" id="app1" style="padding: 10px;font-size: 20px;">Create Job</a>
+        </div>
+        <div class="pagewidth" style="margin-top: 60px;margin-left: -52px;">
+            <div class="formfull" id="set">
+                <div class="top" style="padding: 26px;">
+                    <p><a href="jobDetail" style="color:#000;">JOB APPLICATION 1</a></p><br>
+                    <br>
+                    <div class="promote" style="padding: 10px;position: absolute; right: 40px; top: 0px;">
+                        <img style="max-width: 20px;" src="assets/img/active.png">
+                        <img style="max-width: 20px;" src="assets/img/renew.png">
+                    </div>
+                    <a class="btn-edit" href="createjob"><img src="assets/img/edit-32.png"></a>
+                    <a class="btn-delete" onclick="clicked();"><img src="assets/img/delete-32.png"></a>
+                    <hr style="color: rgb(255, 255, 255); margin-top:60px;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function viewcandidate(elem) {
+        var id = elem.id;
+        $("#" + id).attr("onclick", "closeallcandidate(this)");
+        $(".candidatelist").slideUp();
+        $("#candidate" + id).slideDown();
+    }
+    function closeallcandidate(elem) {
+        var id = elem.id;
+        $("#" + id).attr("onclick", "viewcandidate(this)");
+        $(".candidatelist").slideUp();
+    }
+    function clicked() {
+        alert('Delete Successfully');
+    }
+</script>

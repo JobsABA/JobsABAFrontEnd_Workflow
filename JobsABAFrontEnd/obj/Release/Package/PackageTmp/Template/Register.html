@@ -1,0 +1,93 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="text-center">Registration</h3>
+            <hr />
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-8">
+                <form role="form"
+                      id="form"
+                      name="form"
+                      novalidate
+                      ng-submit="formSubmit()">
+                    
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-class="{'complusoryClass':firstName==undefined}" ng-model="firstName" placeholder="Enter FirstName" ng-required="true">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="middleName" placeholder="Enter MiddleName" ng-class="{'complusoryClass':middleName==undefined}" ng-required="true">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="lastName" placeholder="Enter LastName" ng-class="{'complusoryClass':lastName==undefined}" ng-required="true">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="username" placeholder="Enter UserName" ng-class="{'complusoryClass':username==undefined}" ng-required="true">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control datepicer" ng-model="DOB" placeholder="Select Birth Date">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="email" placeholder="Enter Email Address">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="phone" placeholder="Enter Contact Number">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="password" class="form-control" ng-model="password" placeholder="Enter Password" ng-class="{'complusoryClass':password==undefined}" ng-required="true">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="password" class="form-control" ng-model="confirmPassword" placeholder="Enter Confirm Password" ng-class="{'complusoryClass':confirmPassword==undefined}" ng-required="true">
+                    </div>
+
+                    <div class="form-group col-lg-12">
+                        <input type="text" class="form-control" ng-model="address" placeholder="Enter Address" ng-class="{'complusoryClass':address==undefined}" ng-required="true">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="city" placeholder="Enter City">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="state" placeholder="Enter State">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="zip" placeholder="Enter ZipCode">
+                    </div>
+
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="button" class="btn btn-orange" ng-disabled="!form.$valid" ng-click="register()" value="Register" />
+                        <a href="#login" class="btn btn-blue">Go to Login</a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 text-center" style="margin-bottom: 20px;">
+            <div>
+                <div style="width: 100%; height: 20px; border-bottom: 1px solid gainsboro; text-align: center; display: inline-block;">
+                    <span style="font-size: 24px; background-color: #F7F7F7; padding: 0 10px;">
+                        OR
+                    </span>
+                </div>
+                <h4>Register With</h4>
+                <img src="Assets/img/tw.png" height="40" width="40">
+                <img src="Assets/img/fb.png" height="40" width="40">
+                <img src="Assets/img/in.png" height="40" width="40">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(function () {
+        $(".datepicer").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
