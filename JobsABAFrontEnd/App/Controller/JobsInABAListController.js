@@ -37,27 +37,32 @@
     //get job list
     $scope.getJobList = function () {
         var params = {};
-        if (($scope.Keywords.length > 0 || $scope.Location.length > 0 || $scope.CompnayName.length > 0) && ($scope.JobSearchModel.companyName.length == 0 && $scope.JobSearchModel.City.length == 0)) {
-            params = {
-                searchText: $scope.Keywords,
-                //city: $scope.Location,
-                //userID: $rootScope.userId,
-                //company: $scope.CompnayName,
-                from: 1,
-                to: 1000
-            }
-            $scope.Keywords = '';
-            $scope.Location = '';
-        }
-        else {
-            params = {
-                searchText: '',
-                //company: $scope.JobSearchModel.companyName,
-                //city: $scope.JobSearchModel.City,
-                //userID: $rootScope.userId,
-                from: 1,
-                to: 10
-            }
+        //if (($scope.Keywords.length > 0 || $scope.Location.length > 0 || $scope.CompnayName.length > 0) && ($scope.JobSearchModel.companyName.length == 0 && $scope.JobSearchModel.City.length == 0)) {
+        //    params = {
+        //        searchText: $scope.Keywords,
+        //        city: $scope.Location,
+        //        userID: $rootScope.userId,
+        //        company: $scope.CompnayName,
+        //        from: 1,
+        //        to: 1000
+        //    }
+        //    $scope.Keywords = '';
+        //    $scope.Location = '';
+        //}
+        //else {
+        //    params = {
+        //        searchText: '',
+        //        company: $scope.JobSearchModel.companyName,
+        //        city: $scope.JobSearchModel.City,
+        //        userID: $rootScope.userId,
+        //        from: 1,
+        //        to: 10
+        //    }
+        //}
+        params = {
+            searchText: '',
+            from: 1,
+            to: 2
         }
 
         $("#jobsInABAListDiv").block({ message: '<img src="Assets/img/loader.gif" />' });

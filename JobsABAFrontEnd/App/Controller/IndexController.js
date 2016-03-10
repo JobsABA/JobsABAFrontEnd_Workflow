@@ -4,8 +4,6 @@
         $scope.initModel();
         $rootScope.loginUserName = httpService.readCookie("uname");
         $rootScope.userId = parseInt(httpService.readCookie("uid"));
-        $rootScope.getFullCompanyList();
-        $rootScope.getJobsinABAList();
         //if ($rootScope.userId) {
         //    $rootScope.getCompanylist($rootScope.userId);
         //}
@@ -31,7 +29,7 @@
         $rootScope.UserLogin = false;
     }
 
-    //get company list by user
+    //get company list by user for menubar
     $rootScope.getCompanylist = function (uid) {
         var params = {
             userID: uid
@@ -44,18 +42,6 @@
         }).error(function (data) {
             console.log(JSON.stringify(data));
         });
-    }
-
-    //get full company list
-    $rootScope.getFullCompanyList = function () {
-        $scope.randomNumber = Math.random();
-        $("#homePageBusinessListDiv").block({ message: '<img src="Assets/img/loader.gif" />' });
-        $http.get($rootScope.API_PATH + "/Businesses/GetBusinesses").success(function (data) {
-            $("#homePageBusinessListDiv").unblock();
-            $rootScope.lstBusiness = data;
-        }).error(function (data) {
-            toastr.error("error in fetch company list. try again");
-        })
     }
 
     //for reload date picker
@@ -88,42 +74,6 @@
 
     }
 
-    //for get job list
-    $rootScope.getJobsinABAList = function () {
-        $rootScope.getJobsinABAListWithoutOwner();
-    }
-    //for get job list
-    $rootScope.getJobsinABAListWithoutOwner = function () {
-        $("#homePageJobDiv").block({ message: '<img src="Assets/img/loader.gif" />' });
-        //var params = {
-        //    userID: $rootScope.userId
-        //}
-        //$http.get($rootScope.API_PATH + "/Jobapplication/GetJobsinABAList", { params: params }).success(function (data) {
-        $http.get($rootScope.API_PATH + "/Jobs/GetJobs").success(function (data) {
-
-            $("#homePageJobDiv").unblock();
-            if (data != null) {
-                for (var i = 0; i < data.length; i++) {
-                    var newobj = new Object();
-                    var newRow = [];
-                    if (data[i].Business != null && data[i].Business != "" && data[i].Business.BusinessImages != undefined && data[i].Business.BusinessImages.length > 0) {
-                        for (var j = 0; j < data[i].Business.BusinessImages.length; j++) {
-                            if (data[i].Business.BusinessImages[j].IsPrimary == true) {
-                                newobj["ImageExtension"] = data[i].Business.BusinessImages[j].Image.ImageExtension;
-                            }
-                        }
-                        newRow.push(newobj);
-                    }
-                    data[i]["businessImage"] = newRow[0];
-                }
-            }
-            //console.log(data);
-            $rootScope.lstJobs = data;
-        }).error(function (data) {
-            console.log(JSON.stringify(data));
-        })
-    }
-
     //for mouse hover div display/hide
     $rootScope.onmousehover = function (name, id) {
         $scope[name + id] = true;
@@ -135,18 +85,18 @@
     //autocomplete
     $rootScope.autocompleteBusinessName = function () {
         $('.bussinessList').autocomplete({
-            //source: function (request, response) {
-            //    $.getJSON($rootScope.API_PATH + "/Company/GetBusinessList?term=" + request.term, function (data) {
-            //        //console.log(data);
-            //        response($.map(data.businessList, function (value, key) {
-            //            return {
-            //                label: value.Name,
-            //                value: value.Name,
-            //                key: value.BusinessID,
-            //            };
-            //        }));
-            //    });
-            //},
+            source: function (request, response) {
+                $.getJSON($rootScope.API_PATH + "/Company/GetBusinessList?term=" + request.term, function (data) {
+                    //console.log(data);
+                    response($.map(data.businessList, function (value, key) {
+                        return {
+                            label: value.Name,
+                            value: value.Name,
+                            key: value.BusinessID,
+                        };
+                    }));
+                });
+            },
             select: function (event, ui) {
                 $(".bussinessList_ID").val(ui.item.key);
                 $(".bussinessList").val(ui.item.value);

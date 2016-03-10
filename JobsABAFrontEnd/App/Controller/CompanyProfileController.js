@@ -3,9 +3,9 @@
         $scope.initModel();
         $scope.userId = parseInt(httpService.readCookie("uid"));
         $rootScope.reloadDatePicker();
-        
 
-        
+
+
     }
 
     $scope.initModel = function () {
@@ -25,7 +25,7 @@
             BusinessAddressZipCode: '',
             BusinessEmailAddress: '',
             BusinessPhoneNumber: '',
-            Description:'',
+            Description: '',
         }
 
         //specialist
@@ -108,9 +108,10 @@
             Abbreviation: $scope.companyDetailModel.Abbreviation,
             StartDate: _date,
             BusinessTypeID: 3,
+            BusinessUserMapTypeCodeId: 3,
             IsActive: true,
             IsDeleted: false,
-            UserId: $scope.userId,
+            BusinessUserId: $scope.userId,
             BusinessEmailAddress: $scope.companyDetailModel.BusinessEmailAddress,
             BusinessPhoneNumber: $scope.companyDetailModel.BusinessPhoneNumber,
             BusinessAddressLine1: $scope.companyDetailModel.BusinessAddressLine1,
@@ -120,21 +121,16 @@
             Description: $scope.companyDetailModel.Description,
         }
 
-        var addCompanyResult = httpService.post(Company, $rootScope.API_PATH + "/Company/CompanyRegister");
-        addCompanyResult.then(function (data) {
-            if (data.data.success == 1) {
-                $scope.initModel();
-                $scope.getCompanylist();
-                toastr.success("Company Profile Created successfully");
-                $location.path('/viewcompanyprofile/' + data.data.message);
-            }
-            else
-                toastr.error("error in create company profile");
-        }, function (errorPl) {
-           // alert("Error" + errorPl);
+        $http.post($rootScope.API_PATH + "/Businesses/PostBusiness", Company).success(function (data) {
+            $scope.initModel();
+            $scope.getCompanylist();
+            toastr.success("Company Profile Created successfully");
+            $location.path('/viewcompanyprofile/' + data.data.message);
+        }).error(function (data) {
+            toastr.error("error in create company profile. try again");
         });
     };
 
-    
+
     $scope.init();
 });

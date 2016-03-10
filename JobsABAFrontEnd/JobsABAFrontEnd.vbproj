@@ -1025,6 +1025,7 @@
     <Content Include="Assets\img\User-Summery.png" />
     <Content Include="Assets\img\UserProfile.png" />
     <Content Include="Assets\img\write.png" />
+    <Content Include="Assets\jquery\lazy-scroll.min.js" />
     <Content Include="Assets\js\angular-backtop.js" />
     <Content Include="Assets\js\jquery.blockUI.js" />
     <Content Include="Assets\js\toastr.js" />

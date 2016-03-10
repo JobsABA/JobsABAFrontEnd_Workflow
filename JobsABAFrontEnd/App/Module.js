@@ -1,4 +1,4 @@
-﻿var app = angular.module("myApp", ["ngRoute", "angular-loading-bar"]);
+﻿var app = angular.module("myApp", ["ngRoute", "angular-loading-bar", "lazy-scroll"]);
 
 app.config(['$routeProvider', '$locationProvider', 'cfpLoadingBarProvider', function ($routeProvider, $locationProvider, cfpLoadingBarProvider, $rootScope) {
     cfpLoadingBarProvider.includeSpinner = true;
@@ -104,29 +104,31 @@ app.config(['$routeProvider', '$locationProvider', 'cfpLoadingBarProvider', func
             $rootScope.previousPath = current.$$route.originalPath;
             $rootScope.previousPathParam = current.params.BusinessId;
         }
-        
+
         /* this line not working */
         var canceler = $q.defer();
         canceler.resolve();
 
+    });
+    $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
+        window.scrollTo(0, 0);
     });
 
     $rootScope.$watch(function () {
         return $location.path();
         $rootScope.IsPersonalProfile = false;
         $rootScope.IsBussinessDetail = false;
-    },
-     function (a) {
-         if (httpService.readCookie("uid") != null && httpService.readCookie("uid") != "") {
-             $rootScope.UserLogin = true;
-         }
-         else
-             $rootScope.UserLogin = false;
-         console.log($rootScope.UserLogin);
-         
-         //console.log('url has changed: ' + a);
-         // show loading div, etc...
-     });
+    }, function (a) {
+        if (httpService.readCookie("uid") != null && httpService.readCookie("uid") != "") {
+            $rootScope.UserLogin = true;
+        }
+        else
+            $rootScope.UserLogin = false;
+        console.log($rootScope.UserLogin);
+
+        //console.log('url has changed: ' + a);
+        // show loading div, etc...
+    });
 });
 ;
 
