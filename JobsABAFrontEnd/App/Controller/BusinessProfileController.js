@@ -7,10 +7,11 @@
         $scope.userId = parseInt(httpService.readCookie("uid"));
         $scope.BusinessId = parseInt($routeParams.BusinessId);
 
-        if ($scope.userId)
-            $scope.checkBusinessUserOwner();
-        else
-            $scope.getBussinessDetail($scope.BusinessId);
+        //if ($scope.userId)
+        //    $scope.checkBusinessUserOwner();
+        //else
+        //    $scope.getBussinessDetail($scope.BusinessId);
+        $scope.getBussinessDetail($scope.BusinessId);
         $scope.randomNumber = Math.random();
     }
 
@@ -120,12 +121,8 @@
             $("#companyProfilemainDiv").unblock();
             console.log(data);
             $scope.bussinessDetail = data;
-            if ($scope.bussinessDetail.BussinessInfo.StartDate != null) {
-                $scope.bussinessDetail.BussinessInfo.StartDate = $filter('date')($scope.bussinessDetail.BussinessInfo.StartDate.substr(6, 13), "MM-dd-yyyy");
-            }
-            $scope.objImage = data.bussinessDetail.businessImage;
-            if ($scope.objImage != null)
-                $scope.ImgExt = $scope.objImage.ImageExtension;
+
+
             $scope.isEditProfile_Image = false;
         }).error(function (data) {
             //alert(JSON.stringify(data));

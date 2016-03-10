@@ -110,6 +110,126 @@
                                     <img class='iconImage' ng-click="cancleUpdateUserInfo('Phone')" ng-show="isEditProfile_Phone" src='assets/img/Close Window-48.png'>
                                 </div>
                             </div>
+
+
+                            <div>
+                                <h5 class="text-center"><b>Are You a</b></h5>
+                                <div class="row">
+                                    <div class="form-group col-lg-12" ng-hide="isOtherAreYou">
+                                        <select class="form-control" ng-model="areYoua" ng-change="changeAreYouA()">
+                                            <option value="">Are You a</option>
+                                            <option>BCBA</option>
+                                            <option>BCaBA</option>
+                                            <option>RBT</option>
+                                            <option>Behavioral Therapist</option>
+                                            <option>Physical Therapist</option>
+                                            <option>Occupational Therapist</option>
+                                            <option>Licensed Clinical Psychologist</option>
+                                            <option>Speech-Language Pathologist</option>
+                                            <option>Speech-Language Pathology Assistant</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-12" ng-show="isOtherAreYou">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <input type="text" class="form-control" placeholder="Add Other">
+                                            </div>
+                                            <div class="col-lg-12 text-right">
+                                                <img class="iconImage" ng-click="closeAddNewAreYou()" src="assets/img/Close Window-48.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="text-center"><b>Highest Education Detail</b></h5>
+                                <div class="row">
+                                    <div class="form-group col-lg-12" ng-hide="isOtherEducation">
+                                        <select class="form-control" ng-model="education" ng-change="changeEducation()">
+                                            <option value="">Add Highest Qualification</option>
+                                            <option>High School Diploma/GED</option>
+                                            <option>Some College</option>
+                                            <option>Associate Degree</option>
+                                            <option>Bachelor Degree</option>
+                                            <option>Master Degree</option>
+                                            <option>Doctoral Degree</option>
+                                            <option>Juris Doctorate</option>
+                                            <option>Medical Degree</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-12" ng-show="isOtherEducation">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <input type="text" class="form-control" placeholder="Add Other Education">
+                                            </div>
+                                            <div class="col-lg-12 text-right">
+                                                <img class="iconImage" ng-click="closeAddNewEducation()" src="assets/img/Close Window-48.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div>
+                                <h5 class="text-center"><b>Hear From</b></h5>
+                                <div class="row">
+                                    <div class="form-group col-lg-12" ng-hide="isOtherRefrence">
+                                        <select class="form-control" ng-model="refrence" ng-change="changeRefrence()">
+                                            <option value="">Hear From</option>
+                                            <option>Search Engine</option>
+                                            <option>JobsInABA.com User</option>
+                                            <option>Link from a Website</option>
+                                            <option>From a Friend</option>
+                                            <option>Facebook</option>
+                                            <option>Twitter</option>
+                                            <option>LinkedIn</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-12" ng-show="isOtherRefrence">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <input type="text" class="form-control" placeholder="Add Other Refrence">
+                                            </div>
+                                            <div class="col-lg-12 text-right">
+                                                <img class="iconImage" ng-click="closeAddNewRefrence()" src="assets/img/Close Window-48.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+
+
+                            <div>
+                                <h5 class="text-center"><b>Which of these social media sites do you use?</b></h5>
+                                <div class="row">
+                                    <div class="form-group col-lg-12 socialCheckboxDiv">
+                                        <div>
+                                            <input id="facebook" type="checkbox" />
+                                            <label for="facebook">Facebook</label>
+
+                                            <input id="LinkedIn" type="checkbox" />
+                                            <label for="LinkedIn">LinkedIn</label>
+
+                                            <input id="Twitter" type="checkbox" />
+                                            <label for="Twitter">Twitter</label>
+
+                                            <input id="Instagram" type="checkbox" />
+                                            <label for="Instagram">Instagram</label>
+
+                                            <input id="Pinterest" type="checkbox" />
+                                            <label for="Pinterest">Pinterest</label>
+
+                                            <input type="text" class="form-control col-lg-3" placeholder="Add Other Social Media">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
 
                     </div>
@@ -153,16 +273,16 @@
                         <div>
                             <input type="hidden" ng-model="userExprienceModel.BusinessID" id="hiddenBusinessID_0" class="bussinessList_ID" />
                             <div class="form-group col-lg-12">
-                                <input type="text" id="bussinessList_0" ng-model="userExprienceModel.BusinessName" class="form-control bussinessList" placeholder="Enter CompanyName">
+                                <input type="text" id="bussinessList_0" ng-model="userExprienceModel.BusinessName" class="form-control bussinessList" placeholder="CompanyName">
                             </div>
                             <div class="form-group col-lg-12">
-                                <input type="text" class="form-control" placeholder="Enter Job Position" ng-model="userExprienceModel.JobPossition">
+                                <input type="text" class="form-control" placeholder="Job Position" ng-model="userExprienceModel.JobPossition">
                             </div>
                             <div class="form-group col-lg-6">
-                                <input type="text" class="form-control datepicer" placeholder="Enter Start Date" ng-model="userExprienceModel.StartDate" id="startdate">
+                                <input type="text" class="form-control datepicer" placeholder="Start Date" ng-model="userExprienceModel.StartDate" id="startdate">
                             </div>
                             <div class="form-group col-lg-6">
-                                <input type="text" class="form-control datepicer" placeholder="Enter End Date" ng-model="userExprienceModel.EndDate" id="enddate">
+                                <input type="text" class="form-control datepicer" placeholder="End Date" ng-model="userExprienceModel.EndDate" id="enddate">
                             </div>
                         </div>
                         <div class="text-right">
@@ -178,16 +298,16 @@
                             <div>
                                 <input type="hidden" ng-model="userExprienceModel.BusinessID" id="hiddenBusinessID_{{o.BusinessID}}" class="bussinessList_ID" />
                                 <div class="form-group col-lg-12">
-                                    <input type="text" id="bussinessList_{{o.BusinessID}}" ng-model="userExprienceModel.BusinessName" class="form-control bussinessList" placeholder="Enter CompanyName">
+                                    <input type="text" id="bussinessList_{{o.BusinessID}}" ng-model="userExprienceModel.BusinessName" class="form-control bussinessList" placeholder="CompanyName">
                                 </div>
                                 <div class="form-group col-lg-12">
-                                    <input type="text" class="form-control" placeholder="Enter Job Position" ng-model="userExprienceModel.JobPossition">
+                                    <input type="text" class="form-control" placeholder="Job Position" ng-model="userExprienceModel.JobPossition">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <input type="text" class="form-control datepicer" placeholder="Enter Start Date" ng-model="userExprienceModel.StartDate" id="startdate">
+                                    <input type="text" class="form-control datepicer" placeholder="Start Date" ng-model="userExprienceModel.StartDate" id="startdate">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <input type="text" class="form-control datepicer" placeholder="Enter End Date" ng-model="userExprienceModel.EndDate" id="enddate">
+                                    <input type="text" class="form-control datepicer" placeholder="End Date" ng-model="userExprienceModel.EndDate" id="enddate">
                                 </div>
                             </div>
                             <div class="text-right">

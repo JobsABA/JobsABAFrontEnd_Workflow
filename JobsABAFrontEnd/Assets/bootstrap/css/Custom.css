@@ -572,8 +572,8 @@ a {
 .hrDivider {
     clear: both;
     border: none;
-    /*height: 10px;*/
-    /*background-color: white;*/
+    height: 10px;
+    background-color: white;
 }
 
 .headerDiv {
@@ -638,4 +638,31 @@ hr {
 
 .ng-hide {
     display: none !important;
+}
+
+#toTop {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+    display: none;
+    width: 34px;
+    padding: 6px 10px;
+}
+
+    #toTop .fa {
+        margin-right: 5px;
+    }
+
+.remainCharacterClass {
+    color: gainsboro;
+}
+
+.socialCheckboxDiv label {
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+#companyProfilemainDiv .row {
+    background: white !important;
 }

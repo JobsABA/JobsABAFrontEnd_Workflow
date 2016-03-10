@@ -46,7 +46,7 @@
     <script src="App/Controller/SignInController.js"></script>
     <script src="App/Controller/BlogListController.js"></script>
     <script src="App/Controller/ChangePassword.js"></script>
-
+    <script src="App/Controller/ContactUsController.js"></script>
     <script>
         $(function () {
             $(".datepicer").datepicker({
@@ -56,13 +56,33 @@
             $(document).tooltip({
                 track: true
             });
-            $("#navbar ul li").click(function () {
+
+            //for select menu
+            $("a").click(function () {
+                var href = $(this).attr('href');
+                var hrefList = ["#jobsInAba", "#abaServiceProvide", "#blog", "#contactUs"];
                 $("#navbar ul li").each(function () {
                     $(this).removeClass('activeMenu');
                 });
-                $(this).addClass('activeMenu');
+                if (hrefList.indexOf(href) > -1) {
+                    if (!$(this).parent('li').hasClass('footerMenu'))
+                        $(this).parent('li').addClass('activeMenu');
+                }
             });
 
+            //for scroll to top
+            $('body').append('<div id="toTop" class="btn btn-orange"><i class="fa fa-arrow-up"></i></div>');
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
         });
     </script>
 </head>
@@ -106,12 +126,11 @@
                     <!--<li><a href="#home">HOME</a></li>-->
                     <li><a href="#jobsInAba">JOBS IN ABA</a></li>
                     <li><a href="#abaServiceProvide">ABA SERVICE PROVIDERS</a></li>
-
                     <!--<li><a href="javascript:void(0)">PARENT CORNER</a></li>-->
                     <li><a href="#blog">ABA Insights</a></li>
                     <!--<li><a href="javascript:void(0)">RESOURCES</a></li>-->
                     <li><a href="javascript:void(0)">ABOUT US</a></li>
-                    <li><a href="javascript:void(0)">CONTACT</a></li>
+                    <li><a href="#contactUs">CONTACT US</a></li>
                 </ul>
             </div>
         </div>
@@ -163,30 +182,30 @@
                 </div>
                 <div class="col-lg-6">
                     <h3 class="text-center">About Jobs In ABA</h3>
-                    <hr style="clear:both;"/>
+                    <hr style="clear:both;" />
                     <div class="col-lg-4">
                         <ul class="list-unstyled">
-                            <li><a href="#jobsInAba">Jobs In ABA</a></li>
-                            <li><a href="#abaServiceProvide">ABA Service Providers</a></li>
-                            <li><a href="#blog">ABA Insights</a></li>
-                            
+                            <li class="footerMenu"><a href="#jobsInAba">Jobs In ABA</a></li>
+                            <li class="footerMenu"><a href="#abaServiceProvide">ABA Service Providers</a></li>
+                            <li class="footerMenu"><a href="#blog">ABA Insights</a></li>
+
                         </ul>
                     </div>
                     <div class="col-lg-4">
                         <ul class="list-unstyled">
-                            <li><a href="">News & Press</a></li>
-                            <li><a href="">Events</a></li>
-                            <li><a href="">Careers</a></li>
+                            <li class="footerMenu"><a href="">News & Press</a></li>
+                            <li class="footerMenu"><a href="">Events</a></li>
+                            <li class="footerMenu"><a href="">Careers</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4">
                         <ul class="list-unstyled">
-                            <li><a href="">Contact Us</a></li>
-                            <li><a href="#privacyPolicy">Privacy Policy</a></li>
-                            <li><a href="#termsCondition">Terms & Conditions</a></li>
+                            <li class="footerMenu"><a href="#contactUs">Contact Us</a></li>
+                            <li class="footerMenu"><a href="#privacyPolicy">Privacy Policy</a></li>
+                            <li class="footerMenu"><a href="#termsCondition">Terms & Conditions</a></li>
                         </ul>
                     </div>
-                    
+
 
                 </div>
                 <div class="col-lg-3">
@@ -258,4 +277,3 @@
     </div>
 </body>
 </html>
-

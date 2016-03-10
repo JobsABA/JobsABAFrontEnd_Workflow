@@ -1,0 +1,123 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <img src="../Assets/img/companyprofile.png" style="width:100%;height:380px;" />
+    </div>
+    <div class="row" style="margin-top:-370px;color:white;">
+        <div class="col-lg-2">
+
+        </div>
+        <div class="col-lg-8">
+            <div class="text-center">
+                <hr />
+                <h2 style="color: #ED5837">CONTACT US</h2>
+
+                <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <h3>Phone: 213-910-4364</h3>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>Email:<a style="color: #ED5837" href="mailTo:support@jobsinaba.com"> support@jobsinaba.com</a></h3>
+                    </div>
+                </div>
+                <hr />
+                <div class="col-lg-12">
+                    <h3>CORPORATE HQ</h3>
+                    <p>Los Angeles</p>
+                    <p>CA 90035</p>
+                </div>
+                <div class="col-lg-12">
+                    <p>Or, complete the form below and we'll get back to you right away!</p>
+                </div>
+                <div class="col-lg-12">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-8">
+                <form role="form"
+                      id="formContactUS"
+                      name="formContactUS"
+                      novalidate
+                      ng-submit="formSubmit()">
+
+                    <div class="form-group col-lg-6">
+                        <select class="form-control" ng-model="ContactUsModel.UserType" ng-class="{'complusoryClass':ContactUsModel.UserType==undefined}" ng-required="true">
+                            <option value="">I am</option>
+                            <option value="Job_Seeker">Job Seeker</option>
+                            <option value="Employer">Employer</option>
+                            <option value="Media">Media</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <select class="form-control" ng-model="ContactUsModel.Category" ng-class="{'complusoryClass':ContactUsModel.Category==undefined}" ng-required="true">
+                            <option value="">Select Category</option>
+                            <option value="Feedback">Feedback</option>
+                            <option value="Tech_Support">Tech Support</option>
+                            <option value="My_Account">My Account</option>
+                            <option value="Getting_Started">Getting Started</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="ContactUsModel.FirstName" placeholder="First Name" ng-class="{'complusoryClass':ContactUsModel.FirstName==undefined}" ng-required="true">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="ContactUsModel.LastName" placeholder="Last Name" ng-class="{'complusoryClass':ContactUsModel.LastName==undefined}" ng-required="true">
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <input type="email" class="form-control" ng-model="ContactUsModel.EmailAddress" placeholder="Email Address" ng-class="{'complusoryClass':ContactUsModel.EmailAddress==undefined}" ng-required="true">
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="ContactUsModel.Phone" placeholder="Phone Number">
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="ContactUsModel.Title" placeholder="Title">
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="ContactUsModel.Company" placeholder="Company">
+                    </div>
+
+                    <div class="form-group col-lg-12">
+                        <textarea class="form-control" id="contact_message" style="height:120px;" ng-model="ContactUsModel.Message" placeholder="Message" maxlength="500"></textarea>
+                        <span class="remainCharacterClass"><span id="remainCharacter">500</span> characters remaining</span>
+                    </div>
+                    <div class="form-group col-lg-12 text-center">
+                        <input type="button" class="btn btn-orange" ng-disabled="!formContactUS.$valid" ng-click="contactUs()" value="Submit" />
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("#contact_message").keyup(function () {
+            var text_length = $('#contact_message').val().length;
+            var text_remaining = 500 - text_length;
+            $("#remainCharacter").html(text_remaining);
+        });
+    });
+</script>

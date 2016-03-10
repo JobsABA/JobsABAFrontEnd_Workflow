@@ -19,951 +19,557 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="col-lg-12 companyProfileBox" id="companyProfileInfoDiv">
-            <div class="col-lg-2" style="background: gainsboro;padding: 10px;">
-                <div>
-                    <img ng-hide="isEditProfile_Image" id="profileimage" class="" src="assets/img/no-image-company.png" style="" ng-if="ImageExtension==null||ImageExtension==''">
-                        <img ng-hide="isEditProfile_Image" id="profileimage" src="{{API_PATH_Image}}/FileUpload/CompanyImage/{{BusinessID}}{{ImageExtension}}?d={{randomNumber}}" style="width:100%;height:150px;" ng-if="ImgExt!=null&&ImgExt!=''">
-                </div>
-                <div ng-show="isUserBusinessOwner" class="text-center">
-                    <img ng-hide="isEditProfile_Image" src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditProfile_Image=true" class="iconImage">
-                </div>
-
-                <div ng-show="isUserBusinessOwner">
-                    <div>
-                        <input ng-show="isEditProfile_Image" id="uploadimage" class="form-control" placeholder="Upload Image" type="file">
-                    </div>
-                    <div class="text-right">
-                        <img class='iconImage' ng-click="isEditProfile_Image=false" ng-show="isEditProfile_Image" src='assets/img/Close Window-48.png'>
-                        <img class='iconImage' ng-show="isEditProfile_Image" src="assets/img/Save.png" id="profile" ng-click="companyImageUpload()">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-xs-12">
-                <div class="col-lg-12">
-                    <h4 style="border-bottom: 1px solid gainsboro;"><img src="assets/img/Branches.png" class="iconImage" /> Head office</h4>
-                </div>
-
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                    <img src="assets/img/pointer_footer.png" class="iconImage" />
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                    <div>
-                        <div ng-hide="isEditAddress" class="odd" ng-mouseenter="onmousehover('isEditLine1Hover','')" ng-mouseleave="onmouseleave('isEditLine1Hover','')">
-                            <span class="companydata ">{{bussinessDetail.BussiessAddress.Line1}}</span>
-                            <span ng-if="bussinessDetail.BussiessAddress.Line1==undefined && isUserBusinessOwner">Enter Address</span>
-                            <div ng-show="isEditLine1Hover" style="display:inline-block;">
-                                <img class="iconImage" ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditAddress=true">
-                            </div>
-                        </div>
-                        <div ng-show="isEditAddress">
-                            <div>
-                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.Line1" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isEditAddress=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div ng-hide="isEditCity" class="even" ng-mouseenter="onmousehover('isEditCityHover','')" ng-mouseleave="onmouseleave('isEditCityHover','')">
-                            <span class="companydata ">{{bussinessDetail.BussiessAddress.City}}</span>
-                            <span ng-if="bussinessDetail.BussiessAddress.City==undefined && isUserBusinessOwner">Enter City</span>
-                            <div ng-show="isEditCityHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditCity=true" class="iconImage">
-                            </div>
-                        </div>
-                        <div ng-show="isEditCity">
-                            <div>
-                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.City" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isEditCity=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div ng-hide="isEditState" class="odd" ng-mouseenter="onmousehover('isEditStateHover','')" ng-mouseleave="onmouseleave('isEditStateHover','')">
-                            <span class="companydata ">{{bussinessDetail.BussiessAddress.State}}</span>
-                            <span ng-if="bussinessDetail.BussiessAddress.State==undefined && isUserBusinessOwner">Enter State</span>
-                            <div ng-show="isEditStateHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditState=true" class="iconImage">
-                            </div>
-                        </div>
-                        <div ng-show="isEditState">
-                            <div>
-                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.State" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isEditState=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div ng-hide="isEditZipCode" class="even" ng-mouseenter="onmousehover('isEditZipHover','')" ng-mouseleave="onmouseleave('isEditZipHover','')">
-                            <span class="companydata ">{{bussinessDetail.BussiessAddress.ZipCode}}</span>
-                            <span ng-if="bussinessDetail.BussiessAddress.ZipCode==undefined && isUserBusinessOwner">Enter ZipCode</span>
-                            <div ng-show="isEditZipHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditZipCode=true" class="iconImage">
-                            </div>
-                        </div>
-                        <div ng-show="isEditZipCode">
-                            <div>
-                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.ZipCode" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isEditZipCode=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4 col-md-4" style="line-height:2;">
-
-                <div class="col-lg-12">
-                    <h4 style="border-bottom: 1px solid gainsboro;"><img src="assets/img/Contact-details.png" class="iconImage" /> Contact Us</h4>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div ng-hide="isEditEmail" class="odd" ng-mouseenter="onmousehover('isEditEmailHover','')" ng-mouseleave="onmouseleave('isEditEmailHover','')">
-                        <img src="assets/img/mail-128.png" class="iconImage" />
-                        <span class="companydata ">{{bussinessDetail.BussinessEmail.Address}}</span>
-                        <span ng-show="isEditEmailHover" style="display:inline-block;">
-                            <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditEmail=true" class="iconImage">
-                        </span>
-                    </div>
-                    <div ng-show="isEditEmail">
-                        <div>
-                            <input class='form-control' type='text' ng-model="bussinessDetail.BussinessEmail.Address" ng-enter="updateCompanyDetail(bussinessDetail.BussinessEmail,'BussinessEmail')">
-                        </div>
-                        <div class="text-right">
-                            <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussinessEmail,'BussinessEmail')" src='assets/img/Save.png'>
-                            <img class='iconImage' ng-click="isEditEmail=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12" style="clear:both;">
-                    <div ng-hide="isEditNumber" class="even" ng-mouseenter="onmousehover('isEditNumberHover','')" ng-mouseleave="onmouseleave('isEditNumberHover','')">
-                        <img src="assets/img/phone_footer.png" class="iconImage" />
-                        <span class="companydata ">{{bussinessDetail.BussinessPhone.Number}}</span>
-                        <span ng-show="isEditNumberHover" style="display:inline-block;">
-                            <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditNumber=true" class="iconImage">
-                        </span>
-                    </div>
-                    <div ng-show="isEditNumber">
-                        <div>
-                            <input class='form-control' type='text' ng-model="bussinessDetail.BussinessPhone.Number" ng-enter="updateCompanyDetail(bussinessDetail.BussinessPhone,'Number')">
-                        </div>
-                        <div class="text-right">
-                            <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussinessPhone,'Number')" src='assets/img/Save.png'>
-                            <img class='iconImage' ng-click="isEditNumber=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3" style="line-height:2;">
-                <div class="col-lg-12">
-                    <h4 style="border-bottom: 1px solid gainsboro;"><img src="assets/img/companySize.png" class="iconImage" /> Company Size</h4>
-                </div>
-                <div class="col-lg-12">
-                    <img src="/assets/img/employeelist.png" class="iconImage">
-                    <span> {{objEmplist.length}} Employee</span>
-                </div>
-                <div class="col-lg-12">
-                    <img src="Assets/img/Job.png" class="iconImage">
-                    <span> {{lstJob.length}} Jobs</span>
-                </div>
-            </div>
-        </div>
-        <hr class="hrDivider" />
-
-        <div class="col-lg-12 companyProfileBox">
-            <div class="headerDiv">
-                <div class="col-lg-12">
-                    <h4><img src='assets/img/companySUmmery.png' class="iconImage" /> Summery</h4>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div>
-                    <div ng-hide="isEditCompanyDesription" ng-mouseenter="onmousehover('isEditDescHover','')" ng-mouseleave="onmouseleave('isEditDescHover','')">
-                        <span>{{bussinessDetail.BussinessInfo.Description}}</span>
-                        <span ng-if="bussinessDetail.BussinessInfo.Description==undefined || bussinessDetail.BussinessInfo.Description==''">This is {{bussinessDetail.BussinessInfo.Name}}</span>
-                        <div ng-show="isEditDescHover" style="display:inline-block;">
-                            <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditCompanyDesription=true" class="iconImage">
-                        </div>
-                    </div>
-                    <div ng-show="isEditCompanyDesription">
-                        <div>
-                            <textarea class='form-control' ng-model="bussinessDetail.BussinessInfo.Description" style="height:225px;"></textarea>
-                        </div>
-                        <div class="text-right">
-                            <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussinessInfo,'Description')" src='assets/img/Save.png'>
-                            <img class='iconImage' ng-click="isEditCompanyDesription=false" src='assets/img/Close Window-48.png'>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <hr class="hrDivider" />
-
-        <div class="col-lg-12 companyProfileBox">
-            <!-- Specialties -->
-            <div class="col-lg-3 " style="border-right: 1px solid gainsboro;">
-                <div id="companyProfileSpecialistDiv" style="clear:both;">
-                    <div class="headerDiv">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                            <h4><img src="/assets/img/CompanySpecialist.png" class="iconImage" /> Specialties</h4>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
-                            <img id="specialities" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="IsAddSpecialist=true" class="iconImage">
-                        </div>
-                    </div>
-                    <div>
-                        <form id="" style=" text-align: right;" ng-show="IsAddSpecialist">
-                            <div>
-                                <input type="text" placeholder="COMPANY SPECIALTIES " ng-model="addCompanySpecialistModel.Name" class="form-control">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanySpecialist(addCompanySpecialistModel)" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="IsAddSpecialist=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="col-lg-12" ng-repeat="o in objSpecialist">
-                        <div style="width:100%;display:inline-block;" ng-mouseenter="onmousehover('isEditSpecialist_',o.ServiceID)" ng-mouseleave="onmouseleave('isEditSpecialist_',o.ServiceID)">
-                            <p style="width: 75%;float: left;">{{$index+1}}. {{o.Name}}</p>
-                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditSpecialist_{{o.ServiceID}}" ng-click="deleteSpecialist(o.ServiceID)"><img src="assets/img/delete-48.png" class="iconImage"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12" ng-if="objSpecialist.length==0">
-                        <p>No Specialist Available.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Employee -->
-            <div class="col-lg-3 " style="border-right: 1px solid gainsboro;">
-                <div id="companyProfileEmployeeDiv">
-                    <div class="headerDiv">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                            <h4><img src="/assets/img/employeelist.png" class="iconImage" /> Employee</h4>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
-                            <img class="iconImage" id="" src="/assets/img/addition-sign.png" ng-click="isAddEmployee=true" ng-show="isUserBusinessOwner">
-                        </div>
-                    </div>
-                    <div>
-                        <form id="employeeform" ng-show="isAddEmployee">
-                            <div>
-                                <input type="text" placeholder="FIRST NAME " ng-model="addCompanyEMPlistModel.FirstName" class="form-control">
-                                <input type="text" placeholder="MIDDLE NAME " ng-model="addCompanyEMPlistModel.MiddleName" class="form-control">
-                                <input type="text" placeholder="LAST NAME " ng-model="addCompanyEMPlistModel.LastName" class="form-control">
-                                <input type="text" placeholder="Job Location " ng-model="addCompanyEMPlistModel.State" class="form-control">
-                                <input type="text" placeholder="EMAIL ID " ng-model="addCompanyEMPlistModel.EmailAddress" class="form-control">
-                                <input type="text" placeholder="phoneNumber " ng-model="addCompanyEMPlistModel.PhoneNumber" class="form-control">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanyEmplist(addCompanyEMPlistModel)" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isAddEmployee=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="col-lg-12" color:black;" ng-repeat="o in objEmplist">
-                        <div style="width:100%;display:inline-block;" ng-hide="isEditEmplist_{{o.UserID}}" ng-mouseenter="onmousehover('isEditMainEmplist_',o.UserID)" ng-mouseleave="onmouseleave('isEditMainEmplist_',o.UserID)">
-                            <p style="width:75%;float:left;">{{$index+1}}. {{o.FirstName}} {{o.LastName}} </p>
-                            <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainEmplist_{{o.UserID}}" ng-click="editEMPlist(o)"><img class="iconImage" src="assets/img/EDIT_USE.png"></a>
-                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainEmplist_{{o.UserID}}" ng-click="deleteEMPlist(o.UserID)"><img class="iconImage" src="assets/img/delete-48.png"></a>
-                        </div>
-                        <div ng-show="isEditEmplist_{{o.UserID}}">
-                            <form id="employeeform">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="col-lg-12 companyProfileBox" id="companyProfileInfoDiv">
+                            <div style="background: gainsboro; padding: 10px; margin: 0 -15px;">
                                 <div>
-                                    <input type="text" placeholder="FIRST NAME " ng-model="editCompanyEMPlistModel.FirstName" class="form-control">
-                                    <input type="text" placeholder="MIDDLE NAME " ng-model="editCompanyEMPlistModel.MiddleName" class="form-control">
-                                    <input type="text" placeholder="LAST NAME " ng-model="editCompanyEMPlistModel.LastName" class="form-control">
-                                    <input type="text" placeholder="Job Location " ng-model="editCompanyEMPlistModel.State" class="form-control">
-                                    <input type="text" placeholder="EMAIL ID " ng-model="editCompanyEMPlistModel.EmailAddress" class="form-control">
-                                    <input type="text" placeholder="phoneNumber " ng-model="editCompanyEMPlistModel.PhoneNumber" class="form-control">
+                                    <img ng-hide="isEditProfile_Image" id="profileimage" class="" src="assets/img/no-image-company.png" style="" ng-if="bussinessDetail.ImageExtension==null||bussinessDetail.ImageExtension==''">
+                                    <img ng-hide="isEditProfile_Image" id="profileimage" src="{{API_PATH_Image}}/FileUpload/CompanyImage/{{bussinessDetail.BusinessID}}{{bussinessDetail.ImageExtension}}?d={{randomNumber}}" style="width:100%;height:150px;" ng-if="bussinessDetail.ImageExtension!=null&&bussinessDetail.ImageExtension!=''">
                                 </div>
-                                <div class="text-right">
-                                    <a class="btn-edit" href="javascript:void(0)" ng-click="updateEMPProfile(editCompanyEMPlistModel)"><img class="iconImage" src="assets/img/Save.png"></a>
-                                    <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditEMPlist(editCompanyEMPlistModel)"><img class="iconImage" src="assets/img/Close Window-48.png"></a>
+                                <div ng-show="isUserBusinessOwner" class="text-center">
+                                    <img ng-hide="isEditProfile_Image" src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditProfile_Image=true" class="iconImage">
                                 </div>
-                            </form>
 
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-12" ng-if="objEmplist.length==0">
-                        <p>No Employee Available.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- ACHIEVEMENT -->
-            <div class="col-lg-3 " style="border-right: 1px solid gainsboro;">
-                <div id="companyProfileAchieveDiv">
-                    <div class="headerDiv">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                            <h4><img src="/assets/img/Company-awards.png" class="iconImage" /> Award</h4>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
-                            <img class="iconImage" id="achivement" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="isAddAwards=true">
-                        </div>
-                    </div>
-
-                    <div>
-                        <form id="" ng-show="isAddAwards" style="text-align: right;">
+                                <div ng-show="isUserBusinessOwner">
+                                    <div>
+                                        <input ng-show="isEditProfile_Image" id="uploadimage" class="form-control" placeholder="Upload Image" type="file">
+                                    </div>
+                                    <div class="text-right">
+                                        <img class='iconImage' ng-click="isEditProfile_Image=false" ng-show="isEditProfile_Image" src='assets/img/Close Window-48.png'>
+                                        <img class='iconImage' ng-show="isEditProfile_Image" src="assets/img/Save.png" id="profile" ng-click="companyImageUpload()">
+                                    </div>
+                                </div>
+                            </div>
                             <div>
-                                <input type="text" placeholder="ACHIEVEMENT NAME " class="form-control" ng-model="addCompanyAchievelistModel.Name">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanyAchievelist(addCompanyAchievelistModel)" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isAddAwards=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </form>
-                    </div>
+                                <div class="col-lg-12 text-center">
+                                    <h4 style="border-bottom: 1px solid gainsboro;"><img src="assets/img/Branches.png" class="iconImage" /> Corporate Address</h4>
+                                </div>
 
-                    <div class="col-lg-12" ng-repeat="o in objAchievelist" style="clear:both;">
-                        <div style="clear:both;width:100%;" ng-hide="isEditAchievelist_{{o.AchievementID}}" ng-mouseenter="onmousehover('isMainEditAchive_',o.AchievementID)" ng-mouseleave="onmouseleave('isMainEditAchive_',o.AchievementID)">
-                            <p style="width:75%;float:left;">{{$index+1}}. {{o.Name}} </p>
-                            <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isMainEditAchive_{{o.AchievementID}}" ng-click="editAchievelist(o)"><img class="iconImage" src="assets/img/EDIT_USE.png"></a>
-                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isMainEditAchive_{{o.AchievementID}}" ng-click="deleteAchievelist(o.AchievementID)"><img class="iconImage" src="assets/img/delete-48.png"></a>
-                        </div>
-                        <div ng-show="isEditAchievelist_{{o.AchievementID}}">
-                            <div>
-                                <input type="text" placeholder="COMPANY SPECIALTIES " ng-model="editCompanyAchievelistModel.Name" class="form-control">
-                            </div>
-                            <div class="text-right">
-                                <a class="btn-edit" href="javascript:void(0)" ng-click="saveEditAchievelist(editCompanyAchievelistModel)"><img class="iconImage" src="assets/img/Save.png"></a>
-                                <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditAchievelist(editCompanyAchievelistModel)"><img class="iconImage" src="assets/img/Close Window-48.png"></a>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-12" ng-if="objAchievelist.length==0">
-                        <p>No Achievement Available.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Branch -->
-            <div class="col-lg-3 col-md-3 col-xs-12">
-                <div id="companyProfileLocationDiv">
-                    <div class="headerDiv">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                            <h4><img src="/assets/img/Branches.png" class="iconImage" /> Branch</h4>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
-                            <img class="iconImage" id="location" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="isAddLoaction=true">
-                        </div>
-                    </div>
-                    <div>
-                        <form id="" ng-show="isAddLoaction">
-                            <div>
-                                <textarea style="resize:none; height:120px;" placeholder="ADD1" class="form-control" ng-model="addCompanyLocationlistModel.Line1"></textarea>
-                                <textarea style="resize:none; height:120px;" placeholder="ADD2" class="form-control" ng-model="addCompanyLocationlistModel.Line2"></textarea>
-                                <input type="text" placeholder="CITY" class="form-control" ng-model="addCompanyLocationlistModel.City">
-                                <input type="text" placeholder="STATE" class="form-control" ng-model="addCompanyLocationlistModel.State">
-                                <input type="text" placeholder="Zip Code" class="form-control" ng-model="addCompanyLocationlistModel.ZipCode">
-                            </div>
-                            <div class="text-right">
-                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanyLocationlist(addCompanyLocationlistModel)" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isAddLoaction=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="col-lg-12" ng-repeat="o in objLocationlist">
-                        <div ng-show="isEditLocationlist_{{o.AddressID}}">
-                            <div>
-                                <textarea style="resize:none; height:120px;" placeholder="ADD1" class="form-control" ng-model="editCompanyLocationlistModel.Line1"></textarea>
-                                <textarea style="resize:none; height:120px;" placeholder="ADD2" class="form-control" ng-model="editCompanyLocationlistModel.Line2"></textarea>
-                                <input type="text" placeholder="CITY" class="form-control" ng-model="editCompanyLocationlistModel.City">
-                                <input type="text" placeholder="STATE" class="form-control" ng-model="editCompanyLocationlistModel.State">
-                                <input type="text" placeholder="ZipCode" class="form-control" ng-model="editCompanyLocationlistModel.ZipCode">
-                            </div>
-                            <div class="text-right">
-                                <a class="btn-edit" href="javascript:void(0)" ng-click="saveEditLocationlist(editCompanyLocationlistModel)"><img class="iconImage" src="assets/img/Save.png"></a>
-                                <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditLocationlist(editCompanyLocationlistModel)"><img class="iconImage" src="assets/img/Close Window-48.png"></a>
-                            </div>
-                        </div>
-                        <div style="width:100%;display:inline-block;" ng-hide="isEditLocationlist_{{o.AddressID}}" ng-mouseenter="onmousehover('isEditMainLocation_',o.AddressID)" ng-mouseleave="onmouseleave('isEditMainLocation_',o.AddressID)">
-                            <p style="width:75%;float:left;line-height:1.4">
-                                {{$index+1}}. {{o.Line1}}, {{o.Line2}},<br />
-                                {{o.City}}, {{o.State}}, {{o.ZipCode}}
-                            </p>
-                            <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainLocation_{{o.AddressID}}" ng-click="editLocationlist(o)"><img class="iconImage" src="assets/img/EDIT_USE.png"></a>
-                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainLocation_{{o.AddressID}}" ng-click="deleteLocationlist(o.AddressID)"><img class="iconImage" src="assets/img/delete-48.png"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12" ng-if="objLocationlist.length==0">
-                        <p>No Location Available.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="hrDivider" />
-        <div class="col-lg-12 companyProfileBox">
-            <div style="clear:both;">
-                <div class="">
-                    <div class=" headerDiv">
-                        <div class="col-lg-10">
-                            <h4><img src="Assets/img/Job.png" class="iconImage" /> Job List<span ng-show="isUserBusinessOwner" style="font-size: 11px;color: red; margin-left:2%;">(*If you want to hide job from visitors. Remove check box)</span></h4>
-
-                        </div>
-                        <div class="col-lg-2 text-right  addIconForCompanyProfile">
-                            <span ng-show="isUserBusinessOwner">
-                                <img class="iconImage" src="/assets/img/addition-sign.png" ng-hide="isEditSummery" ng-click="isEditSummery=true">
-                            </span>
-                        </div>
-                        <hr style="clear:both" />
-                    </div>
-                </div>
-
-
-                <div ng-show="isEditSummery" style="clear:both;">
-
-                    <div class="formfull">
-                        <!--<h4 class="text-center">Job Detail</h4>-->
-                        <form id="postjobform">
-                            <div class="form-group col-lg-12">
-                                <input placeholder="JOB TITLE" ng-model="jobsModel.Title" type="text" class="form-control">
-                            </div>
-                            <div class="form-group col-lg-6">
-                                <input placeholder="START DATE" ng-model="jobsModel.StartDate" type="text" class="form-control datepicer">
-                            </div>
-                            <div class="form-group col-lg-6">
-                                <input placeholder="END DATE" ng-model="jobsModel.EndDate" type="text" class="form-control datepicer">
-                            </div>
-                            <div class="form-group col-lg-12">
-                                <textarea placeholder="JOB DESCRIPTION" ng-model="jobsModel.Description" style="resize: none; height: 120px;" class="form-control"></textarea>
-                            </div>
-
-                            <div class="text-right">
-                                <img class='iconImage' ng-click="createJob(jobsModel)" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="isEditSummery=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                        </form>
-                    </div>
-                    <hr style="clear:both;" />
-                </div>
-
-                <div class="" id="companyProfileJobDiv">
-                    <div class="col-lg-12" ng-repeat="o in lstJob" ng-mouseenter="onmousehover('isMainEditJobList_',o.JobID)" ng-mouseleave="onmouseleave('isMainEditJobList_',o.JobID)">
-                        <div ng-hide="isEditJobList_{{o.JobID}}">
-                            <div class="col-lg-1">
-                                <input ng-if="isUserBusinessOwner==true" type="checkbox" ng-checked="{{o.IsActive}}" ng-click="changeJobActive(o.JobID)" />
-                                {{$index+1}}.
-                            </div>
-                            <div class="col-lg-10">
-                                <a href="#jobDetail/{{o.JobID}}" class="jobapp">
-                                    <b>{{o.Title}}</b>
-                                </a>
-                                <span>({{o.StartDate}} - {{o.EndDate}})</span><br /><br />
-                                <p ng-hide="fullJobDetail_{{o.JobID}}">
-                                    {{o.Description | limitTo :200}}
-                                    <a ng-hide="fullJobDetail_{{o.JobID}}" ng-if="o.Description.length>200" href="javascript:0" ng-click="displayJobFullDetail(o.JobID)">
-                                        <img src="assets/img/read-more-left-arrow-button.png" class="iconImage">
-                                    </a>
-                                </p>
-                                <p ng-show="fullJobDetail_{{o.JobID}}">{{o.Description}}</p>
-                                <!-- Job application -->
-
-                                <div id="" class="row" ng-show="isJobApplication_{{o.JobID}}">
-                                    <h4 class="text-center">Job Application</h4>
-                                    <hr style="clear:both" />
-                                    <div class="col-lg-12">
-                                        <div class="col-lg-6" ng-repeat="o in lstJobApplication">
-                                            <div class="col-lg-1 col-md-1 col-xs-1">
-                                                {{$index+1}}.
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                    <img src="assets/img/pointer_footer.png" class="iconImage" />
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                    <div>
+                                        <div ng-hide="isEditAddress" class="odd" ng-mouseenter="onmousehover('isEditLine1Hover','')" ng-mouseleave="onmouseleave('isEditLine1Hover','')">
+                                            <span class="companydata ">{{bussinessDetail.BussiessAddress.Line1}}</span>
+                                            <span ng-if="bussinessDetail.BussiessAddress.Line1==undefined && isUserBusinessOwner">Enter Address</span>
+                                            <div ng-show="isEditLine1Hover" style="display:inline-block;">
+                                                <img class="iconImage" ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditAddress=true">
                                             </div>
-                                            <div class="col-lg-11 col-md-10 col-xs-10">
-                                                <p>{{o.UserName}}</p>
-                                                <p>Applied on <span class="">{{o.ApplicationDate}}</span> </p>
+                                        </div>
+                                        <div ng-show="isEditAddress">
+                                            <div>
+                                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.Line1" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isEditAddress=false" src='assets/img/Close Window-48.png'>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12" ng-if="lstJobApplication.length==0">
-                                        <p>No application for this job.</p>
+
+                                    <div>
+                                        <div ng-hide="isEditCity" class="even" ng-mouseenter="onmousehover('isEditCityHover','')" ng-mouseleave="onmouseleave('isEditCityHover','')">
+                                            <span class="companydata ">{{bussinessDetail.BussiessAddress.City}}</span>
+                                            <span ng-if="bussinessDetail.BussiessAddress.City==undefined && isUserBusinessOwner">Enter City</span>
+                                            <div ng-show="isEditCityHover" style="display:inline-block;">
+                                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditCity=true" class="iconImage">
+                                            </div>
+                                        </div>
+                                        <div ng-show="isEditCity">
+                                            <div>
+                                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.City" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isEditCity=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div ng-hide="isEditState" class="odd" ng-mouseenter="onmousehover('isEditStateHover','')" ng-mouseleave="onmouseleave('isEditStateHover','')">
+                                            <span class="companydata ">{{bussinessDetail.BussiessAddress.State}}</span>
+                                            <span ng-if="bussinessDetail.BussiessAddress.State==undefined && isUserBusinessOwner">Enter State</span>
+                                            <div ng-show="isEditStateHover" style="display:inline-block;">
+                                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditState=true" class="iconImage">
+                                            </div>
+                                        </div>
+                                        <div ng-show="isEditState">
+                                            <div>
+                                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.State" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isEditState=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div ng-hide="isEditZipCode" class="even" ng-mouseenter="onmousehover('isEditZipHover','')" ng-mouseleave="onmouseleave('isEditZipHover','')">
+                                            <span class="companydata ">{{bussinessDetail.BussiessAddress.ZipCode}}</span>
+                                            <span ng-if="bussinessDetail.BussiessAddress.ZipCode==undefined && isUserBusinessOwner">Enter ZipCode</span>
+                                            <div ng-show="isEditZipHover" style="display:inline-block;">
+                                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditZipCode=true" class="iconImage">
+                                            </div>
+                                        </div>
+                                        <div ng-show="isEditZipCode">
+                                            <div>
+                                                <input class='form-control' type='text' ng-model="bussinessDetail.BussiessAddress.ZipCode" ng-enter="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isEditZipCode=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- job apply -->
-                                <div class="row">
-                                    <div class="col-lg-12 text-right">
-                                        <a ng-if="UserLogin==false" href="#login" class="btn-edit">Apply</a>
-                                        <a ng-if="UserLogin==true && isUserBusinessOwner==false" href="javascript:void(0)" ng-click="applyJob(o.JobID)" class="btn-edit">Apply</a>
+                            </div>
+
+                            <div style="line-height:2;">
+
+                                <div class="col-lg-12 text-center">
+                                    <h4 style="border-bottom: 1px solid gainsboro;"><img src="assets/img/Contact-details.png" class="iconImage" /> Contact Us</h4>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div ng-hide="isEditEmail" class="odd" ng-mouseenter="onmousehover('isEditEmailHover','')" ng-mouseleave="onmouseleave('isEditEmailHover','')">
+                                        <img src="assets/img/mail-128.png" class="iconImage" />
+                                        <span class="companydata ">{{bussinessDetail.BusinessEmailAddress}}</span>
+                                        <span ng-show="isEditEmailHover" style="display:inline-block;">
+                                            <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditEmail=true" class="iconImage">
+                                        </span>
+                                    </div>
+                                    <div ng-show="isEditEmail">
+                                        <div>
+                                            <input class='form-control' type='text' ng-model="bussinessDetail.BussinessEmail.Address" ng-enter="updateCompanyDetail(bussinessDetail.BussinessEmail,'BussinessEmail')">
+                                        </div>
+                                        <div class="text-right">
+                                            <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussinessEmail,'BussinessEmail')" src='assets/img/Save.png'>
+                                            <img class='iconImage' ng-click="isEditEmail=false" src='assets/img/Close Window-48.png'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" style="clear:both;">
+                                    <div ng-hide="isEditNumber" class="even" ng-mouseenter="onmousehover('isEditNumberHover','')" ng-mouseleave="onmouseleave('isEditNumberHover','')">
+                                        <img src="assets/img/phone_footer.png" class="iconImage" />
+                                        <span class="companydata ">{{bussinessDetail.BusinessPhoneNumber}}</span>
+                                        <span ng-show="isEditNumberHover" style="display:inline-block;">
+                                            <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditNumber=true" class="iconImage">
+                                        </span>
+                                    </div>
+                                    <div ng-show="isEditNumber">
+                                        <div>
+                                            <input class='form-control' type='text' ng-model="bussinessDetail.BussinessPhone.Number" ng-enter="updateCompanyDetail(bussinessDetail.BussinessPhone,'Number')">
+                                        </div>
+                                        <div class="text-right">
+                                            <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussinessPhone,'Number')" src='assets/img/Save.png'>
+                                            <img class='iconImage' ng-click="isEditNumber=false" src='assets/img/Close Window-48.png'>
+                                        </div>
                                     </div>
                                 </div>
 
-
-                            </div>
-                            <div class="col-lg-1 text-right">
-                                <img ng-if="isUserBusinessOwner==true" ng-show="isMainEditJobList_{{o.JobID}}" class='iconImage' ng-click="editJobDetail(o.JobID)" src='assets/img/EDIT_USE.png'>
-                                <img ng-if="isUserBusinessOwner==true" ng-show="isMainEditJobList_{{o.JobID}}" class='iconImage' ng-click="deleteJob(o.JobID)" src='assets/img/delete-48.png'>
-                                <img ng-if="UserLogin==true && isUserBusinessOwner==true" src="assets/img/ApplicationView.png" title="View Application List" ng-click="viewApplivation(o.JobID)" class="iconImage" />
-                            </div>
-                            <hr style="clear:both;" />
-                        </div>
-                        <div ng-show="isEditJobList_{{o.JobID}}">
-                            <div>
-                                <div class="form-group col-lg-12">
-                                    <input placeholder="JOB TITLE" ng-model="o.Title" type="text" class="form-control">
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <input placeholder="START DATE" ng-model="o.StartDate" type="text" class="form-control datepicer">
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <input placeholder="END DATE" ng-model="o.EndDate" type="text" class="form-control datepicer">
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <textarea placeholder="JOB DESCRIPTION" ng-model="o.Description" style="resize: none; height: 120px;" class="form-control"></textarea>
+                                <div class="col-lg-12">
+                                    <img src="assets/img/web.png" class="iconImage" />
+                                    <span class="companydata "><a href="http://test.jobsinaba.com/" target="_blank">http://test.jobsinaba.com/</a></span>
                                 </div>
                             </div>
 
-                            <div class="text-right">
-                                <img class='iconImage' ng-click="updateJob(o)" src='assets/img/Save.png'>
-                                <img class='iconImage' ng-click="cancelJobDetailEdit(o.JobID)" src='assets/img/Close Window-48.png'>
-                            </div>
-                            <hr style="clear:both;" />
+                            <!--<div  style="line-height:2;">
+                                <div class="col-lg-12">
+                                    <h4 style="border-bottom: 1px solid gainsboro;"><img src="assets/img/companySize.png" class="iconImage" /> Company Size</h4>
+                                </div>
+                                <div class="col-lg-12">
+                                    <img src="/assets/img/employeelist.png" class="iconImage">
+                                    <span> {{objEmplist.length}} Employee</span>
+                                </div>
+                                <div class="col-lg-12">
+                                    <img src="Assets/img/Job.png" class="iconImage">
+                                    <span> {{lstJob.length}} Jobs</span>
+                                </div>
+                            </div>-->
                         </div>
                     </div>
-                    <div class="col-lg-12" ng-if="lstJob.length==0">
-                        <p>No jobs available for this company</p>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-12 companyProfileBox">
+                            <div class="col-lg-12">
+                                <div>
+                                    <div ng-hide="isEditCompanyDesription" ng-mouseenter="onmousehover('isEditDescHover','')" ng-mouseleave="onmouseleave('isEditDescHover','')">
+                                        <span>{{bussinessDetail.Description}}</span>
+                                        <span ng-if="bussinessDetail.Description==undefined || bussinessDetail.Description==''">This is {{bussinessDetail.Name}}</span>
+                                        <div ng-show="isEditDescHover" style="display:inline-block;">
+                                            <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditCompanyDesription=true" class="iconImage">
+                                        </div>
+                                    </div>
+                                    <div ng-show="isEditCompanyDesription">
+                                        <div>
+                                            <textarea class='form-control' ng-model="bussinessDetail.Description" style="height:225px;"></textarea>
+                                        </div>
+                                        <div class="text-right">
+                                            <img class='iconImage' ng-click="updateCompanyDetail(bussinessDetail.BussinessInfo,'Description')" src='assets/img/Save.png'>
+                                            <img class='iconImage' ng-click="isEditCompanyDesription=false" src='assets/img/Close Window-48.png'>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="hrDivider" />
+
+                        <div class="col-lg-12 companyProfileBox">
+                            <!-- Specialties -->
+                            <div class="col-lg-6 ">
+                                <div id="companyProfileSpecialistDiv" style="clear:both;">
+                                    <div class="headerDiv">
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                            <h4><img src="/assets/img/CompanySpecialist.png" class="iconImage" /> Services Provided</h4>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
+                                            <img id="specialities" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="IsAddSpecialist=true" class="iconImage">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <form id="" style=" text-align: right;" ng-show="IsAddSpecialist">
+                                            <div>
+                                                <input type="text" placeholder="COMPANY SPECIALTIES " ng-model="addCompanySpecialistModel.Name" class="form-control">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanySpecialist(addCompanySpecialistModel)" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="IsAddSpecialist=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-12" ng-repeat="o in objSpecialist">
+                                        <div style="width:100%;display:inline-block;" ng-mouseenter="onmousehover('isEditSpecialist_',o.ServiceID)" ng-mouseleave="onmouseleave('isEditSpecialist_',o.ServiceID)">
+                                            <p style="width: 75%;float: left;">{{$index+1}}. {{o.Name}}</p>
+                                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditSpecialist_{{o.ServiceID}}" ng-click="deleteSpecialist(o.ServiceID)"><img src="assets/img/delete-48.png" class="iconImage"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12" ng-if="objSpecialist.length==0">
+                                        <p>No Specialist Available.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Employee -->
+                            <!--<div class="col-lg-6">
+                                <div id="companyProfileEmployeeDiv">
+                                    <div class="headerDiv">
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                            <h4><img src="/assets/img/employeelist.png" class="iconImage" /> Employee</h4>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
+                                            <img class="iconImage" id="" src="/assets/img/addition-sign.png" ng-click="isAddEmployee=true" ng-show="isUserBusinessOwner">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <form id="employeeform" ng-show="isAddEmployee">
+                                            <div>
+                                                <input type="text" placeholder="FIRST NAME " ng-model="addCompanyEMPlistModel.FirstName" class="form-control">
+                                                <input type="text" placeholder="MIDDLE NAME " ng-model="addCompanyEMPlistModel.MiddleName" class="form-control">
+                                                <input type="text" placeholder="LAST NAME " ng-model="addCompanyEMPlistModel.LastName" class="form-control">
+                                                <input type="text" placeholder="Job Location " ng-model="addCompanyEMPlistModel.State" class="form-control">
+                                                <input type="text" placeholder="EMAIL ID " ng-model="addCompanyEMPlistModel.EmailAddress" class="form-control">
+                                                <input type="text" placeholder="phoneNumber " ng-model="addCompanyEMPlistModel.PhoneNumber" class="form-control">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanyEmplist(addCompanyEMPlistModel)" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isAddEmployee=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-12" color:black;" ng-repeat="o in objEmplist">
+                                        <div style="width:100%;display:inline-block;" ng-hide="isEditEmplist_{{o.UserID}}" ng-mouseenter="onmousehover('isEditMainEmplist_',o.UserID)" ng-mouseleave="onmouseleave('isEditMainEmplist_',o.UserID)">
+                                            <p style="width:75%;float:left;">{{$index+1}}. {{o.FirstName}} {{o.LastName}} </p>
+                                            <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainEmplist_{{o.UserID}}" ng-click="editEMPlist(o)"><img class="iconImage" src="assets/img/EDIT_USE.png"></a>
+                                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainEmplist_{{o.UserID}}" ng-click="deleteEMPlist(o.UserID)"><img class="iconImage" src="assets/img/delete-48.png"></a>
+                                        </div>
+                                        <div ng-show="isEditEmplist_{{o.UserID}}">
+                                            <form id="employeeform">
+                                                <div>
+                                                    <input type="text" placeholder="FIRST NAME " ng-model="editCompanyEMPlistModel.FirstName" class="form-control">
+                                                    <input type="text" placeholder="MIDDLE NAME " ng-model="editCompanyEMPlistModel.MiddleName" class="form-control">
+                                                    <input type="text" placeholder="LAST NAME " ng-model="editCompanyEMPlistModel.LastName" class="form-control">
+                                                    <input type="text" placeholder="Job Location " ng-model="editCompanyEMPlistModel.State" class="form-control">
+                                                    <input type="text" placeholder="EMAIL ID " ng-model="editCompanyEMPlistModel.EmailAddress" class="form-control">
+                                                    <input type="text" placeholder="phoneNumber " ng-model="editCompanyEMPlistModel.PhoneNumber" class="form-control">
+                                                </div>
+                                                <div class="text-right">
+                                                    <a class="btn-edit" href="javascript:void(0)" ng-click="updateEMPProfile(editCompanyEMPlistModel)"><img class="iconImage" src="assets/img/Save.png"></a>
+                                                    <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditEMPlist(editCompanyEMPlistModel)"><img class="iconImage" src="assets/img/Close Window-48.png"></a>
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-12" ng-if="objEmplist.length==0">
+                                        <p>No Employee Available.</p>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <!-- ACHIEVEMENT -->
+                            <!--<div class="col-lg-6">
+                                <div id="companyProfileAchieveDiv">
+                                    <div class="headerDiv">
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                            <h4><img src="/assets/img/Company-awards.png" class="iconImage" /> Award</h4>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
+                                            <img class="iconImage" id="achivement" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="isAddAwards=true">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <form id="" ng-show="isAddAwards" style="text-align: right;">
+                                            <div>
+                                                <input type="text" placeholder="ACHIEVEMENT NAME " class="form-control" ng-model="addCompanyAchievelistModel.Name">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanyAchievelist(addCompanyAchievelistModel)" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isAddAwards=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-12" ng-repeat="o in objAchievelist" style="clear:both;">
+                                        <div style="clear:both;width:100%;" ng-hide="isEditAchievelist_{{o.AchievementID}}" ng-mouseenter="onmousehover('isMainEditAchive_',o.AchievementID)" ng-mouseleave="onmouseleave('isMainEditAchive_',o.AchievementID)">
+                                            <p style="width:75%;float:left;">{{$index+1}}. {{o.Name}} </p>
+                                            <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isMainEditAchive_{{o.AchievementID}}" ng-click="editAchievelist(o)"><img class="iconImage" src="assets/img/EDIT_USE.png"></a>
+                                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isMainEditAchive_{{o.AchievementID}}" ng-click="deleteAchievelist(o.AchievementID)"><img class="iconImage" src="assets/img/delete-48.png"></a>
+                                        </div>
+                                        <div ng-show="isEditAchievelist_{{o.AchievementID}}">
+                                            <div>
+                                                <input type="text" placeholder="COMPANY SPECIALTIES " ng-model="editCompanyAchievelistModel.Name" class="form-control">
+                                            </div>
+                                            <div class="text-right">
+                                                <a class="btn-edit" href="javascript:void(0)" ng-click="saveEditAchievelist(editCompanyAchievelistModel)"><img class="iconImage" src="assets/img/Save.png"></a>
+                                                <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditAchievelist(editCompanyAchievelistModel)"><img class="iconImage" src="assets/img/Close Window-48.png"></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12" ng-if="objAchievelist.length==0">
+                                        <p>No Achievement Available.</p>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <!-- Branch -->
+                            <!--<div class="col-lg-6 col-md-6 col-xs-12">
+                                <div id="companyProfileLocationDiv">
+                                    <div class="headerDiv">
+                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                            <h4><img src="/assets/img/Branches.png" class="iconImage" /> Branch</h4>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 addIconForCompanyProfile">
+                                            <img class="iconImage" id="location" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="isAddLoaction=true">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <form id="" ng-show="isAddLoaction">
+                                            <div>
+                                                <textarea style="resize:none; height:120px;" placeholder="ADD1" class="form-control" ng-model="addCompanyLocationlistModel.Line1"></textarea>
+                                                <textarea style="resize:none; height:120px;" placeholder="ADD2" class="form-control" ng-model="addCompanyLocationlistModel.Line2"></textarea>
+                                                <input type="text" placeholder="CITY" class="form-control" ng-model="addCompanyLocationlistModel.City">
+                                                <input type="text" placeholder="STATE" class="form-control" ng-model="addCompanyLocationlistModel.State">
+                                                <input type="text" placeholder="Zip Code" class="form-control" ng-model="addCompanyLocationlistModel.ZipCode">
+                                            </div>
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-if="isUserBusinessOwner==true" ng-click="addCompanyLocationlist(addCompanyLocationlistModel)" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isAddLoaction=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-12" ng-repeat="o in objLocationlist">
+                                        <div ng-show="isEditLocationlist_{{o.AddressID}}">
+                                            <div>
+                                                <textarea style="resize:none; height:120px;" placeholder="ADD1" class="form-control" ng-model="editCompanyLocationlistModel.Line1"></textarea>
+                                                <textarea style="resize:none; height:120px;" placeholder="ADD2" class="form-control" ng-model="editCompanyLocationlistModel.Line2"></textarea>
+                                                <input type="text" placeholder="CITY" class="form-control" ng-model="editCompanyLocationlistModel.City">
+                                                <input type="text" placeholder="STATE" class="form-control" ng-model="editCompanyLocationlistModel.State">
+                                                <input type="text" placeholder="ZipCode" class="form-control" ng-model="editCompanyLocationlistModel.ZipCode">
+                                            </div>
+                                            <div class="text-right">
+                                                <a class="btn-edit" href="javascript:void(0)" ng-click="saveEditLocationlist(editCompanyLocationlistModel)"><img class="iconImage" src="assets/img/Save.png"></a>
+                                                <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditLocationlist(editCompanyLocationlistModel)"><img class="iconImage" src="assets/img/Close Window-48.png"></a>
+                                            </div>
+                                        </div>
+                                        <div style="width:100%;display:inline-block;" ng-hide="isEditLocationlist_{{o.AddressID}}" ng-mouseenter="onmousehover('isEditMainLocation_',o.AddressID)" ng-mouseleave="onmouseleave('isEditMainLocation_',o.AddressID)">
+                                            <p style="width:75%;float:left;line-height:1.4">
+                                                {{$index+1}}. {{o.Line1}}, {{o.Line2}},<br />
+                                                {{o.City}}, {{o.State}}, {{o.ZipCode}}
+                                            </p>
+                                            <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainLocation_{{o.AddressID}}" ng-click="editLocationlist(o)"><img class="iconImage" src="assets/img/EDIT_USE.png"></a>
+                                            <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainLocation_{{o.AddressID}}" ng-click="deleteLocationlist(o.AddressID)"><img class="iconImage" src="assets/img/delete-48.png"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12" ng-if="objLocationlist.length==0">
+                                        <p>No Location Available.</p>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                        <hr class="hrDivider" />
+
+
+                        <div class="col-lg-12 companyProfileBox">
+                            <div style="clear:both;" class="col-lg-12">
+                                <div class="">
+                                    <div class=" headerDiv">
+                                        <div class="col-lg-10">
+                                            <h4><img src="Assets/img/Job.png" class="iconImage" /> Job Opportunities<span ng-show="isUserBusinessOwner" style="font-size: 11px;color: red; margin-left:2%;">(*If you want to hide job from visitors. Remove check box)</span></h4>
+
+                                        </div>
+                                        <div class="col-lg-2 text-right  addIconForCompanyProfile">
+                                            <span ng-show="isUserBusinessOwner">
+                                                <img class="iconImage" src="/assets/img/addition-sign.png" ng-hide="isEditSummery" ng-click="isEditSummery=true">
+                                            </span>
+                                        </div>
+                                        <hr style="clear:both" />
+                                    </div>
+                                </div>
+
+
+                                <div ng-show="isEditSummery" style="clear:both;">
+
+                                    <div class="formfull">
+                                        <!--<h4 class="text-center">Job Detail</h4>-->
+                                        <form id="postjobform">
+                                            <div class="form-group col-lg-12">
+                                                <input placeholder="JOB TITLE" ng-model="jobsModel.Title" type="text" class="form-control">
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <input placeholder="START DATE" ng-model="jobsModel.StartDate" type="text" class="form-control datepicer">
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <input placeholder="END DATE" ng-model="jobsModel.EndDate" type="text" class="form-control datepicer">
+                                            </div>
+                                            <div class="form-group col-lg-12">
+                                                <textarea placeholder="JOB DESCRIPTION" ng-model="jobsModel.Description" style="resize: none; height: 120px;" class="form-control"></textarea>
+                                            </div>
+
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-click="createJob(jobsModel)" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="isEditSummery=false" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <hr style="clear:both;" />
+                                </div>
+
+                                <div class="" id="companyProfileJobDiv">
+                                    <div class="col-lg-12" ng-repeat="o in lstJob" ng-mouseenter="onmousehover('isMainEditJobList_',o.JobID)" ng-mouseleave="onmouseleave('isMainEditJobList_',o.JobID)">
+                                        <div ng-hide="isEditJobList_{{o.JobID}}">
+                                            <div class="col-lg-1">
+                                                <input ng-if="isUserBusinessOwner==true" type="checkbox" ng-checked="{{o.IsActive}}" ng-click="changeJobActive(o.JobID)" />
+                                                {{$index+1}}.
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <a href="#jobDetail/{{o.JobID}}" class="jobapp">
+                                                    <b>{{o.Title}}</b>
+                                                </a>
+                                                <span>({{o.StartDate}} - {{o.EndDate}})</span><br /><br />
+                                                <p ng-hide="fullJobDetail_{{o.JobID}}">
+                                                    {{o.Description | limitTo :200}}
+                                                    <a ng-hide="fullJobDetail_{{o.JobID}}" ng-if="o.Description.length>200" href="javascript:0" ng-click="displayJobFullDetail(o.JobID)">
+                                                        <img src="assets/img/read-more-left-arrow-button.png" class="iconImage">
+                                                    </a>
+                                                </p>
+                                                <p ng-show="fullJobDetail_{{o.JobID}}">{{o.Description}}</p>
+                                                <!-- Job application -->
+
+                                                <div id="" class="row" ng-show="isJobApplication_{{o.JobID}}">
+                                                    <h4 class="text-center">Job Application</h4>
+                                                    <hr style="clear:both" />
+                                                    <div class="col-lg-12">
+                                                        <div class="col-lg-6" ng-repeat="o in lstJobApplication">
+                                                            <div class="col-lg-1 col-md-1 col-xs-1">
+                                                                {{$index+1}}.
+                                                            </div>
+                                                            <div class="col-lg-11 col-md-10 col-xs-10">
+                                                                <p>{{o.UserName}}</p>
+                                                                <p>Applied on <span class="">{{o.ApplicationDate}}</span> </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12" ng-if="lstJobApplication.length==0">
+                                                        <p>No application for this job.</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- job apply -->
+                                                <div class="row">
+                                                    <div class="col-lg-12 text-right">
+                                                        <a ng-if="UserLogin==false" href="#login" class="btn-edit">Apply</a>
+                                                        <a ng-if="UserLogin==true && isUserBusinessOwner==false" href="javascript:void(0)" ng-click="applyJob(o.JobID)" class="btn-edit">Apply</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-1 text-right">
+                                                <img ng-if="isUserBusinessOwner==true" ng-show="isMainEditJobList_{{o.JobID}}" class='iconImage' ng-click="editJobDetail(o.JobID)" src='assets/img/EDIT_USE.png'>
+                                                <img ng-if="isUserBusinessOwner==true" ng-show="isMainEditJobList_{{o.JobID}}" class='iconImage' ng-click="deleteJob(o.JobID)" src='assets/img/delete-48.png'>
+                                                <img ng-if="UserLogin==true && isUserBusinessOwner==true" src="assets/img/ApplicationView.png" title="View Application List" ng-click="viewApplivation(o.JobID)" class="iconImage" />
+                                            </div>
+                                            <hr style="clear:both;" />
+                                        </div>
+                                        <div ng-show="isEditJobList_{{o.JobID}}">
+                                            <div>
+                                                <div class="form-group col-lg-12">
+                                                    <input placeholder="JOB TITLE" ng-model="o.Title" type="text" class="form-control">
+                                                </div>
+                                                <div class="form-group col-lg-6">
+                                                    <input placeholder="START DATE" ng-model="o.StartDate" type="text" class="form-control datepicer">
+                                                </div>
+                                                <div class="form-group col-lg-6">
+                                                    <input placeholder="END DATE" ng-model="o.EndDate" type="text" class="form-control datepicer">
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <textarea placeholder="JOB DESCRIPTION" ng-model="o.Description" style="resize: none; height: 120px;" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="text-right">
+                                                <img class='iconImage' ng-click="updateJob(o)" src='assets/img/Save.png'>
+                                                <img class='iconImage' ng-click="cancelJobDetailEdit(o.JobID)" src='assets/img/Close Window-48.png'>
+                                            </div>
+                                            <hr style="clear:both;" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12" ng-if="lstJob.length==0">
+                                        <p>No jobs available for this company</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
 
 
 
-<div id="post-job-wrapper" class="wrapper" style="padding-top: 0px;display:none;">
-
-    <div class="pagewidth" style=" max-width:1180px; padding:10px;">
-        <div id="companyProfileInfoDiv" class="left-side" style="padding-top:0px;">
-            <div class="shadow" style="border: 1px solid rgb(234, 234, 234);">
-
-                <div class="boxcompany" style="border:0px none;">
-                    <div class="boxcompany profileimage" style="text-align: center; padding: 4px; border-top: 1px solid rgb(234, 234, 234); background-color: rgb(198, 200, 213);">
-                        <img ng-hide="isEditProfile_Image" id="profileimage" src="assets/img/no-image-company.png" style="" ng-if="ImgExt==null">
-                        <img ng-hide="isEditProfile_Image" id="profileimage" src="{{API_PATH}}/FileUpload/CompanyImage/{{BusinessId}}{{ImgExt}}?d={{randomNumber}}" style="width:100%;" ng-if="ImgExt!=null">
-
-                        <div ng-show="isUserBusinessOwner">
-                            <input ng-show="isEditProfile_Image" id="uploadimage" placeholder="Upload Image" type="file">
-                            <img ng-hide="isEditProfile_Image" src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditProfile_Image=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative;">
-
-                            <img class='insideDivSavebutton' ng-click="isEditProfile_Image=false" ng-show="isEditProfile_Image" src='assets/img/Close Window-48.png'>
-                            <img class='insideDivSavebutton' ng-show="isEditProfile_Image" src="assets/img/Save.png" id="profile" ng-click="companyImageUpload()">
-                        </div>
-                    </div>
-                    <br>
-                    <h4 style="text-align: center;color: #000;font-size:20px;padding:0 0 6px 0;"><img src="assets/img/Head-Office.png" style="width:16px;" /> Head Office</h4>
-                    <div>
-                        <div ng-hide="isEditAddress" class="odd" ng-mouseenter="onmousehover('isEditLine1Hover','')" ng-mouseleave="onmouseleave('isEditLine1Hover','')">
-                            <span class="companydata ">Address: {{bussinessDetail.BussiessAddress.Line1}}</span>
-                            <div ng-show="isEditLine1Hover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditAddress=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative;">
-                            </div>
-                        </div>
-                        <div ng-show="isEditAddress">
-                            <input class='input inPageEditTextBox' type='text' ng-model="bussinessDetail.BussiessAddress.Line1">
-                            <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                            <img class='insideDivSavebutton' ng-click="isEditAddress=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div ng-hide="isEditCity" class="even" ng-mouseenter="onmousehover('isEditCityHover','')" ng-mouseleave="onmouseleave('isEditCityHover','')">
-                            <span class="companydata ">City: {{bussinessDetail.BussiessAddress.City}}</span>
-                            <div ng-show="isEditCityHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditCity=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative;">
-                            </div>
-                        </div>
-                        <div ng-show="isEditCity">
-                            <input class='input inPageEditTextBox' type='text' ng-model="bussinessDetail.BussiessAddress.City">
-                            <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                            <img class='insideDivSavebutton' ng-click="isEditCity=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div ng-hide="isEditState" class="odd" ng-mouseenter="onmousehover('isEditStateHover','')" ng-mouseleave="onmouseleave('isEditStateHover','')">
-                            <span class="companydata ">State: {{bussinessDetail.BussiessAddress.State}}</span>
-                            <div ng-show="isEditStateHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditState=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative;">
-                            </div>
-                        </div>
-                        <div ng-show="isEditState">
-                            <input class='input inPageEditTextBox' type='text' ng-model="bussinessDetail.BussiessAddress.State">
-                            <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                            <img class='insideDivSavebutton' ng-click="isEditState=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div ng-hide="isEditZipCode" class="even" ng-mouseenter="onmousehover('isEditZipHover','')" ng-mouseleave="onmouseleave('isEditZipHover','')">
-                            <span class="companydata ">ZipCode: {{bussinessDetail.BussiessAddress.ZipCode}}</span>
-                            <div ng-show="isEditZipHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditZipCode=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative;">
-                            </div>
-                        </div>
-                        <div ng-show="isEditZipCode">
-                            <input class='input inPageEditTextBox' type='text' ng-model="bussinessDetail.BussiessAddress.ZipCode">
-                            <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussiessAddress,'Address')" src='assets/img/Save.png'>
-                            <img class='insideDivSavebutton' ng-click="isEditZipCode=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-
-                    <h4 style="padding-top: 15px; text-align: center; color: #000; font-size: 20px; padding-bottom: 5px;"><img src="assets/img/Contact-details.png" style="width:18px;margin-bottom:-3px;" /> Contact</h4>
-                    <div>
-                        <div ng-hide="isEditEmail" class="odd" ng-mouseenter="onmousehover('isEditEmailHover','')" ng-mouseleave="onmouseleave('isEditEmailHover','')">
-                            <span class="companydata ">Email: {{bussinessDetail.BussinessEmail.Address}}</span>
-                            <div ng-show="isEditEmailHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditEmail=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative;">
-                            </div>
-                        </div>
-                        <div ng-show="isEditEmail">
-                            <input class='input inPageEditTextBox' type='text' ng-model="bussinessDetail.BussinessEmail.Address">
-                            <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussinessEmail,'BussinessEmail')" src='assets/img/Save.png'>
-                            <img class='insideDivSavebutton' ng-click="isEditEmail=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div ng-hide="isEditNumber" class="even" ng-mouseenter="onmousehover('isEditNumberHover','')" ng-mouseleave="onmouseleave('isEditNumberHover','')">
-                            <span class="companydata ">Number: {{bussinessDetail.BussinessPhone.Number}}</span>
-                            <div ng-show="isEditNumberHover" style="display:inline-block;">
-                                <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditNumber=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative;">
-                            </div>
-                        </div>
-                        <div ng-show="isEditNumber">
-                            <input class='input inPageEditTextBox' type='text' ng-model="bussinessDetail.BussinessPhone.Number">
-                            <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussinessPhone,'Number')" src='assets/img/Save.png'>
-                            <img class='insideDivSavebutton' ng-click="isEditNumber=false" src='assets/img/Close Window-48.png'>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="right-side" style="margin-top:0px;">
-            <div class="formfull" id="companyProfileDescDiv" style="width: 95%; margin: 34px 2%; margin-top:0px;">
-
-                <div>
-                    <div ng-hide="isEditCompanyName" class="" style="line-height:2;" ng-mouseenter="onmousehover('isEditTitleHover','')" ng-mouseleave="onmouseleave('isEditTitleHover','')">
-                        <h1 style="font-size:20px;">{{bussinessDetail.BussinessInfo.Name}}</h1>
-                        <div ng-show="isEditTitleHover">
-                            <img class="iconImage" ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditCompanyName=true">
-                        </div>
-                    </div>
-                    <div ng-show="isEditCompanyName">
-                        <input class='input inPageEditTextBox' type='text' ng-model="bussinessDetail.BussinessInfo.Name">
-                        <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussinessInfo,'Name')" src='assets/img/Save.png'>
-                        <img class='insideDivSavebutton' ng-click="isEditCompanyName=false" src='assets/img/Close Window-48.png'>
-                        <hr />
-                    </div>
-                </div>
-
-                <div>
-                    <div ng-hide="isEditCompanyDesription" ng-mouseenter="onmousehover('isEditDescHover','')" ng-mouseleave="onmouseleave('isEditDescHover','')">
-                        <p style="width:95%;text-align:justify;">{{bussinessDetail.BussinessInfo.Description}}</p>
-                        <div ng-show="isEditDescHover">
-                            <img ng-show="isUserBusinessOwner" ng src="assets/img/EDIT_USE.png" id="profile" ng-click="isEditCompanyDesription=true" style="visibility: visible; width: 18px; cursor: pointer; position: relative; float: right; margin-top: -107px; ">
-                        </div>
-                    </div>
-                    <div ng-show="isEditCompanyDesription">
-                        <textarea class='input' ng-model="bussinessDetail.BussinessInfo.Description" style="width:90%;height:225px;"></textarea>
-                        <img class='insideDivSavebutton' ng-click="updateCompanyDetail(bussinessDetail.BussinessInfo,'Description')" src='assets/img/Save.png'>
-                        <img class='insideDivSavebutton' ng-click="isEditCompanyDesription=false" src='assets/img/Close Window-48.png'>
-                    </div>
-                </div>
-            </div>
-
-
-            <!--specialitiesform-->
-            <div class="formfull formhalf" id="companyProfileSpecialistDiv" style="float:left;clear:both;">
-                <h1 style=" cursor:pointer;  margin-left: 10px; font-weight: 400; color: #000;font-size:20px; width:60%;display:inline-block;"><img src="/assets/img/CompanySpecialist.png" style="width:16px;" /> specialties</h1>
-                <img id="specialities" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="IsAddSpecialist=true" style="width: 18px;margin-right:30px; cursor: pointer; float: right; padding: 0 5px; margin-top: 0; margin-right: 6px;">
-                <form id="" style=" text-align: right;" ng-show="IsAddSpecialist">
-                    <input style="float:left;" type="text" placeholder="COMPANY SPECIALTIES " ng-model="addCompanySpecialistModel.Name" class="formfull">
-                    <!--<a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true"  style="background:none !important;padding:0;"><img src="assets/img/Save.png"></a>-->
-                    <img class='insideDivSavebutton' ng-if="isUserBusinessOwner==true" ng-click="addCompanySpecialist(addCompanySpecialistModel)" src='assets/img/Save.png'>
-                    <img class='insideDivSavebutton' ng-click="IsAddSpecialist=false" src='assets/img/Close Window-48.png'>
-                    <div class="clear"></div>
-                </form>
-                <br />
-                <div class="top" style="padding: 10px 26px; color:black;" ng-repeat="o in objSpecialist">
-                    <div style="width:100%;display:inline-block;" ng-mouseenter="onmousehover('isEditSpecialist_',o.ServiceID)" ng-mouseleave="onmouseleave('isEditSpecialist_',o.ServiceID)">
-                        <p style="width: 75%;float: left;">{{$index+1}}. {{o.Name}}</p>
-                        <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditSpecialist_{{o.ServiceID}}" ng-click="deleteSpecialist(o.ServiceID)" style="padding:0;"><img src="assets/img/delete-48.png"></a>
-                    </div>
-                </div>
-            </div>
-
-            <!--employeeform-->
-            <div class="formhalf formfull" id="companyProfileEmployeeDiv" style="float:left;">
-                <h1 id="" style=" cursor: pointer; margin-left: 10px; font-weight: 400; color: #000;font-size:20px; width: 60%; display: inline-block;"><img src="/assets/img/employeelist.png" style="width:16px;" /> employee</h1>
-                <img id="" src="/assets/img/addition-sign.png" ng-click="isAddEmployee=true" ng-show="isUserBusinessOwner" style="width: 18px;margin-right:30px; cursor: pointer; float: right; padding: 0 5px; margin-top: 0; margin-right: 6px;">
-                <form id="employeeform" style="text-align: right;" ng-show="isAddEmployee">
-                    <input style="float:left;" type="text" placeholder="FIRST NAME " ng-model="addCompanyEMPlistModel.FirstName" class="formfull">
-                    <input style="float:left;" type="text" placeholder="MIDDLE NAME " ng-model="addCompanyEMPlistModel.MiddleName" class="formfull">
-                    <input style="float:left;" type="text" placeholder="LAST NAME " ng-model="addCompanyEMPlistModel.LastName" class="formfull">
-                    <input style="float:left;" type="text" placeholder="Job Location " ng-model="addCompanyEMPlistModel.State" class="formfull">
-                    <input style="float:left;" type="text" placeholder="EMAIL ID " ng-model="addCompanyEMPlistModel.EmailAddress" class="formfull">
-                    <input style="float:left;" type="text" placeholder="phoneNumber " ng-model="addCompanyEMPlistModel.PhoneNumber" class="formfull">
-                    <img class='insideDivSavebutton' ng-if="isUserBusinessOwner==true" ng-click="addCompanyEmplist(addCompanyEMPlistModel)" src='assets/img/Save.png'>
-                    <img class='insideDivSavebutton' ng-click="isAddEmployee=false" src='assets/img/Close Window-48.png'>
-                    <div class="clear"></div>
-                </form>
-                <div class="top" style="padding:10px 26px; color:black;" ng-repeat="o in objEmplist">
-                    <div style="width:100%;display:inline-block;" ng-hide="isEditEmplist_{{o.UserID}}" ng-mouseenter="onmousehover('isEditMainEmplist_',o.UserID)" ng-mouseleave="onmouseleave('isEditMainEmplist_',o.UserID)">
-                        <p style="width:75%;float:left;">{{$index+1}}. {{o.FirstName}} {{o.LastName}} </p>
-                        <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainEmplist_{{o.UserID}}" ng-click="editEMPlist(o)" style="background: none !important;padding:0;"><img src="assets/img/EDIT_USE.png"></a>
-                        <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainEmplist_{{o.UserID}}" ng-click="deleteEMPlist(o.UserID)" style="padding:0;"><img src="assets/img/delete-48.png"></a>
-                    </div>
-                    <div ng-show="isEditEmplist_{{o.UserID}}">
-                        <form id="employeeform" style=" text-align: right;">
-                            <input style="float:left;" type="text" placeholder="FIRST NAME " ng-model="editCompanyEMPlistModel.FirstName" class="formfull">
-                            <input style="float:left;" type="text" placeholder="MIDDLE NAME " ng-model="editCompanyEMPlistModel.MiddleName" class="formfull">
-                            <input style="float:left;" type="text" placeholder="LAST NAME " ng-model="editCompanyEMPlistModel.LastName" class="formfull">
-                            <input style="float:left;" type="text" placeholder="Job Location " ng-model="editCompanyEMPlistModel.State" class="formfull">
-                            <input style="float:left;" type="text" placeholder="EMAIL ID " ng-model="editCompanyEMPlistModel.EmailAddress" class="formfull">
-                            <input style="float:left;" type="text" placeholder="phoneNumber " ng-model="editCompanyEMPlistModel.PhoneNumber" class="formfull">
-                            <div class="clear"></div>
-                        </form>
-                        <a class="btn-edit" href="javascript:void(0)" ng-click="updateEMPProfile(editCompanyEMPlistModel)" style="background:none !important;padding:0;"><img src="assets/img/Save.png"></a>
-                        <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditEMPlist(editCompanyEMPlistModel)" style="background: none !important; padding: 0; "><img src="assets/img/Close Window-48.png"></a>
-                    </div>
-
-                </div>
-            </div>
-            <br />
-            <br />
-            <!--achivementform-->
-            <div class="formhalf formfull" id="companyProfileAchieveDiv" style="float:left;clear:both;">
-                <h1 id="" style=" cursor: pointer; margin-left: 10px; font-weight: 400; color: #000;font-size:20px; width: 60%; display: inline-block;"><img src="/assets/img/Company-awards.png" style="width:16px;" /> award</h1>
-                <img id="achivement" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="isAddAwards=true" style="width: 18px;margin-right:30px; cursor: pointer; float: right; padding: 0 5px; margin-top: 0; margin-right: 6px;">
-                <form id="achivementform" ng-show="isAddAwards" style="text-align: right;">
-                    <input style="float:left;" type="text" placeholder="ACHIEVEMENT NAME " class="formfull" ng-model="addCompanyAchievelistModel.Name">
-                    <!--<input style="float:left;" id="date" type="text" placeholder="DATE" class="formfull datepicer" ng-model="addCompanyAchievelistModel.Date">-->
-                    <img class='insideDivSavebutton' ng-if="isUserBusinessOwner==true" ng-click="addCompanyAchievelist(addCompanyAchievelistModel)" src='assets/img/Save.png'>
-                    <img class='insideDivSavebutton' ng-click="isAddAwards=false" src='assets/img/Close Window-48.png'>
-                    <div class="clear"></div>
-                </form>
-                <div class="top" style="padding:10px 26px; color:black;" ng-repeat="o in objAchievelist">
-                    <div ng-show="isEditAchievelist_{{o.AchievementID}}">
-                        <input style="margin-top:0px;" type="text" placeholder="COMPANY SPECIALTIES " ng-model="editCompanyAchievelistModel.Name" class="formfull">
-                        <!--<input style="float:left;" id="date" type="text" placeholder="DATE" ng-model="editCompanyAchievelistModel.Date" class="formfull datepicer">-->
-                        <a class="btn-edit" href="javascript:void(0)" ng-click="saveEditAchievelist(editCompanyAchievelistModel)" style="background:none !important;padding:0;"><img src="assets/img/Save.png"></a>
-                        <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditAchievelist(editCompanyAchievelistModel)" style="background:none !important;padding:0;"><img src="assets/img/Close Window-48.png"></a>
-                    </div>
-                    <div style="width:100%;display:inline-block;" ng-hide="isEditAchievelist_{{o.AchievementID}}" ng-mouseenter="onmousehover('isMainEditAchive_',o.AchievementID)" ng-mouseleave="onmouseleave('isMainEditAchive_',o.AchievementID)">
-                        <p style="width:75%;float:left;">{{$index+1}}. {{o.Name}} </p>
-                        <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isMainEditAchive_{{o.AchievementID}}" ng-click="editAchievelist(o)" style="background: none !important;padding:0;"><img src="assets/img/EDIT_USE.png"></a>
-                        <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isMainEditAchive_{{o.AchievementID}}" ng-click="deleteAchievelist(o.AchievementID)" style="padding:0;"><img src="assets/img/delete-48.png"></a>
-                    </div>
-                </div>
-            </div>
-
-            <!--locationform-->
-            <div class="formhalf formfull" id="companyProfileLocationDiv" style="float:left;">
-                <h1 id="" style=" cursor: pointer; margin-left: 10px; font-weight: 400; color: #000;font-size:20px; width: 60%; display: inline-block;"><img src="/assets/img/Branches.png" style="width:16px;" /> branch</h1>
-                <img id="location" src="/assets/img/addition-sign.png" ng-show="isUserBusinessOwner" ng-click="isAddLoaction=true" style="width: 18px;margin-right:30px; cursor: pointer; float: right; padding: 0 5px; margin-top: 0; margin-right: 6px;">
-                <form id="locationform" ng-show="isAddLoaction" style="text-align:right;">
-                    <textarea style="resize:none; height:120px;" placeholder="ADD1" class=" formfull" ng-model="addCompanyLocationlistModel.Line1"></textarea>
-                    <textarea style="resize:none; height:120px;" placeholder="ADD2" class=" formfull" ng-model="addCompanyLocationlistModel.Line2"></textarea>
-                    <input type="text" placeholder="CITY" class="formfull" ng-model="addCompanyLocationlistModel.City">
-                    <input type="text" placeholder="STATE" class="formfull " ng-model="addCompanyLocationlistModel.State">
-                    <input type="text" placeholder="Zip Code" class="formfull " ng-model="addCompanyLocationlistModel.ZipCode">
-                    <img class='insideDivSavebutton' ng-if="isUserBusinessOwner==true" ng-click="addCompanyLocationlist(addCompanyLocationlistModel)" src='assets/img/Save.png'>
-                    <img class='insideDivSavebutton' ng-click="isAddLoaction=false" src='assets/img/Close Window-48.png'>
-                    <div class="clear"></div>
-                </form>
-
-                <div class="top" style="padding:10px 26px; color:black;" ng-repeat="o in objLocationlist">
-                    <div ng-show="isEditLocationlist_{{o.AddressID}}">
-                        <textarea style="resize:none; height:120px;" placeholder="ADD1" class=" formfull" ng-model="editCompanyLocationlistModel.Line1"></textarea>
-                        <textarea style="resize:none; height:120px;" placeholder="ADD2" class=" formfull" ng-model="editCompanyLocationlistModel.Line2"></textarea>
-                        <input type="text" placeholder="CITY" class="formfull" ng-model="editCompanyLocationlistModel.City">
-                        <input type="text" placeholder="STATE" class="formfull " ng-model="editCompanyLocationlistModel.State">
-                        <input type="text" placeholder="ZipCode" class="formfull " ng-model="editCompanyLocationlistModel.ZipCode">
-                        <!--<input type="text" placeholder="EMPLOYEE" class="formhalf " ng-model="editCompanyLocationlistModel.Employee">
-                        <input type="text" placeholder="PHONE" class="formhalf " ng-model="editCompanyLocationlistModel.Phone">-->
-                        <a class="btn-edit" href="javascript:void(0)" ng-click="saveEditLocationlist(editCompanyLocationlistModel)" style="background:none !important;padding:0;"><img src="assets/img/Save.png"></a>
-                        <a class="btn-edit" href="javascript:void(0)" ng-click="cancelEditLocationlist(editCompanyLocationlistModel)" style="background:none !important;padding:0;"><img src="assets/img/Close Window-48.png"></a>
-                    </div>
-                    <div style="width:100%;display:inline-block;" ng-hide="isEditLocationlist_{{o.AddressID}}" ng-mouseenter="onmousehover('isEditMainLocation_',o.AddressID)" ng-mouseleave="onmouseleave('isEditMainLocation_',o.AddressID)">
-                        <p style="width:75%;float:left;line-height:1.4">
-                            {{$index+1}}. {{o.Line1}}, {{o.Line2}},<br />
-                            {{o.City}}, {{o.State}}, {{o.Country}}
-                        </p>
-                        <a class="btn-edit" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainLocation_{{o.AddressID}}" ng-click="editLocationlist(o)" style="background: none !important;padding:0;"><img src="assets/img/EDIT_USE.png"></a>
-                        <a class="btn-delete" href="javascript:void(0)" ng-if="isUserBusinessOwner==true" ng-show="isEditMainLocation_{{o.AddressID}}" ng-click="deleteLocationlist(o.AddressID)" style="padding:0;"><img src="assets/img/delete-48.png"></a>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <br />
-            <!--job list-->
-            <!--add new job-->
-            <div style="clear:both;padding-top:50px;">
-                <span ng-show="isUserBusinessOwner">
-                    <img src="/assets/img/addition-sign.png" ng-hide="isEditSummery" ng-click="isEditSummery=true" style="width: 18px; cursor: pointer; float: right; padding: 0 5px; margin-top: 0; margin-right: 6px;">
-                </span>
-
-                <div ng-show="isEditSummery" style="clear:both;">
-                    <div class="formfull">
-                        <p style="color: #fe5500;font-size: 20px;text-align: center;">Job Detail</p>
-                        <form id="postjobform">
-                            <input placeholder="JOB TITLE" ng-model="jobsModel.Title" type="text" class="formfull">
-                            <input placeholder="START DATE" ng-model="jobsModel.StartDate" type="text" class="formhalf formfull datepicer">
-                            <input placeholder="END DATE" ng-model="jobsModel.EndDate" type="text" class="formhalf formfull datepicer">
-                            <textarea placeholder="JOB DESCRIPTION" ng-model="jobsModel.Description" style="resize: none; height: 120px;" class="formfull"></textarea>
-                            <div style="text-align:right;">
-                                <img class='insideDivSavebutton' ng-click="createJob(jobsModel)" src='assets/img/Save.png'>
-                                <img class='insideDivSavebutton' ng-click="isEditSummery=false" src='assets/img/Close Window-48.png'>
-                            </div>
-                            <div class="clear"></div>
-                        </form>
-                    </div>
-                </div>
-                <img src="Assets/img/Job.png" style="margin-left: 33px;width: 20px;" />
-                <span class="jobapp" style="font-size:20px;"> Job List</span><br />
-                <span ng-show="isUserBusinessOwner" style="font-size: 11px;color: red; margin-left:2%;">*If you want to hide job from visitors. Remove check box)</span>
-                <div class="formfull" id="companyProfileJobDiv" style="width: 95%; margin: 0px 2%;">
-                    <div class="top" style="padding: 10px 26px;" ng-repeat="o in lstJob" ng-mouseenter="onmousehover('isMainEditJobList_',o.JobID)" ng-mouseleave="onmouseleave('isMainEditJobList_',o.JobID)">
-                        <div ng-show="isEditJobList_{{o.JobID}}">
-                            <p style="color: #fe5500;font-size: 20px;text-align: center;">Job Detail</p>
-                            <input placeholder="JOB TITLE" ng-model="o.Title" type="text" class="formfull">
-                            <input placeholder="START DATE" ng-model="o.StartDate" type="text" class="formhalf formfull datepicer">
-                            <input placeholder="END DATE" ng-model="o.EndDate" type="text" class="formhalf formfull datepicer">
-                            <textarea placeholder="JOB DESCRIPTION" ng-model="o.Description" style="resize: none; height: 120px;" class="formfull"></textarea>
-                            <div style="text-align:right;">
-                                <img class='insideDivSavebutton' ng-click="updateJob(o)" src='assets/img/Save.png'>
-                                <img class='insideDivSavebutton' ng-click="cancelJobDetailEdit(o.JobID)" src='assets/img/Close Window-48.png'>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div ng-hide="isEditJobList_{{o.JobID}}">
-                            <input ng-if="isUserBusinessOwner==true" type="checkbox" style="float: left;margin-left: -20px;" ng-checked="{{o.IsActive}}" ng-click="changeJobActive(o.JobID)" />
-                            <img ng-if="isUserBusinessOwner==true" ng-show="isMainEditJobList_{{o.JobID}}" class='' ng-click="editJobDetail(o.JobID)" style='width: 18px; float: right; cursor: pointer; margin-top: -10px; ' src='assets/img/EDIT_USE.png'>
-                            <img ng-if="isUserBusinessOwner==true" ng-show="isMainEditJobList_{{o.JobID}}" class='' ng-click="deleteJob(o.JobID)" style='width: 18px; float: right; cursor: pointer; margin-top: -10px; margin-right: 25px;' src='assets/img/delete-48.png'>
-                            <p>
-                                <a href="javascript:void(0)" class="jobapp" ng-click="viewJobDetail(o.JobID)">
-                                    {{o.Title}}
-                                </a>
-                            </p><br>
-                            <br>
-                            <!--<a class="btn-edit" id="app1"  >View Application</a>-->
-                            <img ng-if="UserLogin==true && isUserBusinessOwner==true" src="assets/img/ApplicationView.png" title="View Application List" ng-click="viewApplivation(o.JobID)" style="float: right;width: 20px;padding-top: 15px;cursor:pointer;" />
-                            <!--<a href="javascript:0" class="btn-view" ng-click="viewJobDetail(o.JobID)">View Detail</a>-->
-                            <p>Created on <span class="">{{o.insdt}}</span> </p>
-                            <p>Start Date: {{o.StartDate}} - End Date: {{o.EndDate}}</p>
-                        </div>
-
-                        <div id="" class="box" ng-show="isJobApplication_{{o.JobID}}">
-                            <div class="top" style="padding: 26px;" ng-repeat="o in lstJobApplication">
-
-                                <p style="float: none;">{{$index+1}}. {{o.UserName}}</p>
-                                <p>Applied on <span class="">{{o.ApplicationDate}}</span> </p>
-                                <br>
-                                <hr style="color: rgb(255, 255, 255);">
-                            </div>
-                            <div ng-if="lstJobApplication.length==0" style="padding:26px;">
-                                <p>No application for this job.</p>
-                            </div>
-                        </div>
-
-                        <div id="" class="box" ng-show="isJobDetail_{{o.JobID}}">
-                            <div class="top" style="padding: 26px;">
-                                <a ng-if="UserLogin==false" href="#login" class="btn-edit">Apply</a>
-                                <a ng-if="UserLogin==true && isUserBusinessOwner==false" href="javascript:void(0)" ng-click="applyJob(o.JobID)" class="btn-edit">Apply</a>
-                                <p>{{o.Description}}</p>
-                            </div>
-                        </div>
-                        <hr style="color: rgb(255, 255, 255);">
-                    </div>
-                    <div ng-if="lstJob.length==0">
-                        <p>No jobs available for this company</p>
-                    </div>
-                </div>
-            </div>
 
 
 
-            <div class="overlay" style="position: fixed; left: 0px; height: 100%; width: 100%; display: none; background-color: rgba(0, 0, 0, 0.3); top: 0px;"></div>
-            <div>
-                <div class="box formfull applydiv" style="width: 100%; display:none; text-align: center;  padding-bottom: 20px; max-width: 300px; margin: 0px auto; position: fixed; top: 15%; left: 33%; z-index: 101; background-color: rgb(255, 255, 255);">
-                    <h1 style="font-size: 24px;  margin-left: 10px; font-weight: 400; color: #fe5a00;">ATTACH RESUME</h1>
-                    <span onclick='close1();' style="position: relative; float: right; top: -38px; cursor:pointer;"> X</span>
-                    <form id="achivementform">
-                        <input placeholder="Upload Image" class="formfull" type="file" />
-                        <input value="SEND" onclick="close1();" style="background: #FE5500;border: 12px solid #FE5500;border-right: 20px;font-size: 12px;text-decoration: none;color: #fff;font-weight: 300;padding-right: 40px;padding-left: 25px;margin-top: 15px;margin-bottom: 15px;" type="button" />
-                        <div class="clear"></div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
-
-<!--<script>
-    function addform(elem) {
-        var id = elem.id;
-        $("#" + id + "form").slideDown();
-        $("#" + id).attr("src", "assets/img/minus.png")
-        $("#" + id).attr("onclick", "hideform(this)")
-    }
-    function hideform(elem) {
-        var id = elem.id;
-        $("#" + id + "form").slideUp();
-        $("#" + id).attr("src", "assets/img/addition-sign.png")
-        $("#" + id).attr("onclick", "addform(this)")
-    }
-    $("#target").click(function () {
-        alert("Handler for .click() called.");
-    });
-    $(function () {
-        //$("#datepicker").datepicker();
-    });
-    function viewcandidate(elem) {
-        var id = elem.id;
-        $("#" + id).attr("onclick", "closeallcandidate(this)");
-        $(".candidatelist").slideUp();
-        $("#candidate" + id).slideDown();
-    }
-    function closeallcandidate(elem) {
-        var id = elem.id;
-        $("#" + id).attr("onclick", "viewcandidate(this)");
-        $(".candidatelist").slideUp();
-    }
-    function clicked() {
-        alert('Delete Successfully');
-    }
-    function appljob(elem) {
-        $(".overlay").show();
-        $(".applydiv").show();
-    }
-    function close1() {
-        $(".overlay").hide();
-        $(".applydiv").hide();
-    }
-</script>-->

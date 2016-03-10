@@ -132,5 +132,18 @@
     };
 
 
+    //add new service
+    $scope.changeService = function () {
+        if ($scope.service == 'other')
+            $scope.isOtherService = true;
+        else
+            $scope.isOtherService = false;
+    }
+
+    //close new service
+    $scope.closeAddNewService = function () {
+        $scope.isOtherService = false;
+        $scope.service = '';
+    }
     $scope.init();
 });

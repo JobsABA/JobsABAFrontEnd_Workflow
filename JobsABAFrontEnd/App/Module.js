@@ -85,6 +85,10 @@ app.config(['$routeProvider', '$locationProvider', 'cfpLoadingBarProvider', func
             templateUrl: 'Template/TermsCondition.html',
             controller: 'FooterMenuController'
         })
+        .when('/contactUs', {
+            templateUrl: 'Template/ContactUs.html',
+            controller: 'ContactUsController'
+        })
     .otherwise({
         redirectTo: '/home'
     });

@@ -62,4 +62,47 @@
         });
 
     }
+
+
+    //add new are you
+    $scope.changeAreYouA = function () {
+        if ($scope.areYoua == 'other')
+            $scope.isOtherAreYou = true;
+        else
+            $scope.isOtherAreYou = false;
+    }
+
+    //close new areYoua
+    $scope.closeAddNewAreYou = function () {
+        $scope.isOtherAreYou = false;
+        $scope.areYoua = '';
+    }
+
+    //add new education
+    $scope.changeEducation = function () {
+        if ($scope.education == 'other')
+            $scope.isOtherEducation = true;
+        else
+            $scope.isOtherEducation = false;
+    }
+
+    //close new education
+    $scope.closeAddNewEducation = function () {
+        $scope.isOtherEducation = false;
+        $scope.education = '';
+    }
+
+    //add new refrence
+    $scope.changeRefrence = function () {
+        if ($scope.refrence == 'other')
+            $scope.isOtherRefrence = true;
+        else
+            $scope.isOtherRefrence = false;
+    }
+
+    //close new refrence
+    $scope.closeAddNewRefrence = function () {
+        $scope.isOtherRefrence = false;
+        $scope.refrence = '';
+    }
 });

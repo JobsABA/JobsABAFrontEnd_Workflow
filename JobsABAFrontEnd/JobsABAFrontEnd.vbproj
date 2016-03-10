@@ -973,6 +973,7 @@
     <Content Include="Admin\Template\UserManagement.html" />
     <Content Include="App\Controller\BlogListController.js" />
     <Content Include="App\Controller\ChangePassword.js" />
+    <Content Include="App\Controller\ContactUsController.js" />
     <Content Include="App\Controller\footerMenuController.js" />
     <Content Include="Assets\bootstrap\css\Custom.css" />
     <Content Include="Assets\bootstrap\css\font-awesome.min.css" />
@@ -1042,6 +1043,7 @@
     <Content Include="App\Controller\BusinessProfileController.js" />
     <Content Include="App\Controller\CompanyProfileController.js" />
     <Content Include="App\Controller\IndexController.js" />
+    <Content Include="Template\ContactUs.html" />
     <Content Include="Template\CreateJob.html" />
     <Content Include="Template\JobDetail.html" />
     <Content Include="Template\JobsInABAList.html" />

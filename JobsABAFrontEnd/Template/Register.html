@@ -13,46 +13,148 @@
                       novalidate
                       ng-submit="formSubmit()">
 
-                    <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-class="{'complusoryClass':firstName==undefined}" ng-model="firstName" placeholder="Enter FirstName" ng-required="true">
+                    <div class="form-group col-lg-12">
+                        <input type="text" class="form-control" ng-model="username" placeholder="User Name" ng-class="{'complusoryClass':username==undefined}" ng-required="true">
                     </div>
                     <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="middleName" placeholder="Enter MiddleName" ng-class="{'complusoryClass':middleName==undefined}" ng-required="true">
+                        <input type="text" class="form-control" ng-class="{'complusoryClass':firstName==undefined}" ng-model="firstName" placeholder="First Name" ng-required="true">
                     </div>
                     <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="lastName" placeholder="Enter LastName" ng-class="{'complusoryClass':lastName==undefined}" ng-required="true">
+                        <input type="text" class="form-control" ng-model="middleName" placeholder="Middle Name" ng-class="{'complusoryClass':middleName==undefined}" ng-required="true">
                     </div>
-                    <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" ng-model="username" placeholder="Enter UserName" ng-class="{'complusoryClass':username==undefined}" ng-required="true">
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="lastName" placeholder="Last Name" ng-class="{'complusoryClass':lastName==undefined}" ng-required="true">
                     </div>
-                    <div class="form-group col-lg-6">
+                    <!--<div class="form-group col-lg-6">
                         <input type="text" class="form-control datepicer" ng-model="DOB" placeholder="Select Birth Date">
+                    </div>-->
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" ng-model="email" placeholder="Email Address" ng-class="{'complusoryClass':email==undefined}" ng-required="true">
                     </div>
                     <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" ng-model="email" placeholder="Enter Email Address" ng-class="{'complusoryClass':email==undefined}" ng-required="true">
+                        <input type="text" class="form-control" ng-model="phone" placeholder="Contact Number">
                     </div>
                     <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" ng-model="phone" placeholder="Enter Contact Number">
+                        <input type="password" class="form-control" ng-model="password" placeholder="Password" ng-class="{'complusoryClass':password==undefined}" ng-required="true">
                     </div>
                     <div class="form-group col-lg-6">
-                        <input type="password" class="form-control" ng-model="password" placeholder="Enter Password" ng-class="{'complusoryClass':password==undefined}" ng-required="true">
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <input type="password" class="form-control" ng-model="confirmPassword" placeholder="Enter Confirm Password" ng-class="{'complusoryClass':confirmPassword==undefined}" ng-required="true">
+                        <input type="password" class="form-control" ng-model="confirmPassword" placeholder="Confirm Password" ng-class="{'complusoryClass':confirmPassword==undefined}" ng-required="true">
                     </div>
 
-                    <div class="form-group col-lg-12">
-                        <input type="text" class="form-control" ng-model="address" placeholder="Enter Address" ng-class="{'complusoryClass':address==undefined}" ng-required="true">
+                    <!--<div class="form-group col-lg-12">
+                        <input type="text" class="form-control" ng-model="address" placeholder="Address" ng-class="{'complusoryClass':address==undefined}" ng-required="true">
+                    </div>-->
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="city" placeholder="City" ng-class="{'complusoryClass':city==undefined}" ng-required="true">
                     </div>
                     <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="city" placeholder="Enter City">
+                        <input type="text" class="form-control" ng-model="state" placeholder="State" ng-class="{'complusoryClass':state==undefined}" ng-required="true">
                     </div>
                     <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="state" placeholder="Enter State">
+                        <input type="text" class="form-control" ng-model="zip" placeholder="ZipCode">
                     </div>
-                    <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="zip" placeholder="Enter ZipCode">
+                    <!-- Are you a -->
+                    <div class="form-group col-lg-4" ng-hide="isOtherAreYou">
+                        <select class="form-control" ng-model="areYoua" ng-change="changeAreYouA()">
+                            <option value="">Are You a</option>
+                            <option>BCBA</option>
+                            <option>BCaBA</option>
+                            <option>RBT</option>
+                            <option>Behavioral Therapist</option>
+                            <option>Physical Therapist</option>
+                            <option>Occupational Therapist</option>
+                            <option>Licensed Clinical Psychologist</option>
+                            <option>Speech-Language Pathologist</option>
+                            <option>Speech-Language Pathology Assistant</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
+                    <div class="form-group col-lg-4" ng-show="isOtherAreYou">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control" placeholder="Add Other">
+                            </div>
+                            <div class="col-lg-12 text-right">
+                                <img class="iconImage" ng-click="closeAddNewAreYou()" src="assets/img/Close Window-48.png">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Highest Education Level -->
+                    <div class="form-group col-lg-4" ng-hide="isOtherEducation">
+                        <select class="form-control" ng-model="education" ng-change="changeEducation()">
+                            <option value="">Add Highest Qualification</option>
+                            <option>High School Diploma/GED</option>
+                            <option>Some College</option>
+                            <option>Associate Degree</option>
+                            <option>Bachelor Degree</option>
+                            <option>Master Degree</option>
+                            <option>Doctoral Degree</option>
+                            <option>Juris Doctorate</option>
+                            <option>Medical Degree</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-4" ng-show="isOtherEducation">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control" placeholder="Add Other Education">
+                            </div>
+                            <div class="col-lg-12 text-right">
+                                <img class="iconImage" ng-click="closeAddNewEducation()" src="assets/img/Close Window-48.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- hear From -->
+                    <div class="form-group col-lg-4" ng-hide="isOtherRefrence">
+                        <select class="form-control" ng-model="refrence" ng-change="changeRefrence()">
+                            <option value="">Hear From</option>
+                            <option>Search Engine</option>
+                            <option>JobsInABA.com User</option>
+                            <option>Link from a Website</option>
+                            <option>From a Friend</option>
+                            <option>Facebook</option>
+                            <option>Twitter</option>
+                            <option>LinkedIn</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-4" ng-show="isOtherRefrence">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control" placeholder="Add Other Refrence">
+                            </div>
+                            <div class="col-lg-12 text-right">
+                                <img class="iconImage" ng-click="closeAddNewRefrence()" src="assets/img/Close Window-48.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- social media site -->
+                    <div class="form-group col-lg-12 socialCheckboxDiv">
+                        <p class="text-center">Which of these social media sites do you use?</p>
+                        <div>
+                            <input id="facebook" type="checkbox" />
+                            <label for="facebook">Facebook</label>
+                            
+                            <input id="LinkedIn" type="checkbox" />
+                            <label for="LinkedIn">LinkedIn</label>
+
+                            <input id="Twitter" type="checkbox" />
+                            <label for="Twitter">Twitter</label>
+
+                            <input id="Instagram" type="checkbox" />
+                            <label for="Instagram">Instagram</label>
+
+                            <input id="Pinterest" type="checkbox" />
+                            <label for="Pinterest">Pinterest</label>
+                           
+                            <input type="text" class="form-control col-lg-3" placeholder="Add Other Social Media">
+                        </div>
+                    </div>
+
 
                     <div class="form-group col-lg-12 text-center">
                         <input type="button" class="btn btn-orange" ng-disabled="!form.$valid" ng-click="register()" value="Register" />
@@ -83,7 +185,7 @@
     <hr style="clear:both;" />
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="text-center">Advertising Packages</h3>
+            <h3 class="text-center">Subscription Packages</h3>
             <hr />
             <div class="col-lg-4">
                 <div class="advmainDiv">
@@ -93,9 +195,7 @@
                     <div class="advSubHeader">
                         <p>$99 PER MONTH</p>
                         <span>-</span>
-                        <!--<p>$1089 PER YEAR</p>-->
-                        <p>YEARLY SUBSCRIPTIONS GET 1 MONTH FREE ADVERTISING</p>
-                        <p>(1 MONTH FREE!!!)*</p>
+                        <p>FREE MONTH WITH YEARLY SUBSCRIPTION*</p>
                     </div>
                     <div class="advEven" style="height: 130px;">
                         <p>Manage your company’s profile page and advertise your mission, team, and hiring opportunities</p>
@@ -105,11 +205,10 @@
                     </div>
                     <div class="advEven" style="height: 160px;">
                         1 job post per month**<br />
-                        visible on our service provides page and listed on the job search directory page
+                        visible on our service providers page and listed on the job search directory page
                     </div>
                     <div class="addFooter">
-                        <button class="btn btn-orange">Buy Monthly</button>
-                        <button class="btn btn-orange">Buy Annual</button>
+                        <button class="btn btn-orange">Subscribe</button>
                     </div>
                 </div>
 
@@ -122,19 +221,17 @@
                     <div class="advSubHeader">
                         <p>$249 PER MONTH </p>
                         <span>-</span>
-                        <!--<p>$2739 PER YEAR</p>-->
-                        <p>YEARLY SUBSCRIPTIONS GET 1 MONTH FREE ADVERTISING</p>
-                        <p>(1 MONTH FREE!!!)*</p>
+                        <p>FREE MONTH WITH YEARLY SUBSCRIPTION*</p>
                     </div>
                     <div class="advEven" style="height: 84px;">
                         <p>Manage your company’s profile page and advertise your mission, team, and hiring opportunities</p>
                     </div>
                     <div class="advOdd" style="height: 130px;">
-                        <p>advertising Brand your company by your logo on our service providers and job search directory pages (300 x 300)</p>
+                        <p>Brand your company by your logo on our service providers and job search directory pages</p>
                     </div>
                     <div class="advEven" style="height: 117px;">
                         3 job posts per month**<br />
-                        visible on our service providers page and listed on the job search directory paget
+                        visible on our service providers page and listed on the job search directory page
                     </div>
                     <div class="advOdd" style="height: 108px;">
                         <p>
@@ -142,8 +239,7 @@
                         </p>
                     </div>
                     <div class="addFooter">
-                        <button class="btn btn-orange">Buy Monthly</button>
-                        <button class="btn btn-orange">Buy Annual</button>
+                        <button class="btn btn-orange">Subscribe</button>
                     </div>
                 </div>
 
@@ -156,9 +252,7 @@
                     <div class="advSubHeader">
                         <p>$499 PER MONTH </p>
                         <span>-</span>
-                        <!--<p>$5489 PER YEAR</p>-->
-                        <p>YEARLY SUBSCRIPTIONS GET 1 MONTH FREE ADVERTISING</p>
-                        <p>(1 MONTH FREE!!!)*</p>
+                        <p>FREE MONTH WITH YEARLY SUBSCRIPTION*</p>
                     </div>
                     <div class="advEven">
                         <p>Manage your company’s profile page and advertise your mission, team, and hiring opportunities</p>
@@ -181,8 +275,7 @@
                         </p>
                     </div>
                     <div class="addFooter">
-                        <button class="btn btn-orange">Buy Monthly</button>
-                        <button class="btn btn-orange">Buy Annual</button>
+                        <button class="btn btn-orange">Subscribe</button>
                     </div>
                 </div>
 

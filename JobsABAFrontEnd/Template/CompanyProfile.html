@@ -14,34 +14,83 @@
                       ng-submit="formSubmit()">
 
                     <div class="form-group col-lg-12">
-                        <input type="text" class="form-control " ng-class="{'complusoryClass':(companyDetailModel.Name=='' || companyDetailModel.Name==undefined)}" ng-model="companyDetailModel.Name" placeholder="Enter Company Name" ng-required="true">
+                        <input type="text" class="form-control " ng-class="{'complusoryClass':(companyDetailModel.Name=='' || companyDetailModel.Name==undefined)}" ng-model="companyDetailModel.Name" placeholder="Company Name" ng-required="true">
                     </div>
                     <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessEmailAddress" placeholder="Enter Email Address">
+                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessEmailAddress" placeholder="Company Email">
                     </div>
                     <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessPhoneNumber" placeholder="Enter Phone">
+                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessPhoneNumber" placeholder="Company Phone">
                     </div>
                     <div class="form-group col-lg-6">
-                        <input type="text" class="form-control datepicer" ng-model="companyDetailModel.StartDate" placeholder="Enter Year Business Start">
+                        <input type="text" class="form-control" placeholder="Company Website">
+                    </div>
+                    <div class="form-group col-lg-6" ng-hide="isOtherService">
+                        <select class="form-control" ng-model="service" ng-change="changeService()">
+                            <option value="">Services Provided</option>
+                            <option>ABA Therapy</option>
+                            <option>Early Intervention</option>
+                            <option>Speech and Language Services</option>
+                            <option>Occupational Therapy</option>
+                            <option>Physical Therapy</option>
+                            <option>Diagnostic Assessments</option>
+                            <option>Social Skills</option>
+                            <option>BCBA Supervision Hours</option>
+                            <option>Center-Based Services</option>
+                            <option>Specialized Outpatient Services</option>
+                            <option>Adult and Teen Services</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6" ng-show="isOtherService">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control" placeholder="Add New Service">
+                            </div>
+                            <div class="col-lg-12 text-right">
+                                <img class="iconImage" ng-click="closeAddNewService()" src="assets/img/Close Window-48.png">
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control datepicer" ng-model="companyDetailModel.StartDate" placeholder="Year Business Start">
                     </div>
                     <div class="form-group col-lg-6">
-                        <input type="text" class="form-control" ng-model="companyDetailModel.Abbreviation" placeholder="Enter Abbreviation">
+                        <input type="text" class="form-control" ng-model="companyDetailModel.Abbreviation" placeholder="Abbreviation">
                     </div>
                     <div class="form-group col-lg-12">
-                        <textarea class="form-control" ng-model="companyDetailModel.Description" placeholder="Enter Description"></textarea>
+                        <textarea class="form-control" id="companyDetail" maxlength="1000" style="height:100px;" ng-model="companyDetailModel.Description" placeholder="Description"></textarea>
+                        <span class="remainCharacterClass"><span id="remainCharacterCompanyDetail">1000</span> characters remaining</span>
                     </div>
-                    <div class="form-group col-lg-12">
-                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressLine1" ng-class="{'complusoryClass':(companyDetailModel.BusinessAddressLine1=='' || companyDetailModel.BusinessAddressLine1==undefined)}" placeholder="Enter Address" ng-required="true">
+                    <!--<div class="form-group col-lg-12">
+                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressLine1"  placeholder="Address" ng-required="true">
+                    </div>-->
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressCity" placeholder="City" ng-class="{'complusoryClass':(companyDetailModel.BusinessAddressCity=='' || companyDetailModel.BusinessAddressCity==undefined)}" ng-required="true">
                     </div>
                     <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressCity" placeholder="Enter City">
+                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressState" placeholder="State" ng-class="{'complusoryClass':(companyDetailModel.BusinessAddressState=='' || companyDetailModel.BusinessAddressState==undefined)}" ng-required="true">
                     </div>
                     <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressState" placeholder="Enter State">
+                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressZipCode" placeholder="Zip">
                     </div>
-                    <div class="form-group col-lg-4">
-                        <input type="text" class="form-control" ng-model="companyDetailModel.BusinessAddressZipCode" placeholder="Enter Zip">
+
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" placeholder="Contact First Name">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" placeholder="Contact Last Name">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" placeholder="Contact Title">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="text" class="form-control" placeholder="Contact Email">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <input type="file" class="form-control" placeholder="Company Logo">
                     </div>
                     <div class="form-group col-lg-12 text-center">
                         <input type="button" class="btn btn-orange" ng-click="addCompany()" ng-disabled="!formCompanyCreate.$valid" value="Submit Company Profile" />
@@ -56,29 +105,12 @@
     </div>
 </div>
 
-<!--<div id="post-job-wrapper" class="wrapper" style="padding-top: 0px;">
-
-    <div class="pagewidth">
-        <div style="margin-top:0;width: 75%;margin: 0 auto;">
-            <div class="box tabdiv" style="margin-top:0;">
-                <h1>ADD COMPANY PROFILE</h1>
-                <form>
-                    <input type="text" ng-model="companyDetailModel.Name" placeholder="COMPANY NAME" class="formhalf formfull">
-                    <input type="text" id="date" ng-model="companyDetailModel.StartDate" placeholder="YEAR BUSINESS STARTED" class="formhalf formfull datepicer">
-                    <input type="text" ng-model="companyDetailModel.Abbreviation" placeholder="ABBREVIATION" class="formhalf formfull">
-                    <textarea ng-model="companyDetailModel.Description" placeholder="DESCRIPTION" class="formfull"></textarea>
-                    <input type="text" ng-model="companyDetailModel.BusinessAddressLine1" placeholder="ADDRESS" class="formfull">
-                    <input type="text" ng-model="companyDetailModel.BusinessAddressCity" placeholder="CITY" class="formfull formthird">
-                    <input type="text" ng-model="companyDetailModel.BusinessAddressState" placeholder="STATE" class="formfull formthird">
-                    <input type="text" ng-model="companyDetailModel.BusinessAddressZipCode" placeholder="ZIP" class="formfull formthird">
-                    <input type="text" ng-model="companyDetailModel.BusinessEmailAddress" placeholder="EMAIL" class="formhalf formfull">
-                    <input type="text" ng-model="companyDetailModel.BusinessPhoneNumber" placeholder="PHONE" class="formhalf formfull">
-
-                    <br />
-                    <button class="add1button" ng-click="addCompany()">SUBMIT COMPANY PROFILE</button>
-                    <div class="clear"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>-->
+<script>
+    $(function () {
+        $("#companyDetail").keyup(function () {
+            var text_length = $('#companyDetail').val().length;
+            var text_remaining = 1000 - text_length;
+            $("#remainCharacterCompanyDetail").html(text_remaining);
+        });
+    });
+</script>
